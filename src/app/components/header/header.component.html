@@ -1,0 +1,19 @@
+<header>
+  <div class="header">
+    <h1>Central De Citas</h1>
+    <div class="header_content-navigation">
+      <i class="fa-solid fa-ellipsis-vertical" (click)="menuResponsive()"></i>
+      <ul class="navigation" *ngIf="loadNav">
+        <li><a routerLink="registro"  (click)="menuResponsive()">Registrarse</a></li>
+        <li><a routerLink="iniciar-sesion" (click)="menuResponsive()">Iniciar Sesion</a></li>
+        <li><a routerLink="/" (click)="menuResponsive()">Inicio</a></li>
+      </ul>
+
+      <ul class="navigation navigation-tablet">
+        <li><a routerLink="registro"  (click)="menuResponsive()">Registrarse</a></li>
+        <li><a routerLink="iniciar-sesion" (click)="menuResponsive()">Ingresar</a></li>
+        <li><a routerLink="/" (click)="menuResponsive()">Inicio</a></li>
+      </ul>
+    </div>
+  </div>
+</header>

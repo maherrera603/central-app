@@ -1,0 +1,24 @@
+p{
+  bottom: 10px;
+  width: 34%;
+  height: 30px;
+  position: sticky;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
+  transition: .3s ease all;
+  padding: 5px 10px;
+  line-height: 30px;
+}
+
+.success{
+  text-align: center;
+  background-color: green;
+  color: white;
+}
+
+.error{
+  text-align: center;
+  color: white;
+  background-color: red;
+}

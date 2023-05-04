@@ -1,0 +1,163 @@
+@media screen and (max-width: 500px) {
+  .login-content {
+    width: 90%;
+    margin: 150px auto;
+    min-height: 200px;
+    padding: 20px 0;
+    border: 1px solid green;
+    border-radius: 2.5px;
+
+    &_header {
+      width: 90%;
+      margin: 0 auto 10px;
+
+      h3{
+        color: green;
+        font-size: 1.5rem;
+      }
+    }
+
+    &_body {
+      min-height: 150px;
+      width: 90%;
+      margin: 0 auto;
+
+      button{
+        width: 95%;
+      }
+
+      .links{
+        height: 30px;
+        margin: 10px 0 0px;
+        font-size: 0.8rem;
+        color: green;
+        padding: 1px 0;
+        text-align: center;
+        line-height: 1.7rem;
+
+        a{
+          font-size: .8rem;
+          color: blue;
+        }
+        a:hover{
+          cursor: pointer;
+
+        }
+      }
+      .links:last-child{
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+
+  .login-content {
+    width: 50%;
+    margin: 150px auto;
+    min-height: 200px;
+    padding: 20px 0;
+    border: 1px solid green;
+    border-radius: 2.5px;
+
+    &_header {
+      width: 90%;
+      margin: 0 auto 10px;
+
+      h3{
+        color: green;
+        font-size: 1.5rem;
+      }
+    }
+
+    &_body {
+      min-height: 150px;
+      width: 90%;
+      margin: 0 auto;
+
+      button{
+        width: 94.5%;
+      }
+
+      .links{
+        height: 30px;
+        margin: 10px 0 0px;
+        font-size: 0.8rem;
+        color: green;
+        padding: 1px 0;
+        text-align: center;
+        line-height: 1.7rem;
+
+        a{
+          font-size: .8rem;
+          color: blue;
+        }
+        a:hover{
+          cursor: pointer;
+
+        }
+      }
+      .links:last-child{
+        margin-top: 0;
+      }
+    }
+  }
+
+}
+
+@media screen and (min-width: 1001px) {
+
+  .login-content {
+    width: 35%;
+    margin: 150px auto;
+    min-height: 200px;
+    padding: 20px 0;
+    border: 1px solid green;
+    border-radius: 2.5px;
+
+    &_header {
+      width: 90%;
+      margin: 0 auto 10px;
+
+      h3{
+        color: green;
+        font-size: 1.5rem;
+      }
+    }
+
+    &_body {
+      min-height: 150px;
+      width: 90%;
+      margin: 0 auto;
+
+      button{
+        width: 94.5%;
+      }
+
+      .links{
+        height: 30px;
+        margin: 10px 0 0px;
+        font-size: 0.8rem;
+        color: green;
+        padding: 1px 0;
+        text-align: center;
+        line-height: 1.7rem;
+
+        a{
+          font-size: .8rem;
+          color: blue;
+        }
+        a:hover{
+          cursor: pointer;
+
+        }
+      }
+      .links:last-child{
+        margin-top: 0;
+      }
+    }
+  }
+
+}

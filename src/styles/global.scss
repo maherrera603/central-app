@@ -1,0 +1,96 @@
+@import "./fonts.scss";
+*{
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+  font-family: $font-family;
+  font-size: 16px;
+}
+
+h1, h2, h3{
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color:white;
+}
+
+a{
+  text-decoration: none;
+}
+
+ul{
+  list-style: none;
+}
+
+.container{
+  width: 100%;
+  min-height: 500px;
+  height: auto;
+}
+
+.form-control{
+  display: block;
+  margin-bottom: 15px;
+
+  label{
+    display: block;
+    color: green;
+    font-size: .9rem;
+  }
+
+  input,
+  select{
+    height: 30px;
+    width: 100%;
+    outline-color: green;
+    padding: 2px 5px;
+    color: green;
+    box-sizing: border-box;
+
+  }
+}
+
+button{
+  border: none;
+  padding: 10px 10px;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  border-radius: 2.5px;
+}
+
+button:hover{
+  box-shadow: 2px 2px 2px black;
+}
+
+span{
+  bottom: 20px;
+  min-width: 24%;
+  width: 34%;
+  max-width: 70%;
+  height: 30px;
+  position: sticky;
+  margin: 0 auto;
+  display: block;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px black;
+  transition: .3s ease all;
+  padding: 5px 10px;
+  line-height: 30px;
+  background-color: rebeccapurple;
+}
+
+.success{
+  text-align: center;
+  background-color: green;
+  color: white;
+}
+
+.error{
+  text-align: center;
+  color: white;
+  background-color: red;
+}
