@@ -15,7 +15,7 @@ export class AlertComponent {
     app_root?.appendChild(alert);
     setTimeout(() => {
       app_root?.removeChild(alert);
-    }, 15000);
+    }, 3000);
     console.log(app_root)
   }
 
