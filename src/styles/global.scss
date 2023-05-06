@@ -10,6 +10,33 @@
   font-family: $font-family;
   font-size: 16px;
   font-display: swap;
+
+}
+
+body::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+body::-webkit-scrollbar:vertical {
+  width:7px;
+}
+
+body::-webkit-scrollbar-button:increment,
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+body::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: green;
+  // border-radius: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 10px;
 }
 
 h1, h2, h3{
@@ -95,4 +122,11 @@ span{
   text-align: center;
   color: white;
   background-color: red;
+}
+
+
+.error-valid{
+  color: red;
+  font-size: 14px;
+  display: block;
 }

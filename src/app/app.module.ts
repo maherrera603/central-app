@@ -7,6 +7,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './components/alert/alert.component';
+import { UserService } from './services/user.service';
+import { PattientService } from './services/pattient.service';
+import { IdentityService } from './services/identity.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,11 @@ import { AlertComponent } from './components/alert/alert.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    PattientService,
+    UserService,
+    IdentityService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

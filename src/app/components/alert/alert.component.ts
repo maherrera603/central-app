@@ -16,7 +16,6 @@ export class AlertComponent {
     setTimeout(() => {
       app_root?.removeChild(alert);
     }, 3000);
-    console.log(app_root)
   }
 
   error(message:string): void {
@@ -26,7 +25,6 @@ export class AlertComponent {
     setTimeout(() => {
       app_root?.removeChild(alert);
     }, 3000);
-    console.log(app_root)
   }
 
   private createSpan(message: string, cssClass: string) {

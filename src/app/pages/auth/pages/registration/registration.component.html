@@ -6,52 +6,154 @@
 
   <div class="registration_body">
 
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <form #register="ngForm" (ngSubmit)="onSubmit(register)">
       <div class="form-control">
         <label for="name">Nombres Completos</label>
-        <input type="text" name="name" id="name" minlength="3" maxlength="20" required>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          minlength="3"
+          maxlength="30"
+          #name="ngModel"
+          [(ngModel)]="pattient.name"
+          pattern="[a-zA-Z\s]{3,30}"
+          required
+        >
+        <small class="error-valid" *ngIf="!name.valid && name.touched">
+          El campo debe contener de 3 a 30 caracteres
+        </small>
       </div>
 
       <div class="form-control">
         <label for="lastname">Apellidos Completos</label>
-        <input type="text" name="lastname" id="lastname" minlength="3" maxlength="20">
+        <input
+          type="text"
+          name="lastname"
+          id="lastname"
+          minlength="3"
+          maxlength="30"
+          #lastname="ngModel"
+          [(ngModel)]="pattient.lastname"
+          pattern="[a-zA-Z\s]{3,30}"
+          required
+        >
+        <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
+          El campo debe contener de 3 a 30 caracteres
+        </small>
       </div>
 
       <div class="form-control">
         <label for="type_document">Tipo de documento</label>
-        <select name="type_document" id="type_document" required>
+        <select
+          name="type_document"
+          id="type_document"
+          #type_document="ngModel"
+          [(ngModel)]="pattient.type_document"
+          required
+        >
           <option value="">Seleccione tipo de documento</option>
           <option value="cedula de ciudadania">Cedula de ciudadania</option>
           <option value="Libreta militar">Libreta Militar</option>
         </select>
+        <small class="error-valid" *ngIf="type_document.value == '' && type_document.touched">
+          Seleccione el tipo de documento
+        </small>
       </div>
 
       <div class="form-control">
         <label for="document">Numero de documento</label>
-        <input type="text" name="document" id="document" minlength="7" maxlength="20" required>
+        <input
+          type="text"
+          name="document"
+          id="document"
+          minlength="7"
+          maxlength="20"
+          #document="ngModel"
+          [(ngModel)]="pattient.document"
+          pattern="[a-zA-Z\d\s]{7,20}"
+          required
+        >
+        <small class="error-valid" *ngIf="!document.valid && document.touched">
+          El numero de documento debe cotener de 7 a 20 caracteres
+        </small>
+
       </div>
 
       <div class="form-control">
         <label for="phone">Numero de telefono</label>
-        <input type="tel" name="phone" id="phone" minlength="10" maxlength="10" required>
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          minlength="10"
+          maxlength="10"
+          #phone="ngModel"
+          [(ngModel)]="pattient.phone"
+          pattern="[\d]{10,10}"
+          required
+        >
+        <small class="error-valid" *ngIf="!phone.valid && phone.touched">
+          El numero de telefono debe contener 10 numeros
+        </small>
       </div>
 
       <div class="form-control">
         <label for="email">Correo Electronico</label>
-        <input type="email" name="email" id="email" required>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          maxlength="70"
+          #email="ngModel"
+          [(ngModel)]="pattient.email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+          required
+        >
+        <small class="error-valid" *ngIf="!email.valid && email.touched">
+          El formato de correo es invalido
+        </small>
       </div>
 
       <div class="form-control">
         <label for="password">Contraseña</label>
-        <input type="password" name="password" id="password" minlength="8" maxlength="12" required>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          minlength="8"
+          maxlength="12"
+          #password="ngModel"
+          [(ngModel)]="pattient.password"
+          pattern="[a-zA-Z\d]{8,12}"
+          required
+        >
+        <small class="error-valid" *ngIf="!password.valid && password.touched">
+          La contraseña debe contener de 8 a 12 caracteres
+        </small>
       </div>
 
       <div class="form-control">
         <label for="passConfirm">Confirmar Contraseña</label>
-        <input type="password" name="passConfirm" id="passConfirm" minlength="8" maxlength="12">
+        <input
+          type="password"
+          name="passConfirm"
+          id="passConfirm"
+          minlength="8"
+          maxlength="12"
+          #confirmPassword="ngModel"
+          (ngModel)="confirmPassword"
+          required
+        >
+        <small class="error-valid" *ngIf="!confirmPassword.valid && confirmPassword.touched">
+          El campo debe contener de 8 a 12 caracteres
+        </small>
+        <small class="error-valid" *ngIf="confirmPassword.value !== password.value">
+          Las contraseñas no coinciden
+        </small>
       </div>
 
-      <button type="submit">Registrarse</button>
+      <button type="submit" [disabled]="register.invalid">Registrarse</button>
 
     </form>
 

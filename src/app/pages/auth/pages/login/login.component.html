@@ -8,16 +8,40 @@
     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-control">
         <label for="email">Correo Electronio</label>
-        <input type="email" name="email" id="email" required>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          #email="ngModel"
+          [(ngModel)]="user.email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+          required
+        >
+        <small class="error-valid" *ngIf="!email.valid && email.touched">
+          Formato de correo invalido
+        </small>
       </div>
 
       <div class="form-control">
         <label for="password">Contraseña</label>
-        <input type="password" name="password" id="password" minlength="8" maxlength="12" required>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          minlength="8"
+          maxlength="12"
+          #password="ngModel"
+          [(ngModel)]="user.password"
+          pattern="[a-zA-Z\d]{8,12}"
+          required
+        >
+        <small class="error-valid" *ngIf="!password.valid && password.touched">
+          La contraseña debe tener de 8 a 12 caracteres
+        </small>
       </div>
 
       <div class="form-control">
-        <button type="submit">Ingresar</button>
+        <button type="submit" [disabled]="f.invalid">Ingresar</button>
       </div>
 
     </form>
