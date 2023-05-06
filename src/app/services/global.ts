@@ -1,1 +1,1 @@
-export const url: string = "http://localhost:8000/api/"
+export const url: string = "https://central-l4ub.onrender.com/api/"
