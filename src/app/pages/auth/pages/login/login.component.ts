@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
           this.user.password = "";
           this.alert.error(response.message);
         }else{
-          console.log(response);
           sessionStorage.setItem("token", response.token);
           sessionStorage.setItem("user", JSON.stringify(response.user));
           this.loadRole(response.role);
