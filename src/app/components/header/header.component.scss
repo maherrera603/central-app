@@ -187,14 +187,13 @@
         }
 
         small{
-          width: 50%;
+          width: 55%;
           height: 100%;
           max-height: auto;
           display: flex;
           justify-content: center;
           padding: 10px 10px;
           text-transform: capitalize;
-          // margin-bottom: 20px;
           color: white;
 
           i{
@@ -217,7 +216,7 @@
           width: 55%;
           max-width: 60%;
           margin-top: 43px;
-          // margin-left: 150px;
+          left: auto;
           position: absolute;
           min-height: 105px;
           height: 105px;
@@ -316,6 +315,10 @@
       }
 
       &_content-navigation {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+
         .menu{
           display: none;
         }
@@ -350,6 +353,70 @@
 
           }
         }
+
+        small{
+          width: 25%;
+          height: 100%;
+          max-height: auto;
+          display: flex;
+          justify-content: center;
+          padding: 10px 10px;
+          text-transform: capitalize;
+          color: white;
+
+          i{
+            color: white;
+            margin-right: 6px;
+          }
+
+        }
+
+        small:hover{
+          background-color: rgba(0,82,0, 32);
+          cursor: pointer;
+          border-radius: 5px;
+        }
+
+        .navigation-user{
+          display: flex;
+          flex-direction: column;
+          min-width: 35%;
+          width: 35%;
+          max-width: 60%;
+          margin-top: 43px;
+          left: auto;
+          position: absolute;
+          min-height: 105px;
+          height: 105px;
+          max-height: 115px;
+          border-radius: 5px;
+          padding: 0 5px;
+          background-color: white !important;
+          box-shadow: 5px 5px 10px darkgreen;
+          border: 1px solid green;
+
+          li{
+            border-bottom: 1px solid green;
+
+            a{
+              display: block;
+              text-align: left;
+              padding: 5px 0;
+              margin-top: 5px;
+              color: green;
+            }
+
+            a:hover{
+              cursor: pointer;
+              background-color: lightgray;
+            }
+          }
+
+          li:last-child{
+            border-bottom: none;
+          }
+        }
+
 
       }
 

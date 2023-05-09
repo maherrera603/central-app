@@ -45,11 +45,12 @@ export class LoginComponent implements OnInit {
   }
 
   private loadRole(role:string) : void{
-    switch(role){
-      case "Administrador":
+    let roleLowerCase = role.toLowerCase();
+    switch(roleLowerCase){
+      case "administrador":
         this.alert.success("welcome administrador")
         break;
-      case "Empleado":
+      case "empleado":
         this.alert.success("welcome empleado!");
         break
       case "paciente":
