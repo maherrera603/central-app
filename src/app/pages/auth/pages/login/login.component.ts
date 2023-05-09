@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
         }else{
           sessionStorage.setItem("token", response.token);
           sessionStorage.setItem("user", JSON.stringify(response.user));
-          console.log(response.role);
           this.loadRole(response.role);
         }
       }
@@ -53,12 +52,8 @@ export class LoginComponent implements OnInit {
       case "Empleado":
         this.alert.success("welcome empleado!");
         break
-      case "Paciente":
-        console.log(`ha iniciado ${role}`);
+      case "paciente":
         this.router.navigate(["sistema"])
-        break;
-      default:
-        console.log("in default")
         break;
     }
   }
