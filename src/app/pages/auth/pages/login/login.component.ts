@@ -53,8 +53,12 @@ export class LoginComponent implements OnInit {
         this.alert.success("welcome empleado!");
         break
       case "Paciente":
+        console.log(`ha iniciado ${role}`);
         this.router.navigate(["sistema"])
-        break
+        break;
+      default:
+        console.log("in default")
+        break;
     }
   }
 
