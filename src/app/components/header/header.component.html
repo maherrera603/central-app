@@ -12,7 +12,7 @@
       <ul class="navigation navigation-tablet" *ngIf="!identityUser">
         <li><a routerLink="registro"  (click)="menuResponsive()">Registrarse</a></li>
         <li><a routerLink="iniciar-sesion" (click)="menuResponsive()">Ingresar</a></li>
-        <li><a routerLink="/" (click)="menuResponsive()">Inicio</a></li>
+        <li><a routerLink="sistema" (click)="menuResponsive()">Inicio</a></li>
       </ul>
 
       <small *ngIf="identityUser" (click)="menuResponsive()">
