@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
         }else{
           sessionStorage.setItem("token", response.token);
           sessionStorage.setItem("user", JSON.stringify(response.user));
+          console.log(response.role);
           this.loadRole(response.role);
         }
       }
