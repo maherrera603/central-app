@@ -15,7 +15,12 @@ export class IdentityService {
 
   public getToken(){
     let token = sessionStorage.getItem('token');
-    return (token && token != 'undefined') ? JSON.parse(token) : null;
+    return (token && token != 'undefined') ? token : null;
+  }
+
+  public getRole(){
+    let role:string | null = sessionStorage.getItem('role');
+    return (role && role != 'undefined') ? role : null;
   }
 
 }

@@ -1,0 +1,106 @@
+<div class="profile">
+  <div class="profile__header">
+    <h1>Actualizacion de datos</h1>
+    <a routerLink="/sistema"><i class="fa-solid fa-arrow-left"></i> Regresar</a>
+  </div>
+
+  <form #f="ngForm" (submit)="onSubmit(f)">
+    <div class="form-control">
+      <label for="name">Nombres</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        #name="ngModel"
+        [(ngModel)]="pattient.name"
+        pattern="[a-zA-Z\s]{3,20}$"
+        required
+      >
+      <small class="error-valid" *ngIf="!name.valid">
+        El campo debe contener de 3 a 20 caracteres
+      </small>
+    </div>
+
+    <div class="form-control">
+      <label for="lastname">Apellidos</label>
+      <input
+        type="text"
+        name="lastname"
+        id="lastname"
+        #lastname="ngModel"
+        [(ngModel)]="pattient.lastname"
+        pattern="[a-zA-Z\s]{3,20}$"
+        required
+      >
+      <small class="error-valid" *ngIf="!lastname.valid">
+        El campo debe contener de 3 a 20 caracteres
+      </small>
+    </div>
+
+    <div class="form-control">
+      <label for="type_document">Tipo De Dcoumento</label>
+      <input
+        type="text"
+        name="type_document"
+        id="type_document"
+        #type_document="ngModel"
+        [(ngModel)]="pattient.type_document"
+        pattern="[a-zA-Z\s]{5,30}"
+        readonly
+      >
+      <small class="error-valid" *ngIf="!type_document.valid">
+        Ingrese un documento valido
+      </small>
+    </div>
+
+    <div class="form-control">
+      <label for="document">Numero de documento</label>
+      <input
+        type="text"
+        name="document"
+        id="document"
+        #document="ngModel"
+        [(ngModel)]="pattient.document"
+        pattern="[a-zA-Z\d\s]{7,20}"
+        readonly
+        required
+      >
+      <small class="error-valid" *ngIf="!document.valid">
+        El campo debe contener de 7 a 20 caracteres
+      </small>
+    </div>
+
+    <div class="form-control">
+      <label for="phone">Numero de telefono</label>
+      <input
+        type="tel"
+        name="phone"
+        id="phone"
+        #phone="ngModel"
+        [(ngModel)]="pattient.phone"
+      >
+      <small class="error-valid" *ngIf="!phone.valid">
+        El campo debe contener 10 digitos
+      </small>
+    </div>
+
+    <div class="form-control">
+      <label for="eps">Eps</label>
+      <input
+        type="text"
+        name="eps"
+        id="eps"
+        #eps="ngModel"
+        [(ngModel)]="pattient.eps"
+        pattern="[a-zA-Z\s]{3,20}$"
+        required
+      >
+      <small class="error-valid" *ngIf="!eps.valid && eps.touched">
+        El campo debe contener de 3 a 20 caracteres
+      </small>
+    </div>
+
+    <button type="submit" [disabled]="f.invalid">Actualizar <i class="fa-solid fa-pen"></i></button>
+  </form>
+
+</div>

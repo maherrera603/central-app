@@ -10,6 +10,8 @@ import { AlertComponent } from './components/alert/alert.component';
 import { UserService } from './services/user.service';
 import { PattientService } from './services/pattient.service';
 import { IdentityService } from './services/identity.service';
+import { PermissionService } from './services/permission.service';
+import { NotpermissionService } from './services/notpermission.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { IdentityService } from './services/identity.service';
   providers: [
     PattientService,
     UserService,
-    IdentityService
+    IdentityService,
+    PermissionService,
+    NotpermissionService
   ],
   bootstrap: [AppComponent]
 })
