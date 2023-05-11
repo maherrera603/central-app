@@ -14,7 +14,7 @@
           id="email"
           #email="ngModel"
           [(ngModel)]="user.email"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           required
         >
         <small class="error-valid" *ngIf="!email.valid && email.touched">

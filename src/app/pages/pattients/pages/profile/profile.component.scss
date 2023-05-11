@@ -1,0 +1,127 @@
+@media screen and (max-width: 500px) {
+  .profile{
+    min-height: auto;
+    border: 1px solid green;
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+
+    &__header{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+
+      h1{
+        color: green;
+        font-size: 1.2rem;
+      }
+
+      a{
+        margin-left: auto;
+        color: green;
+        cursor: pointer;
+      }
+
+      a:hover{
+        text-shadow: 2px 2px 5px;
+      }
+    }
+
+    form{
+      margin-top: 15px;
+    }
+  }
+
+}
+
+@media screen and (min-width: 501px) and (max-width:1000px) {
+  .profile{
+    min-height: auto;
+    border: 1px solid green;
+    width: 95%;
+    margin: 50px auto;
+    padding: 10px;
+    box-sizing: border-box;
+
+    &__header{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+
+      h1{
+        color: green;
+        font-size: 1.2rem;
+      }
+
+      a{
+        margin-left: auto;
+        color: green;
+        cursor: pointer;
+      }
+
+      a:hover{
+        text-shadow: 2px 2px 5px;
+      }
+    }
+
+    form{
+      margin-top: 15px;
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      column-gap: 20px;
+
+      button{
+        min-width: 10%;
+        width: auto;
+        max-width: 23%;
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 1001px) {
+  .profile{
+    min-height: auto;
+    border: 1px solid green;
+    width: 67%;
+    margin: 50px auto;
+    padding: 10px;
+    box-sizing: border-box;
+
+    &__header{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+
+      h1{
+        color: green;
+        font-size: 1.2rem;
+      }
+
+      a{
+        margin-left: auto;
+        color: green;
+        cursor: pointer;
+      }
+
+      a:hover{
+        text-shadow: 2px 2px 5px;
+      }
+    }
+
+    form{
+      margin-top: 15px;
+      display: grid;
+      grid-template-rows: repeat(2, 1fr);
+      column-gap: 20px;
+
+      button{
+        min-width: 10%;
+        width: auto;
+        max-width: 23%;
+      }
+    }
+  }
+}
