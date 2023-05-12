@@ -11,7 +11,7 @@ import { HomeModule } from './pages/home/home.module';
   imports: [
     CommonModule,
     PattientsRoutingModule,
-    HomeModule
+    HomeModule,
   ]
 })
 export class PattientsModule { }

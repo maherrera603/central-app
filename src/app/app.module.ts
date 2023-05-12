@@ -13,17 +13,19 @@ import { IdentityService } from './services/identity.service';
 import { PermissionService } from './services/permission.service';
 import { NotpermissionService } from './services/notpermission.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    AlertComponent
+    AlertComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     PattientService,

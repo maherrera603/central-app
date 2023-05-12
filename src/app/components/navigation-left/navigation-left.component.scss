@@ -1,0 +1,118 @@
+@media screen and (max-width: 500px) {
+  .navigation{
+    width: 35%;
+    background-color: green;
+    min-height: 505px;
+    height: 100%;
+    max-height: auto;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 5px 0px 10px rgba(0, 80, 0, 32);
+    transition: .3s ease all;
+    float: left;
+    margin-right: 10px;
+
+    li{
+      border-bottom: 1px solid white;
+      width: 100%;
+      padding: 10px 0;
+      transition: .3s ease all;
+
+
+      a{
+        color: white;
+        padding: 10px 10px;
+        cursor: pointer;
+      }
+    }
+
+    li:first-child{
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    li:hover{
+      background-color: rgba(0, 80, 0, 32);
+    }
+  }
+}
+
+
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+  .navigation{
+    width: 35%;
+    background-color: green;
+    min-height: 505px;
+    height: 100%;
+    max-height: auto;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 5px 0px 10px rgba(0, 80, 0, 32);
+    transition: .3s ease all;
+    float: left;
+    margin-right: 10px;
+
+    li{
+      border-bottom: 1px solid white;
+      width: 100%;
+      padding: 10px 0;
+      transition: .3s ease all;
+
+
+      a{
+        color: white;
+        padding: 10px 10px;
+        cursor: pointer;
+      }
+    }
+
+    li:first-child{
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    li:hover{
+      background-color: rgba(0, 80, 0, 32);
+    }
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .navigation{
+    width: 100%;
+    background-color: green;
+    min-height: 505px;
+    height: 100%;
+    max-height: auto;
+    border-radius: 5px;
+    margin-left: 0px;
+    box-shadow: 5px 0px 10px rgba(0, 80, 0, 32);
+    transition: .3s ease all;
+    float: left;
+    margin-right: 10px;
+
+    li{
+      border-bottom: 1px solid white;
+      width: 100%;
+      padding: 10px 0;
+      transition: .3s ease all;
+
+
+      a{
+        color: white;
+        padding: 10px 10px;
+        cursor: pointer;
+      }
+    }
+
+    li:first-child{
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+
+    li:hover{
+      background-color: rgba(0, 80, 0, 32);
+    }
+  }
+}
+
