@@ -130,3 +130,36 @@
   }
 }
 
+@media screen and (min-width: 1001px) {
+  .content-home{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    height: max-content;
+    max-block-size: 100vh;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: content-box;
+
+    app-navigation-left{
+      min-height: 500px;
+      height: max-content;
+      width: 20%;
+      margin: 20px auto;
+    }
+
+    &__body {
+      width: 75%;
+      margin: 20px auto;
+      min-height: 500px;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  }
+}

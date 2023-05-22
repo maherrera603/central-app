@@ -27,11 +27,11 @@
     </div>
   </div>
 
-  <div class="content-form form-active">
-    <form #f="ngForm" (submit)="onSubmit(f)">
-      <div class="btn-close">
+  <div class="content-form">
+    <form #f="ngForm" (submit)="onSubmit(f)" class="form">
+      <div class="form__header">
         <h1>{{titleForm}}</h1>
-        <button type="button" class="close-content" (click)="closeForm()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="close"><i class="fa-solid fa-xmark" (click)="closeForm()"></i></div>
       </div>
       <div class="form-control">
         <label for="name">Nombres</label>

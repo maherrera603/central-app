@@ -62,12 +62,12 @@ export class AddFamilyComponent implements OnInit {
   private showForm(methodsend:string):void{
     this.methodSend = methodsend;
     let content_form = document.querySelector(".content-form");
-    content_form?.classList.add("form-activate");
+    content_form?.classList.add("content-form-active");
   }
 
   protected closeForm():void{
     let content_form = document.querySelector(".content-form");
-    content_form?.classList.remove("form-activate");
+    content_form?.classList.remove("content-form-active");
   }
 
   protected onSubmit(form:NgForm): void{
