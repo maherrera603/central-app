@@ -1,0 +1,152 @@
+<div class="content-family">
+  <app-navigation-left></app-navigation-left>
+
+  <div class="content-family__body">
+    <div class="content-family__body__header">
+      <div class="content-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+        type="search"
+        name="search"
+        id="search"
+        class="search"
+        placeholder="Buscar..."
+        #search="ngModel"
+        (ngModel)="search"
+        (keyup)="searchFamuily(search.value)"
+      >
+      </div>
+      <div class="add-family">
+        <button type="button" (click)="addForm('add')"><i class="fa-solid fa-users"></i></button>
+      </div>
+    </div>
+    <div class="content-family__body__body">
+      <p *ngFor="let family of familys" (click)="loadForm(family.document)">
+        {{family.name}} {{family.lastname}}
+      </p>
+    </div>
+  </div>
+
+  <div class="content-form form-active">
+    <form #f="ngForm" (submit)="onSubmit(f)">
+      <div class="btn-close">
+        <h1>{{titleForm}}</h1>
+        <button type="button" class="close-content" (click)="closeForm()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="form-control">
+        <label for="name">Nombres</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          #name="ngModel"
+          [(ngModel)]="family.name"
+          pattern="[a-zA-Z\s]{3,20}$"
+          required
+        >
+        <small class="error-valid" *ngIf="!name.valid && name.touched">
+          El campo debe contener de 3 a 20 caracteres
+        </small>
+      </div>
+
+      <div class="form-control">
+        <label for="lastname">Apellidos</label>
+        <input
+          type="text"
+          name="lastname"
+          id="lastname"
+          #lastname="ngModel"
+          [(ngModel)]="family.lastname"
+          pattern="[a-zA-Z\s]{3,20}$"
+          required
+        >
+        <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
+          El campo debe contener de 3 a 20 caracteres
+        </small>
+      </div>
+
+      <div class="form-control">
+        <label for="type_document">Tipo De Documento</label>
+        <select
+          name="type_document"
+          id="type_document"
+          #type_document="ngModel"
+          [(ngModel)]="family.type_document"
+          required
+        >
+          <option value="">Seleccione tipo de documento...</option>
+          <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+        </select>
+        <small class="error-valid" *ngIf="type_document.value == '' && type_document.touched">
+          Seleccione tipo de documento
+        </small>
+      </div>
+
+      <div class="form-control">
+        <label for="document">Documento</label>
+        <input
+          type="text"
+          name="document"
+          id="document"
+          #document="ngModel"
+          [(ngModel)]="family.document"
+          pattern="[a-zA-Z\s\d]{7,20}$"
+          required
+        >
+        <small class="error-valid" *ngIf="!document.valid && document.touched">
+          El campo debe contener de 7 a 20 caracteres
+        </small>
+      </div>
+
+      <div class="form-control">
+        <label for="phone">Telefono</label>
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          #phone="ngModel"
+          [(ngModel)]="family.phone"
+          pattern="[\d]{10,10}$"
+          required
+        >
+        <small class="error-valid" *ngIf="!phone.valid && phone.touched">
+          El campo debe contener 10 caracteres
+        </small>
+      </div>
+
+      <div class="form-control">
+        <label for="eps">Eps</label>
+        <input
+          type="text"
+          name="eps"
+          id="eps"
+          #eps="ngModel"
+          [(ngModel)]="family.eps"
+          pattern="[a-zA-Z\s]{5,20}"
+          required
+        >
+        <small class="error-valid" *ngIf="!eps.valid && eps.touched">
+          El campo debe contener de 5 a 20 caracteres
+        </small>
+      </div>
+      <button type="submit" [disabled]="f.invalid"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+      <button type="button" class="delete" *ngIf="methodSend == 'updated'" (click)="openOverlay()"><i class="fa-solid fa-trash"></i> Eliminar</button>
+    </form>
+  </div>
+
+  <div class="overlay">
+    <div class="popup">
+      <div class="popup__header">
+        <h1>Eliminar Familiar</h1>
+        <i class="fa-solid fa-xmark" (click)="closeOverlay()"></i>
+      </div>
+      <div class="popup__body">
+        <small>¿Desea Eliminar a {{family.name}}?</small>
+      </div>
+      <div class="popup__footer">
+        <button type="button" class="delete" (click)="deleteFamily(family.document)"><i class="fa-solid fa-trash"></i> Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+</div>

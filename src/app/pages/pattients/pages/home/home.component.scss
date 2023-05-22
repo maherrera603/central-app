@@ -1,141 +1,132 @@
 @media screen and (max-width: 500px) {
-  .container-home{
+  .content-home{
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+    padding: 10px 0;
 
-    &__content{
-      min-height: 500px;
+    app-navigation-left{
+      height: 40px;
+    }
+
+    &__body {
       width: 95%;
       margin: 0 auto;
-
-      .content-header{
-        color: green;
-        font-size: 1.2rem;
-        display: inline-block;
-        padding: 5px 0;
-        padding-right: 10px;
-        cursor: pointer;
-
-        .fa-solid.fa-bars{
-          font-size: 1.2rem;
-          color: green;
-
-        }
-
-        .fa-solid.fa-bars:hover {
-          text-shadow: 5px 5px 10px green;
-          cursor: pointer;
-        }
-      }
-
-      .content-header:hover{
-        text-shadow: 5px 5px 10px;
-      }
-
-      .content-body{
-        min-height: 470px;
-        max-height: auto;
-        // border: 1px solid green;
-        border-radius: 5px;
-        box-shadow: -0px -2.5px 10px rgba(0, 80, 0, .5);
-
-        .navigation-left{
-          display: none;
-        }
-
-      }
-    }
-
-  }
-
-}
-
-@media screen and (min-width: 501px) and (max-width: 1000px){
-
-  .container-home{
-
-    &__content{
       min-height: 500px;
-      width: 95%;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
 
-      .content-header{
-        color: green;
-        font-size: 1.2rem;
-        display: inline-block;
-        padding: 5px 0;
-        padding-right: 10px;
-        cursor: pointer;
 
-        .fa-solid.fa-bars{
-          font-size: 1.2rem;
+      &__header{
+        min-height: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        input{
+          height: 30px;
+          padding: 5px 5px;
+          outline-color: green;
+          border-width: 1px;
+          border-color: gray;
+          border-radius: 5px;
+        }
+        input::placeholder{
           color: green;
-
+          font-size: 1rem;
         }
 
-        .fa-solid.fa-bars:hover {
-          text-shadow: 5px 5px 10px green;
-          cursor: pointer;
-        }
-      }
 
-      .content-header:hover{
-        text-shadow: 5px 5px 10px;
-      }
-
-      .content-body{
-        min-height: 470px;
-        max-height: auto;
-        border-radius: 5px;
-        box-shadow: -0px -2.5px 10px rgba(0, 80, 0, .5);
-
-        
-        .navigation-left{
-          display: none;
+        .add-family{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
         }
 
       }
-    }
 
-  }
-
-  .content-body{
-    .navigation-left{
-      display: none;
-    }
-  }
-}
-
-@media screen and (min-width: 1001px) {
-  .container-home {
-    margin-top: 20px;
-    width: 95%;
-    margin: 20px auto;
-
-    .container-home__navigation{
-      display: none;
-    }
-
-    .container-home__content .content-header{
-      display: none;
-    }
-
-    .content-body{
-      width: 100%;
-      display: grid;
-      grid-template-columns: 20% 78%;
-      border: none;
-      column-gap: 20px;
-
-      .navigation-left{
-        display: block;
-      }
-
-      .information{
+      &__body{
         width: 100%;
-        // border: 1px solid green;
         min-height: 500px;
-        border-radius: 5px;
-        box-shadow: -0px -2.5px 10px rgba(0, 80, 0, .5);
+        margin-top: 10px;
+        border-top: 1px solid green;
+
+        p{
+          display: block;
+          width: 100%;
+          // background-color: red;
+          min-height: 40px;
+          border-bottom: 1px solid green;
+        }
       }
     }
+
   }
 }
+
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+  .content-home{
+    display: flex;
+    flex-flow: column wrap;
+    position: relative;
+    padding: 10px 0;
+
+    app-navigation-left{
+      height: 40px;
+    }
+
+    &__body {
+      width: 95%;
+      margin: 0 auto;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+
+
+      &__header{
+        min-height: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        input{
+          height: 30px;
+          padding: 5px 5px;
+          outline-color: green;
+          border-width: 1px;
+          border-color: gray;
+          border-radius: 5px;
+        }
+        input::placeholder{
+          color: green;
+          font-size: 1rem;
+        }
+
+
+        .add-family{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+
+      }
+
+      &__body{
+        width: 100%;
+        min-height: 500px;
+        margin-top: 10px;
+        border-top: 1px solid green;
+
+        p{
+          display: block;
+          width: 100%;
+          // background-color: red;
+          min-height: 40px;
+          border-bottom: 1px solid green;
+        }
+      }
+    }
+
+  }
+}
+

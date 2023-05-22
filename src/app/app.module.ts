@@ -12,6 +12,8 @@ import { PattientService } from './services/pattient.service';
 import { IdentityService } from './services/identity.service';
 import { PermissionService } from './services/permission.service';
 import { NotpermissionService } from './services/notpermission.service';
+import { RouterModule } from '@angular/router';
+import { FamilyService } from './services/family.service';
 
 
 @NgModule({
@@ -23,16 +25,18 @@ import { NotpermissionService } from './services/notpermission.service';
 
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     FormsModule,
+    RouterModule
   ],
   providers: [
     PattientService,
     UserService,
     IdentityService,
     PermissionService,
-    NotpermissionService
+    NotpermissionService,
+    FamilyService,
   ],
   bootstrap: [AppComponent]
 })

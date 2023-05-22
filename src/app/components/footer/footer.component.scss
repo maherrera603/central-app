@@ -4,7 +4,6 @@
     min-height: 100px;
     height: auto;
     background-color: green;
-    margin-top: 20px;
     border-top: 1px solid black;
     display: grid;
     grid-template-rows: repeat(3, 1fr);
@@ -35,7 +34,6 @@
     min-height: 100px;
     height: auto;
     background-color: green;
-    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 
@@ -65,7 +63,6 @@
     min-height: 100px;
     height: auto;
     background-color: green;
-    margin-top: 20px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 

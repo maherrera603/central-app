@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { NavigationLeftComponent } from '@app/components/navigation-left/navigation-left.component';
+import { NavigationLeftModule } from '@app/components/navigation-left/navigation-left.module';
+import { RouterModule } from '@angular/router';
+
+
 
 
 
@@ -12,12 +15,12 @@ import { NavigationLeftComponent } from '@app/components/navigation-left/navigat
 @NgModule({
   declarations: [
     HomeComponent,
-    NavigationLeftComponent
   ],
   imports: [
-    CommonModule,
     HomeRoutingModule,
-
+    CommonModule,
+    NavigationLeftModule,
+    RouterModule
   ]
 })
 export class HomeModule { }
