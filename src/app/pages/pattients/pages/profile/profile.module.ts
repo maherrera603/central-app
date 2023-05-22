@@ -5,6 +5,7 @@ import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -12,10 +13,11 @@ import { HttpClientModule } from '@angular/common/http';
     ProfileComponent
   ],
   imports: [
-    CommonModule,
     ProfileRoutingModule,
+    CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ]
 })
 export class ProfileModule { }

@@ -1,0 +1,735 @@
+@media screen and (max-width: 500px) {
+  .content-family{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-height: 500px;
+    height: 100%;
+    position: relative;
+    padding: 10px 0;
+
+    app-navigation-left{
+      height: 40px;
+    }
+
+    &__body {
+      width: 95%;
+      margin: 0 auto;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+
+      &__header{
+        min-height: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        .content-search{
+          width: 100%;
+          border: 1px solid green;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          i{
+            padding: 5px 8px;
+            color: green;
+          }
+
+          input{
+            height: 30px;
+            padding: 5px 0;
+            border: none;
+            outline: none;
+          }
+
+          input::placeholder{
+            color: green;
+            font-size: 1rem;
+          }
+        }
+
+        .add-family{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+
+      }
+
+      &__body{
+        width: 100%;
+        min-height: 500px;
+        height: 100%;
+        margin-top: 5px;
+        border-top: 1px solid green;
+
+        p{
+          display: grid;
+          width: 100%;
+          min-height: 40px;
+          border-bottom: 1px solid green;
+          align-items: center;
+          padding: 0 5px;
+          transition: .3s ease all;
+          color: green;
+        }
+
+        p:hover{
+          cursor: pointer;
+          background-color: rgba(0, 80, 0, 32);
+          color: white;
+        }
+      }
+    }
+
+    .content-form {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .form-activate{
+      visibility: visible;
+      opacity: 1;
+      width: 100%;
+      position: absolute;
+      background-color: rgba($color: green, $alpha: 0.6);
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: start;
+      align-content: center;
+      justify-content: center;
+      justify-items: center;
+      transition: all 1s ease;
+
+      form{
+        width: 90%;
+        margin: 20px auto;
+        background-color: white;
+        padding: 20px 20px;
+        border-radius: 5px;
+
+        .btn-close{
+          display: grid;
+          justify-content: flex-end;
+          align-items: center;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-weight: bold;
+          }
+
+          button{
+            margin-left: auto;
+            box-shadow: none;
+            transition: all .3s ease;
+            background-color: white;
+            color: green;
+            padding: 5px 8px;
+
+            i{
+              font-size: 1.4rem;
+            }
+          }
+
+          button:hover{
+            background-color: red;
+            border-radius: 50%;
+            color: white;
+          }
+        }
+
+        button{
+          margin-right:5px;
+        }
+
+        .delete{
+          background-color: red;
+        }
+      }
+    }
+
+    .overlay{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 80, 0, .6);
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+      align-items: center;
+      justify-content: center;
+      transition: .3s ease all;
+    }
+
+    .overlay-active{
+      visibility: visible;
+      opacity: 1;
+      display: flex;
+      transition: all 6s ease ;
+
+
+      .popup{
+        width: 80%;
+        height: 160px;
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px;
+        transition: all 1s ease;
+
+        &__header{
+          height: 30px;
+          display: grid;
+          grid-template-columns: 80% 20%;
+          justify-content: flex-end;
+          align-items: center;
+
+          h1{
+            color: green;
+            padding: 5px 0;
+            font-size: 1.3rem;
+            height: 100%;
+
+          }
+
+          i{
+            display: block;
+            font-size: 1.3rem;
+            color: green;
+            padding: 5px 8px;
+            margin-left: auto;
+            cursor: pointer;
+            transition: all 0.5s ease;
+          }
+
+          i:hover{
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+          }
+
+        }
+
+        &__body{
+          display: flex;
+          width: 100%;
+          height: 70px;
+          justify-content: center;
+          align-items: center;
+
+          small{
+            font-size: 1.4rem;
+            color: green;
+          }
+        }
+
+        &__footer{
+          width: 100%;
+          height: 40px;
+          display: flex;
+          justify-content: flex-end;
+          justify-content: flex-end;
+
+          .delete{
+            background-color: red;
+          }
+
+        }
+
+      }
+    }
+
+  }
+}
+
+
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+  .content-family{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-height: 603px;
+    height: 100%;
+    position: relative;
+    padding: 10px 0;
+
+    app-navigation-left{
+      height: 40px;
+    }
+
+    &__body {
+      width: 95%;
+      margin: 0 auto;
+      min-height: 500px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+
+      &__header{
+        min-height: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        .content-search{
+          width: 100%;
+          border: 1px solid green;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          i{
+            padding: 5px 8px;
+            color: green;
+          }
+
+          input{
+            height: 30px;
+            padding: 5px 0;
+            border: none;
+            outline: none;
+          }
+
+          input::placeholder{
+            color: green;
+            font-size: 1rem;
+          }
+        }
+
+
+        .add-family{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+
+      }
+
+      &__body{
+        width: 100%;
+        min-height: 500px;
+        height: 100%;
+        margin-top: 5px;
+        border-top: 1px solid green;
+
+        p{
+          display: grid;
+          width: 100%;
+          min-height: 40px;
+          border-bottom: 1px solid green;
+          align-items: center;
+          padding: 0 5px;
+          transition: .3s ease all;
+          color: green;
+        }
+
+        p:hover{
+          cursor: pointer;
+          background-color: rgba(0, 80, 0, 32);
+          color: white;
+        }
+      }
+    }
+
+    .content-form {
+      transition: .3s ease all;
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .form-activate{
+      transition: .3s ease all;
+      visibility: visible;
+      opacity: 1;
+      width: 100%;
+      position: absolute;
+      background-color: rgba($color: #000000, $alpha: 0.6);
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: start;
+      align-content: center;
+      justify-content: center;
+      justify-items: center;
+
+      form{
+        width: 50%;
+        margin: 20px auto;
+        background-color: white;
+        padding: 20px 20px;
+        border-radius: 5px;
+
+        .btn-close{
+          display: grid;
+          justify-content: flex-end;
+          align-items: center;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-weight: bold;
+          }
+
+          button{
+            margin-left: auto;
+          }
+        }
+
+        button{
+          margin-right:5px;
+        }
+
+        .delete{
+          background-color: red;
+        }
+      }
+    }
+
+    .overlay{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .6);
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+      align-items: center;
+      justify-content: center;
+      transition: .3s ease all;
+    }
+
+    .overlay-active{
+      visibility: visible;
+      opacity: 1;
+      display: flex;
+      transition: .3s ease all;
+
+
+      .popup{
+        width: 40%;
+        height: 200px;
+        background-color: white;
+        border-radius: 5px;
+        transition: .3s ease all;
+        padding: 10px;
+
+        &__header{
+          height: 30px;
+          display: grid;
+          grid-template-columns: 80% 20%;
+          justify-content: flex-end;
+          align-items: center;
+
+          h1{
+            color: green;
+            padding: 5px 10px;
+            font-size: 1.3rem;
+            height: 100%;
+
+          }
+
+          i{
+            display: block;
+            font-size: 1.3rem;
+            color: green;
+            padding: 5px 10px;
+            margin-left: auto;
+            cursor: pointer;
+            border-radius: 50%;
+          }
+
+          i:hover{
+            background-color: red;
+            color: white;
+          }
+
+        }
+
+        &__body{
+          display: flex;
+          width: 100%;
+          height: 110px;
+          justify-content: center;
+          align-items: center;
+
+          small{
+            font-size: 1.4rem;
+            color: green;
+          }
+        }
+
+        &__footer{
+          width: 100%;
+          height: 40px;
+          display: flex;
+          justify-content: flex-end;
+          justify-content: flex-end;
+
+          .delete{
+            background-color: red;
+          }
+
+        }
+
+      }
+    }
+
+  }
+}
+
+
+@media screen and (min-width: 1001px) {
+  .content-family{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    height: max-content;
+    max-block-size: 100vh;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: content-box;
+
+    app-navigation-left{
+      min-height: 500px;
+      height: max-content;
+      width: 20%;
+      margin: 20px auto;
+    }
+
+    &__body {
+      width: 75%;
+      margin: 20px auto;
+      min-height: 500px;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+
+      &__header{
+        min-height: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        .content-search{
+          width: 100%;
+          border: 1px solid green;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          i{
+            padding: 5px 8px;
+            color: green;
+          }
+
+          input{
+            height: 30px;
+            padding: 5px 0;
+            border: none;
+            outline: none;
+          }
+
+          input::placeholder{
+            color: green;
+            font-size: 1rem;
+          }
+        }
+
+
+        .add-family{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+
+      }
+
+      &__body{
+        width: 100%;
+        height: max-content;
+        margin-top: 5px;
+        border-top: 1px solid green;
+
+        p{
+          display: grid;
+          width: 100%;
+          min-height: 40px;
+          border-bottom: 1px solid green;
+          align-items: center;
+          padding: 0 5px;
+          transition: .3s ease all;
+          color: green;
+        }
+
+        p:hover{
+          cursor: pointer;
+          background-color: rgba(0, 80, 0, 32);
+          color: white;
+        }
+      }
+    }
+
+    .content-form {
+      display: none;
+      opacity: 0;
+      min-height: 500px;
+      height: max-content;
+      visibility: hidden;
+      transition: .3s ease all;
+    }
+
+    .form-activate{
+      transition: .3s ease all;
+      visibility: visible;
+      opacity: 1;
+      width: 100%;
+      position: absolute;
+      background-color: rgba($color: #000000, $alpha: 0.6);
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: start;
+      align-content: center;
+      justify-content: center;
+      justify-items: center;
+      height: 100%;
+
+      form{
+        width: 40%;
+        margin: 20px auto;
+        background-color: white;
+        padding: 20px 20px;
+        border-radius: 5px;
+
+        .btn-close{
+          display: grid;
+          justify-content: flex-end;
+          align-items: center;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-weight: bold;
+          }
+
+          button{
+            margin-left: auto;
+          }
+        }
+
+        button{
+          margin-right:5px;
+        }
+
+        .delete{
+          background-color: red;
+        }
+      }
+    }
+
+    .overlay{
+      position: absolute;
+      width: 100%;
+      min-height: 500px;
+      height: max-content;
+      background-color: rgba(0, 0, 0, .6);
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+      align-items: center;
+      justify-content: center;
+      transition: .3s ease all;
+    }
+
+    .overlay-active{
+      visibility: visible;
+      opacity: 1;
+      display: flex;
+      transition: .3s ease all;
+      height: 100%;
+
+      .popup{
+        width: 35%;
+        height: 200px;
+        background-color: white;
+        border-radius: 5px;
+        transition: .3s ease all;
+        padding: 10px;
+
+        &__header{
+          height: 30px;
+          display: grid;
+          grid-template-columns: 80% 20%;
+          justify-content: flex-end;
+          align-items: center;
+
+          h1{
+            color: green;
+            padding: 5px 10px;
+            font-size: 1.3rem;
+            height: 100%;
+
+          }
+
+          i{
+            display: block;
+            font-size: 1.3rem;
+            color: green;
+            padding: 5px 10px;
+            margin-left: auto;
+            cursor: pointer;
+            border-radius: 50%;
+          }
+
+          i:hover{
+            background-color: red;
+            color: white;
+          }
+
+        }
+
+        &__body{
+          display: flex;
+          width: 100%;
+          height: 110px;
+          justify-content: center;
+          align-items: center;
+
+          small{
+            font-size: 1.4rem;
+            color: green;
+          }
+        }
+
+        &__footer{
+          width: 100%;
+          height: 40px;
+          display: flex;
+          justify-content: flex-end;
+          justify-content: flex-end;
+
+          .delete{
+            background-color: red;
+          }
+        }
+
+      }
+    }
+
+  }
+}
