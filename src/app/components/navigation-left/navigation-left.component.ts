@@ -39,9 +39,12 @@ export class NavigationLeftComponent implements OnInit {
     this.router.navigate(["sistema/familiares"]);
   }
 
+  protected solicituds () :void {
+    this.router.navigate(["sistema/solicitudes"]);
+  }
+
   protected cites () :void {
     this.router.navigate(["sistema/citas"]);
   }
-
 
 }

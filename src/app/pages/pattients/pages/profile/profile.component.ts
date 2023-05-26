@@ -24,6 +24,12 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPattient();
+    this.removeNavigation();
+  }
+
+  private removeNavigation(): void {
+    let navigation = document.querySelector(".navigation-user-active");
+    navigation?.classList.remove("navigation-user-active");
   }
 
   private getPattient(){

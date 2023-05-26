@@ -21,11 +21,17 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.deleteCssIndex();
+    this.removeNavigation();
   }
 
   private deleteCssIndex(): void {
-    const header = document.querySelector("header");
+    let header = document.querySelector("header");
     header?.classList.remove("index")
+  }
+
+  private removeNavigation(): void {
+    let navigation = document.querySelector(".navigation-active");
+    navigation?.classList.remove("navigation-active");
   }
 
   onSubmit(form: NgForm){

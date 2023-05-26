@@ -11,11 +11,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCss();
+    this.removeNavigation();
   }
 
   private loadCss(): void {
     const cssClass = document.querySelector("header");
     cssClass?.classList.add("index");
+  }
+
+  private removeNavigation(): void {
+    let navigation = document.querySelector(".navigation-active");
+    navigation?.classList.remove("navigation-active");
   }
 
 }

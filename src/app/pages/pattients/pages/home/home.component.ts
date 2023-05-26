@@ -10,7 +10,12 @@ export class HomeComponent implements OnInit{
   constructor(){}
 
   ngOnInit(): void {
+    this.removeNavigation();
   }
 
+  private removeNavigation(): void {
+    let navigation = document.querySelector(".navigation-user-active");
+    navigation?.classList.remove("navigation-user-active");
+  }
 
 }

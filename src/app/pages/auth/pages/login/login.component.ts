@@ -22,11 +22,17 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.deleteCssIndex();
+    this.removeNavigation();
   }
 
   private deleteCssIndex(): void {
     const header = document.querySelector("header");
     header?.classList.remove("index");
+  }
+
+  private removeNavigation(): void {
+    let navigation = document.querySelector(".navigation-active");
+    navigation?.classList.remove("navigation-active");
   }
 
   protected onSubmit(form: NgForm) {

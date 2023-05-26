@@ -21,13 +21,29 @@ export class HeaderComponent implements OnInit, DoCheck {
     this.identityUser = this.identityService.getUser();
   }
 
-  protected menuResponsive(){
-    this.loadNav = !this.loadNav;
+  protected showNavigation () : void {
+    let navigation = document.querySelector('.navigation');
+    let navigation_active = document.querySelector(".navigation-active");
+    if (navigation_active == null) {
+      navigation?.classList.add("navigation-active");
+    }else{
+      navigation?.classList.remove("navigation-active");
+    }
   }
+
+  protected showNavigationUser () : void {
+    let navigation = document.querySelector('.navigation-user');
+    let navigation_active = document.querySelector(".navigation-user-active");
+    if (navigation_active == null) {
+      navigation?.classList.add("navigation-user-active");
+    }else{
+      navigation?.classList.remove("navigation-user-active");
+    }
+  }
+
 
   protected logout(): void{
     sessionStorage.clear();
-    this.menuResponsive();
     this.router.navigate(['/iniciar-sesion']);
   }
 
