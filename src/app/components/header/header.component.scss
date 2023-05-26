@@ -1,70 +1,127 @@
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
   header{
-    width: 100;
+    width: 100%;
+    min-height: 50px;
     height: 50px;
     background-color: green;
-    // margin-bottom: 20px;
-    border-bottom: 1px solid black;
 
     .header{
-      height: 50px;
       width: 90%;
-      margin: 0 auto;
+      min-height: 50px;
+      height: 50px;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2,1fr);
       align-items: center;
-      color: white;
+      margin: 0 auto;
 
-      &_content-navigation{
-        height: 50%;
+      h1{
+        font-size: 1.4rem;
+      }
+
+      &__content-navigation{
         width: 100%;
         position: relative;
+        display: flex;
+        justify-content: flex-end;
 
-        .menu{
-          margin-top: -5px;
-          margin-left: 200px;
+        i{
           font-size: 1.4rem;
-          padding: 5px 15px;
-          border-radius: 50%;
-        }
-
-        .menu:hover{
-          background-color: rgba(0,82,0, 32);
+          color: white;
+          margin-left: auto;
+          padding: 5px 10px;
           cursor: pointer;
+          transition: .3s ease all;
         }
 
-        small{
-          height: 100%;
-          max-height: auto;
-          display: flex;
-          justify-content: center;
-          padding: 5px 0 0 0;
-          text-transform: capitalize;
-          margin-bottom: 20px;
+        i:hover{
+          border-radius: 50%;
+          background-color:rgba(0, 80, 0, 32);
+        }
 
-          i{
+        .navigation{
+          position: absolute;
+          left: auto;
+          width: 100%;
+          background-color: white;
+          min-height: 106px;
+          height: auto;
+          border-radius: 5px;
+          z-index: 1000;
+          top: 37px;
+          visibility: hidden;
+          opacity: 0;
+          transform: scaleY(0);
+          transition: .3s ease all;
+          border: 1px solid green;
+
+          li{
+            width: 100%;
+            border-bottom: 1px solid green;
+          }
+
+          li:last-child{
+            border-bottom: none;
+            border-end-end-radius: 5px;
+          }
+
+          li a{
+            display: block;
+            padding: 8px 5px;
+            transition: .5s ease all;
+            color: green;
+
+          }
+
+          li a:hover{
+            background: green;
             color: white;
-            margin-right: 6px;
           }
 
         }
 
-        small:hover{
-          background-color: rgba(0,82,0, 32);
-          cursor: pointer;
-          border-radius: 5px;
+        .navigation-active{
+          visibility: visible;
+          opacity: 1;
+          transform: scaleY(1);
         }
 
-        .navigation{
-          width: 100%;
-          margin-top: 30px;
-          position: absolute;
-          height: 105px;
+        .content-user{
+          display: inline-block;
+          padding: 5px 8px;
+          color: white;
+          font-size: 1.2rem;
+          text-transform: capitalize;
           border-radius: 5px;
-          padding: 0 5px;
-          background-color: white !important;
-          box-shadow: 5px 5px 10px darkgreen;
+          align-items: center;
+          cursor: pointer;
+          transition: .3s ease all;
+
+          i{
+            display: inline-block;
+            font-size: 1.4rem;
+            padding: 0;
+            margin: 0;
+          }
+        }
+
+        .content-user:hover{
+          background-color: rgba(0, 80, 0, 32);
+
+        }
+
+        .navigation-user{
+          width: 100%;
+          position: absolute;
+          left: auto;
+          top: 40px;
+          background-color: white;
           border: 1px solid green;
+          min-height: 106px;
+          border-radius: 5px;
+          transform: scaleY(.1);
+          transition: .3s ease all;
+          opacity: 0;
+          visibility: hidden;
           z-index: 1000;
 
           li{
@@ -72,16 +129,14 @@
 
             a{
               display: block;
-              text-align: left;
-              padding: 5px 0;
-              margin-top: 5px;
-              color: green;
+              padding: 8px 5px;
+              cursor: pointer;
               transition: .3s ease all;
             }
 
             a:hover{
-              cursor: pointer;
-              background-color: lightgray;
+              background-color: rgba(0, 80, 0, 32);
+              color: white;
             }
           }
 
@@ -89,145 +144,136 @@
             border-bottom: none;
           }
 
-
         }
 
-        .navigation-tablet{
-          display: none;
+        .navigation-user-active{
+          visibility: visible;
+          transform: scaleY(1);
+          opacity: 1;
         }
       }
     }
-
   }
 
-
-
   .index{
-    height: 300px;
     background-image: url("../../../assets/img/hospital.avif");
+    height: 400px;
+    width: 100%;
     background-size: 100% 100%;
 
     .header{
-      color: green;
-
       h1{
         color: green;
-        font-size: 1.4rem;
-        font-weight: bold;
-        text-shadow: 5px 5px 10px;
+        font-size: 1.5rem;
+        text-shadow: 10px 5px 10px rgba(0, 80, 0, 32);
       }
 
-      i:hover{
-        color: white;
-        background-color: rgba($color: #60B2C0, $alpha: 1);
-      }
+      &__content-navigation{
 
-      .navigation-tablet{
-        display: none;
-      }
+        i{
+          color: green;
+          transition: .6s ease all;
+        }
 
+        i:hover{
+          color: white;
+        }
+      }
     }
   }
-
 }
 
 @media screen and (min-width: 501px) and (max-width: 1000px) {
   header{
-    background: green;
+    width: 100%;
     min-height: 50px;
+    height: 50px;
+    background-color: green;
 
     .header{
       width: 90%;
+      min-height: 50px;
       height: 50px;
-      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2,1fr);
       align-items: center;
+      margin: 0 auto;
 
       h1{
-        font-size: 1.2rem;
-
+        font-size: 1.4rem;
       }
 
-      &_content-navigation{
+      &__content-navigation{
+        width: 100%;
         position: relative;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
 
-        .menu{
-          display: none;
+        i{
+          display: none
         }
 
-        .navigation{
-          display: none;
-        }
-
-        .navigation-tablet{
-          width: 100%;
+        .navigation {
           display: flex;
-          justify-content: flex-end;
-          height: 50px;
           align-items: center;
 
-          li{
+          li a{
             padding: 5px 10px;
-            margin-left: 5px;
+            margin-left: 10px;
+            color: white;
+            cursor: pointer;
+            transition: .3s ease all;
+          }
 
-            a{
-              color: white;
-              cursor: pointer;
-              padding: 10px 20px;
-              transition: .5s all ease;
-            }
-
-            a:hover{
-              background-color: rgba(0,82,0, 32);
-              border-radius: 5px;
-
-            }
+          li a:hover{
+            text-shadow: 5px 5px 5px rgba(0, 80, 0, 32);
           }
         }
 
-        small{
-          width: 55%;
-          height: 100%;
-          max-height: auto;
-          display: flex;
-          justify-content: center;
+        .content-user{
+          display: inline-block;
           padding: 10px 10px;
-          text-transform: capitalize;
           color: white;
+          font-size: 1.2rem;
+          text-transform: capitalize;
+          border-radius: 5px;
+          align-items: center;
+          cursor: pointer;
+          transition: .3s ease all;
 
           i{
-            color: white;
-            margin-right: 6px;
+            padding: 0;
+            margin: 0;
+            border-radius: none;
+            display: inline-block;
+            font-size: 1.2rem;
           }
 
+          i:hover{
+            border-radius: none;
+            background-color: transparent;
+          }
         }
 
-        small:hover{
-          background-color: rgba(0,82,0, 32);
-          cursor: pointer;
-          border-radius: 5px;
+        .content-user:hover{
+          background-color: rgba(0, 80, 0, 32);
+
         }
 
         .navigation-user{
-          display: flex;
-          flex-direction: column;
-          min-width: 55%;
-          width: 55%;
-          max-width: 60%;
-          margin-top: 43px;
-          left: auto;
+          width: 75%;
           position: absolute;
-          min-height: 105px;
-          height: 105px;
-          max-height: 115px;
-          border-radius: 5px;
-          padding: 0 5px;
-          background-color: white !important;
-          box-shadow: 5px 5px 10px darkgreen;
+          left: auto;
+          top: 45px;
+          background-color: white;
           border: 1px solid green;
+          min-height: 106px;
+          border-radius: 5px;
+          transform: scaleY(.1);
+          transition: .6s ease all;
+          opacity: 0;
+          visibility: hidden;
           z-index: 1000;
 
           li{
@@ -235,168 +281,153 @@
 
             a{
               display: block;
-              text-align: left;
-              padding: 5px 0;
-              margin-top: 5px;
-              color: green;
+              padding: 8px 5px;
+              cursor: pointer;
+              transition: .3s ease all;
             }
 
             a:hover{
-              cursor: pointer;
-              background-color: lightgray;
+              background-color: rgba(0, 80, 0, 32);
+              color: white;
             }
           }
 
           li:last-child{
             border-bottom: none;
           }
-        }
 
+        }
+        .navigation-user-active{
+          visibility: visible;
+          transform: scaleY(1);
+          opacity: 1;
+        }
       }
     }
-
   }
 
   .index{
-    min-height: 450px;
     background-image: url("../../../assets/img/hospital.avif");
+    height: 500px;
+    width: 100%;
     background-size: 100% 100%;
-    margin-bottom: 20px;
 
     .header{
-
       h1{
         color: green;
-        font-size: 1.3rem;
-        text-shadow: 5px 5px 10px;
+        font-size: 1.5rem;
+        text-shadow: 10px 5px 10px rgba(0, 80, 0, 32);
       }
 
-      .navigation{
-        display: none;
-      }
+      &__content-navigation{
 
-      .navigation-tablet {
-        display: flex;
-        justify-content: flex-end;
+        i{
+          color: green;
+          transition: .6s ease all;
+        }
 
-        li{
-          a{
-            color: green;
-            cursor: pointer;
-            transition: .5s all ease;
-            font-weight: bold;
-          }
+        i:hover{
+          color: white;
+        }
 
-          a:hover{
-            background-color: rgba($color: #60B2C0, $alpha: 1);
-            color: white;
-            border-radius: 5px;
-            box-shadow: 2px 2px 2px green;
+        .navigation{
+
+          li{
+            a{
+              color: green;
+              font-weight: bold;
+            }
           }
         }
       }
     }
-
   }
 }
 
+
 @media screen and (min-width: 1001px) {
   header{
-    background-color: green;
+    width: 100%;
     min-height: 50px;
+    height: 50px;
+    background-color: green;
 
     .header{
-      min-height: 50px;
       width: 90%;
-      margin: 0 auto;
+      min-height: 50px;
+      height: 50px;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2,1fr);
       align-items: center;
+      margin: 0 auto;
 
       h1{
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
 
-      &_content-navigation {
+      &__content-navigation{
+        width: 100%;
         position: relative;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
 
-        .menu{
-          display: none;
+        i{
+          display: none
         }
 
-        .navigation{
-          display: none;
-        }
-
-        .navigation-tablet{
+        .navigation {
           display: flex;
-          justify-content: flex-end;
           align-items: center;
-          width: 100%;
-          min-height: 50px;
 
-          li{
-            margin-left: 15px;
+          li a{
+            padding: 5px 10px;
+            margin-left: 10px;
+            color: white;
+            cursor: pointer;
+            transition: .3s ease all;
+          }
 
-            a{
-              color: white;
-              cursor: pointer;
-              padding: 10px 10px;
-              transition: .5s all ease;
-            }
-
-            a:hover{
-              background-color: rgba(0,82,0, 32);
-              border-radius: 5px;
-
-            }
-
-
+          li a:hover{
+            text-shadow: 5px 5px 5px rgba(0, 80, 0, 32);
           }
         }
 
-        small{
-          width: 25%;
-          height: 100%;
-          max-height: auto;
-          display: flex;
-          justify-content: center;
+        .content-user{
+          display: inline-block;
           padding: 10px 10px;
-          text-transform: capitalize;
           color: white;
+          font-size: 1.2rem;
+          text-transform: capitalize;
+          border-radius: 5px;
+          align-items: center;
+          cursor: pointer;
+          transition: .3s ease all;
 
           i{
-            color: white;
-            margin-right: 6px;
+            display: inline-block;
+            font-size: 1.4rem;
           }
-
         }
 
-        small:hover{
-          background-color: rgba(0,82,0, 32);
-          cursor: pointer;
-          border-radius: 5px;
+        .content-user:hover{
+          background-color: rgba(0, 80, 0, 32);
+
         }
 
         .navigation-user{
-          display: flex;
-          flex-direction: column;
-          min-width: 35%;
-          width: 35%;
-          max-width: 60%;
-          margin-top: 43px;
-          left: auto;
+          width: 40%;
           position: absolute;
-          min-height: 105px;
-          height: 105px;
-          max-height: 115px;
-          border-radius: 5px;
-          padding: 0 5px;
-          background-color: white !important;
-          box-shadow: 5px 5px 10px darkgreen;
+          left: auto;
+          top: 45px;
+          background-color: white;
           border: 1px solid green;
+          min-height: 106px;
+          border-radius: 5px;
+          transform: scaleY(.1);
+          transition: .3s ease all;
+          opacity: 0;
+          visibility: hidden;
           z-index: 1000;
 
           li{
@@ -404,75 +435,68 @@
 
             a{
               display: block;
-              text-align: left;
-              padding: 5px 0;
-              margin-top: 5px;
-              color: green;
+              padding: 8px 5px;
+              cursor: pointer;
+              transition: .3s ease all;
             }
 
             a:hover{
-              cursor: pointer;
-              background-color: lightgray;
+              background-color: rgba(0, 80, 0, 32);
+              color: white;
             }
           }
 
           li:last-child{
             border-bottom: none;
           }
+
         }
 
+        .navigation-user-active{
+          visibility: visible;
+          transform: scaleY(1);
+          opacity: 1;
+        }
 
       }
-
     }
-
   }
 
   .index{
-    min-height: 700px;
     background-image: url("../../../assets/img/hospital.avif");
+    min-height: 400px;
+    height: 600px;
+    width: 100%;
     background-size: 100% 100%;
 
     .header{
       h1{
         color: green;
         font-size: 1.5rem;
-        text-shadow: 5px 5px 10px;
+        text-shadow: 10px 5px 10px rgba(0, 80, 0, 32);
       }
 
-      &_content-navigation{
+      &__content-navigation{
 
-        .menu{
-          display: none;
+        i{
+          color: green;
+          transition: .6s ease all;
+        }
+
+        i:hover{
+          color: white;
         }
 
         .navigation{
-          display: none;
-        }
-
-        .navigation-tablet {
-          display: flex;
 
           li{
             a{
               color: green;
-              cursor: pointer;
               font-weight: bold;
-              transition: .5s all ease;
-            }
-
-            a:hover{
-              background-color: rgba($color: #60B2C0, $alpha: 1);
-              color: white;
-              border-radius: 5px;
-              box-shadow: 2px 2px 2px green;
             }
           }
-
         }
-
       }
     }
-
   }
 }

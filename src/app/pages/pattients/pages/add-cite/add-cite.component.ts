@@ -35,12 +35,18 @@ export class AddCiteComponent implements OnInit{
   ){
     this.token = this.identityService.getToken();
     this.pattient = this.identityService.getUser();
-    this.cite = new Cite("", "", "", "", "", "", "", "");
+    this.cite = new Cite(1,"", "", "", "", "", "", "", "", "", "", "", "", "");
   }
 
   ngOnInit(): void {
+    this.removeNavigation();
     this.allFamily();
     this.allSpecialitys();
+  }
+
+  private removeNavigation(): void {
+    let navigation = document.querySelector(".navigation-user-active");
+    navigation?.classList.remove("navigation-user-active");
   }
 
   protected searchFamily(search:string): void{

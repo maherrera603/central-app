@@ -1,27 +1,21 @@
 <header>
   <div class="header">
     <h1>Central De Citas</h1>
-    <div class="header_content-navigation">
-      <i class="fa-solid fa-ellipsis-vertical menu" (click)="menuResponsive()" *ngIf="!identityUser"></i>
-      <ul class="navigation" *ngIf="loadNav && !identityUser">
-        <li><a routerLink="registro"  (click)="menuResponsive()">Registrarse</a></li>
-        <li><a routerLink="iniciar-sesion" (click)="menuResponsive()">Iniciar Sesion</a></li>
-        <li><a routerLink="/" (click)="menuResponsive()">Inicio</a></li>
+    <div class="header__content-navigation">
+      <i class="fa-solid fa-ellipsis-vertical" (click)="showNavigation()" *ngIf="!identityUser"></i>
+      <ul class="navigation" *ngIf="!identityUser">
+        <li><a routerLink="registro">Registrarse</a></li>
+        <li><a routerLink="iniciar-sesion">Ingresar</a></li>
+        <li><a routerLink="">Inicio</a></li>
       </ul>
+      <div class="content-user" (click)="showNavigationUser()" *ngIf="identityUser">
+        <i class="fa-solid fa-user"></i> {{identityUser.name}}
+      </div>
 
-      <ul class="navigation navigation-tablet" *ngIf="!identityUser">
-        <li><a routerLink="registro"  (click)="menuResponsive()">Registrarse</a></li>
-        <li><a routerLink="iniciar-sesion" (click)="menuResponsive()">Ingresar</a></li>
-        <li><a routerLink="/" (click)="menuResponsive()">Inicio</a></li>
-      </ul>
-
-      <small *ngIf="identityUser" (click)="menuResponsive()">
-        <i class="fa-solid fa-user-large"></i> {{identityUser.name}}
-      </small>
-      <ul class="navigation navigation-user" (click)="menuResponsive()" *ngIf="loadNav && identityUser">
-        <li><a routerLink="sistema/perfil/"> <i class="fa-solid fa-user"></i> Perfil</a></li>
-        <li><a><i class="fa-solid fa-lock"></i> Cambiar Contraseña</a></li>
-        <li><a (click)="logout()"><i class="fa-sharp fa-solid fa-door-closed"></i> Salir</a></li>
+      <ul class="navigation-user" *ngIf="identityUser">
+        <li><a routerLink="sistema/perfil">Perfil</a></li>
+        <li><a>Cambiar Contraseña</a></li>
+        <li><a (click)="logout()">Salir</a></li>
       </ul>
 
     </div>

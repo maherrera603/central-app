@@ -28,7 +28,13 @@ export class AddFamilyComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.removeNavigation();
     this.allFamilys();
+  }
+
+  private removeNavigation(): void {
+    let navigation = document.querySelector(".navigation-user-active");
+    navigation?.classList.remove("navigation-user-active");
   }
 
   private allFamilys(): void {

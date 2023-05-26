@@ -147,7 +147,7 @@
             [(ngModel)]="cite.speciality"
             required
           >
-            <option value="">Seleccione cita medica...</option>
+            <option value="" selected>Seleccione cita medica...</option>
             <option *ngFor="let speciality of specialitys" value="{{speciality.speciality}}">{{speciality.speciality}}</option>
           </select>
           <small class="error-valid" *ngIf="cites.value == '' && cites.touched">
@@ -155,8 +155,7 @@
           </small>
         </div>
 
-        <button type="submit">Solicitar</button>
-
+        <button type="submit" [disabled]="f.invalid">Solicitar</button>
       </div>
 
     </form>
