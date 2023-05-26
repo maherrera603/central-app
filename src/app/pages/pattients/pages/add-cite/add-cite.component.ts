@@ -53,10 +53,8 @@ export class AddCiteComponent implements OnInit{
     if(search.length > 0){
       this.familyService.searchFamily(this.token, search).subscribe(
         response => {
-          console.log(response);
           if (response.status == "OK"){
             this.familys = response.familys;
-
           }else{
             this.alertComponent.error(response.message);
           }
