@@ -1,0 +1,640 @@
+@media screen and (max-width: 500px){
+  .content-employee{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-height: 500px;
+    height: 100%;
+    position: relative;
+    padding: 10px 0;
+
+    app-navigation-left{
+      height: 40px;
+    }
+
+
+    &__body {
+      width: 95%;
+      margin: 0 auto;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+
+      &__header{
+        min-height: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        .content-search{
+          width: 100%;
+          border: 1px solid green;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          i{
+            padding: 5px 8px;
+            color: green;
+          }
+
+          input{
+            width: 100%;
+            height: 30px;
+            padding: 5px 0;
+            border: none;
+            outline: none;
+          }
+
+          input::placeholder{
+            color: green;
+            font-size: 1rem;
+          }
+        }
+
+        .add-employee{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+
+      }
+
+      &__body{
+        width: 100%;
+        min-height: 500px;
+        height: 100%;
+        margin-top: 5px;
+        border-top: 1px solid green;
+
+        p{
+          display: grid;
+          width: 100%;
+          min-height: 40px;
+          border-bottom: 1px solid green;
+          align-items: center;
+          padding: 0 5px;
+          transition: .3s ease all;
+          color: green;
+        }
+
+        p:hover{
+          cursor: pointer;
+          background-color: rgba(0, 80, 0, 32);
+          color: white;
+        }
+      }
+    }
+
+    .content-form{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .form{
+        width: 90%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        transition: .5s ease all;
+        transform: scale(0.1);
+        opacity: 0;
+
+        &__header{
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-size: 1.3rem;
+          }
+
+          .close{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            i{
+              font-size: 1.4rem;
+              color: green;
+              cursor: pointer;
+              padding: 5px 8px;
+              transition: all .7s ease;
+            }
+
+            i:hover{
+              background-color: red;
+              color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        button{
+          margin-right: 10px;
+        }
+        .delete{
+          background-color: red;
+        }
+      }
+
+    }
+
+    .content-form-active{
+      visibility: visible;
+
+      .form{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 1000px){
+  .content-employee{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    min-height: 500px;
+    height: 100%;
+    position: relative;
+    padding: 10px 0;
+
+    app-navigation-left{
+      height: 40px;
+    }
+
+
+    &__body {
+      width: 95%;
+      margin: 0 auto;
+      min-height: 500px;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+
+      &__header{
+        min-height: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        .content-search{
+          width: 100%;
+          border: 1px solid green;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          i{
+            padding: 5px 8px;
+            color: green;
+          }
+
+          input{
+            width: 100%;
+            height: 30px;
+            padding: 5px 0;
+            border: none;
+            outline: none;
+          }
+
+          input::placeholder{
+            color: green;
+            font-size: 1rem;
+          }
+        }
+
+        .add-employee{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+
+      }
+
+      &__body{
+        width: 100%;
+        min-height: 500px;
+        height: 100%;
+        margin-top: 5px;
+        border-top: 1px solid green;
+
+        p{
+          display: grid;
+          width: 100%;
+          min-height: 40px;
+          border-bottom: 1px solid green;
+          align-items: center;
+          padding: 0 5px;
+          transition: .3s ease all;
+          color: green;
+        }
+
+        p:hover{
+          cursor: pointer;
+          background-color: rgba(0, 80, 0, 32);
+          color: white;
+        }
+      }
+    }
+
+    .content-form{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .form{
+        width: 70%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        transition: .5s ease all;
+        transform: scale(0.1);
+        opacity: 0;
+
+        &__header{
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-size: 1.3rem;
+          }
+
+          .close{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            i{
+              font-size: 1.4rem;
+              color: green;
+              cursor: pointer;
+              padding: 5px 8px;
+              transition: all .7s ease;
+            }
+
+            i:hover{
+              background-color: red;
+              color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        button{
+          margin-right: 10px;
+        }
+        .delete{
+          background-color: red;
+        }
+      }
+
+    }
+
+    .content-form-active{
+      visibility: visible;
+
+      .form{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .content-employee{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    height: max-content;
+    max-block-size: 100vh;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: content-box;
+
+    app-navigation-left{
+      min-height: 500px;
+      height: max-content;
+      width: 20%;
+      margin: 20px auto;
+    }
+
+    &__body {
+      width: 75%;
+      margin: 20px auto;
+      min-height: 500px;
+      height: max-content;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+
+      &__header{
+        min-height: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+
+        .content-search{
+          width: 100%;
+          border: 1px solid green;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          i{
+            padding: 5px 8px;
+            color: green;
+          }
+
+          input{
+            width: 100%;
+            height: 30px;
+            padding: 5px 0;
+            border: none;
+            outline: none;
+          }
+
+          input::placeholder{
+            color: green;
+            font-size: 1rem;
+          }
+        }
+
+        .add-employee{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
+
+      }
+
+      &__body{
+        width: 100%;
+        height: max-content;
+        margin-top: 5px;
+        border-top: 1px solid green;
+
+        p{
+          display: grid;
+          width: 100%;
+          min-height: 40px;
+          border-bottom: 1px solid green;
+          align-items: center;
+          padding: 0 5px;
+          transition: .3s ease all;
+          color: green;
+        }
+
+        p:hover{
+          cursor: pointer;
+          background-color: rgba(0, 80, 0, 32);
+          color: white;
+        }
+      }
+    }
+
+    .content-form{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .form{
+        width: 70%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        transition: .5s ease all;
+        transform: scale(0.1);
+        opacity: 0;
+
+        &__header{
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-size: 1.3rem;
+          }
+
+          .close{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            i{
+              font-size: 1.4rem;
+              color: green;
+              cursor: pointer;
+              padding: 5px 8px;
+              transition: all .7s ease;
+            }
+
+            i:hover{
+              background-color: red;
+              color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        &__body{
+          display: grid;
+          grid-template-columns: repeat(2,1fr);
+          gap: 10px;
+        }
+
+        button{
+          margin-right: 10px;
+        }
+        .delete{
+          background-color: red;
+        }
+      }
+
+    }
+
+    .content-form-delete{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .form{
+        width: 70%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        transition: .5s ease all;
+        transform: scale(0.1);
+        opacity: 0;
+
+        &__header{
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-size: 1.3rem;
+          }
+
+          .close{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            i{
+              font-size: 1.4rem;
+              color: green;
+              cursor: pointer;
+              padding: 5px 8px;
+              transition: all .7s ease;
+            }
+
+            i:hover{
+              background-color: red;
+              color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        &__body{
+          display: grid;
+          gap: 10px;
+        }
+
+        button{
+          margin-right: 10px;
+        }
+        .delete{
+          background-color: red;
+        }
+      }
+
+    }
+
+    .content-form-active{
+      visibility: visible;
+
+      .form{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .overlay{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .popup {
+        width: 30%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: scale(.1);
+        transition: .5s ease all;
+
+        &__header{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            font-size: 1.3rem;
+            color: green;
+          }
+
+          i{
+            margin-left: auto;
+            color: green;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 5px 8px;
+            transition: .7s ease all;
+          }
+
+          i:hover{
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+          }
+        }
+
+        &__body{
+          width: 100%;
+          padding: 20px;
+          text-align: center;
+
+          small{
+            font-size: 1.3rem;
+            color: green;
+          }
+
+        }
+
+        &__footer{
+          display: flex;
+          justify-content: flex-end;
+
+          button{
+            background-color: red;
+          }
+        }
+      }
+    }
+
+    .overlay-active{
+      visibility: visible;
+
+
+      .popup{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+}
+

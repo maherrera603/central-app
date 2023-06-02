@@ -18,8 +18,8 @@
     </div>
 
     <div class="content-cites__body__body">
-      <p class="content-person" *ngFor="let cite of cites" title="Ver" (click)="loadForm(cite.id, cite.id_status)">
-        <small class="information">{{cite.name}} {{cite.lastname}}</small>
+      <p class="content-person" *ngFor="let cite of cites; let indice = index" title="Ver" (click)="loadForm(cite.id, cite.id_status)">
+        <small class="information"> {{indice+1}} {{cite.name}} {{cite.lastname}}</small>
         <small class="status">{{cite.id_status}}</small>
       </p>
     </div>
