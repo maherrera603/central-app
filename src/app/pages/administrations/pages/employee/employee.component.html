@@ -1,0 +1,276 @@
+<div class="content-employee">
+  <app-navigation-left></app-navigation-left>
+
+  <div class="content-employee__body">
+    <div class="content-employee__body__header">
+      <div class="content-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          #search="ngModel"
+          (ngModel)="search"
+          placeholder="Buscar..."
+          (keyup)="searchEmployee(search.value)">
+      </div>
+      <div class="add-employee">
+        <button type="button" title="Agregar" (click)="openForm()"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    </div>
+    <div class="content-employee__body__body">
+      <p *ngFor="let employee of employees; let indice = index" (click)="getEmployee(employee.document)">
+        {{indice+1}} {{employee.name}} {{employee.lastname}}
+      </p>
+    </div>
+  </div>
+
+  <div class="content-form">
+    <form class="form" #f="ngForm" (submit)="onSubmit(f)">
+      <div class="form__header">
+        <h1>Agregar Empleado</h1>
+        <div class="close">
+          <i class="fa-solid fa-xmark" (click)="closeForm()"></i>
+        </div>
+      </div>
+      <div class="form__body">
+        <div class="form-control">
+          <label for="name">Nombres</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            #name="ngModel"
+            [(ngModel)]="employee.name"
+            pattern="[a-zA-Z\s]{3,20}$"
+            required
+          >
+          <small class="error-valid" *ngIf="!name.valid && name.touched">
+            El campo debe contener de 3 a 20 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <label for="lastname">Apellidos</label>
+          <input
+            type="text"
+            name="lastname"
+            id="lastname"
+            #lastname="ngModel"
+            [(ngModel)]="employee.lastname"
+            pattern="[a-zA-Z\s]{3,20}$"
+            required
+          >
+          <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
+            El campo debe contener de 3 a 20 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <label for="type_document">Tipo de documento</label>
+          <select
+            name="type_document"
+            id="type_document"
+            #type_document="ngModel"
+            [(ngModel)]="employee.type_document"
+            required
+          >
+            <option value="">Seleccione tipo de documento...</option>
+            <option value="cedula de ciudadania">Cedula de ciudadania</option>
+          </select>
+          <small class="error-valid" *ngIf="type_document.value == '' && type_document.touched">
+            Seleccione el tipo de documento
+          </small>
+
+        </div>
+        <div class="form-control">
+          <label for="document">Documento</label>
+          <input
+            ype="text"
+            name="document"
+            id="document"
+            #document="ngModel"
+            [(ngModel)]="employee.document"
+            pattern="[a-zA-Z\d\s]{7,20}$"
+            required
+          >
+          <small class="error-valid" *ngIf="!document.valid && document.touched">
+            El campo debe contener de 7 a 20 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <label for="phone">Telefono</label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            #phone="ngModel"
+            [(ngModel)]="employee.phone"
+            pattern="[\d]{10,10}"
+            required
+          >
+          <small class="error-valid" *ngIf="!phone.valid && phone.touched">
+            El campo debe contener 10 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <label for="email">Correo electronico</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            #email="ngModel"
+            [(ngModel)]="employee.email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+            required
+          >
+          <small class="error-valid" *ngIf="!email.valid && email.touched">
+            Formato de correo invalido
+          </small>
+        </div>
+        <div class="form-control">
+          <label for="password">Contreseña</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            #password="ngModel"
+            [(ngModel)]="employee.password"
+            pattern="[a-zA-Z\d]{8,12}$"
+            required
+          >
+          <small class="error-valid" *ngIf="!password.valid && password.touched">
+            El campo debe contenter de 8 a 12 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <label for="confirmPassword">Confirmar contraseña</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            #confirmPassword="ngModel"
+            (ngModel)="confirmPassword"
+            pattern="[a-zA-Z\d]{8,12}$"
+            required
+          >
+          <small class="error-valid" *ngIf="!confirmPassword.valid && confirmPassword.touched">
+            El campo debe contenter de 8 a 12 caracteres
+          </small>
+          <small class="error-valid" *ngIf="password.value != confirmPassword.value">
+            Las constraseñas son incorrectas
+          </small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="f.invalid">Guardar</button>
+    </form>
+  </div>
+
+  <div class="content-form-delete">
+    <form class="form">
+      <div class="form__header">
+        <h1>Info. {{employee.name}} {{employee.lastname}}</h1>
+        <div class="close">
+          <i class="fa-solid fa-xmark" (click)="closeFormDelete()"></i>
+        </div>
+      </div>
+      <div class="form__body">
+        <div class="form-control">
+          <label for="name">Nombres</label>
+          <input
+            type="text"
+            name="names"
+            id="names"
+            #names="ngModel"
+            [(ngModel)]="employee.name"
+            pattern="[a-zA-Z\s]{3,20}$"
+            required
+            readonly
+          >
+          <small class="error-valid" *ngIf="!name.valid && name.touched">
+            El campo debe contener de 3 a 20 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <label for="lastname">Apellidos</label>
+          <input
+            type="text"
+            name="lastnames"
+            id="lastnames"
+            #lastnames="ngModel"
+            [(ngModel)]="employee.lastname"
+            pattern="[a-zA-Z\s]{3,20}$"
+            required
+            readonly
+          >
+          <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
+            El campo debe contener de 3 a 20 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <label for="type_documents">Tipo de documento</label>
+          <input
+            type="text"
+            name="type_document"
+            id="type_documents"
+            #type_document="ngModel"
+            [(ngModel)]="employee.type_document"
+            required
+            readonly
+          >
+          <small class="error-valid" *ngIf="type_document.value == '' && type_document.touched">
+            Seleccione el tipo de documento
+          </small>
+
+        </div>
+        <div class="form-control">
+          <label for="document">Documento</label>
+          <input
+            ype="text"
+            name="documents"
+            id="documents"
+            #documents="ngModel"
+            [(ngModel)]="employee.document"
+            pattern="[a-zA-Z\d\s]{7,20}$"
+            required
+            readonly
+          >
+          <small class="error-valid" *ngIf="!document.valid && document.touched">
+            El campo debe contener de 7 a 20 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <label for="phone">Telefono</label>
+          <input
+            type="tel"
+            name="phones"
+            id="phones"
+            #phones="ngModel"
+            [(ngModel)]="employee.phone"
+            pattern="[\d]{10,10}"
+            required
+            readonly
+          >
+          <small class="error-valid" *ngIf="!phone.valid && phone.touched">
+            El campo debe contener 10 caracteres
+          </small>
+        </div>
+
+      </div>
+      <button type="submit" class="delete" (click)="openOverlay()">Eliminar</button>
+    </form>
+  </div>
+
+  <div class="overlay">
+    <div class="popup">
+      <div class="popup__header">
+        <h1>Eliminar Familiar</h1>
+        <i class="fa-solid fa-xmark" (click)="closeOverlay()"></i>
+      </div>
+      <div class="popup__body">
+        <small>¿Desea Eliminar a {{employee.name}}?</small>
+      </div>
+      <div class="popup__footer">
+        <button type="button" class="delete" (click)="deleteEmployee(employee.document)"><i class="fa-solid fa-trash"></i> Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

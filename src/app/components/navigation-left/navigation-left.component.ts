@@ -1,20 +1,23 @@
 import { ConstantPool } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IdentityService } from '@app/services/identity.service';
 
 @Component({
   selector: 'app-navigation-left',
   templateUrl: './navigation-left.component.html',
-  styleUrls: ['./navigation-left.component.scss']
+  styleUrls: ['./navigation-left.component.scss'],
+  providers: [IdentityService]
 })
 export class NavigationLeftComponent implements OnInit {
-  @Input() page!:string;
+  protected role!:string | null;
 
-  constructor(private router: Router){
+  constructor(private router: Router, private identityService: IdentityService){
   }
 
   ngOnInit(): void {
     this.showNavbar();
+    this.role = this.identityService.getRole();
   }
 
   private showNavbar(): void {
@@ -31,20 +34,28 @@ export class NavigationLeftComponent implements OnInit {
       visible = !visible;
     })
   }
-  protected principal () :void {
+  protected principal (): void {
     this.router.navigate(["sistema"]);
   }
 
-  protected familys () :void {
+  protected familys (): void {
     this.router.navigate(["sistema/familiares"]);
   }
 
-  protected solicituds () :void {
+  protected solicituds (): void {
     this.router.navigate(["sistema/solicitudes"]);
   }
 
-  protected cites () :void {
+  protected cites (): void {
     this.router.navigate(["sistema/citas"]);
+  }
+
+  protected principalAdministrador(): void {
+    this.router.navigate(["administrador"]);
+  }
+
+  protected employees(): void {
+    this.router.navigate(["administrador/empleados"]);
   }
 
 }

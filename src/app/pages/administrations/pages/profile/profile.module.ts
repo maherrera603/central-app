@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
+import { NavigationLeftModule } from '@app/components/navigation-left/navigation-left.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { NavigationLeftModule } from '@app/components/navigation-left/navigation-left.module';
 
 
 @NgModule({
@@ -14,12 +13,11 @@ import { NavigationLeftModule } from '@app/components/navigation-left/navigation
     ProfileComponent
   ],
   imports: [
-    ProfileRoutingModule,
     CommonModule,
+    ProfileRoutingModule,
+    NavigationLeftModule,
     FormsModule,
-    HttpClientModule,
-    RouterModule,
-    NavigationLeftModule
+    HttpClientModule
   ]
 })
 export class ProfileModule { }

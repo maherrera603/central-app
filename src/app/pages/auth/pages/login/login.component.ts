@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
     let roleLowerCase = role.toLowerCase();
     switch(roleLowerCase){
       case "administrador":
-        this.alert.success("welcome administrador")
+        this.router.navigate(["administrador"]);
         break;
       case "empleado":
         this.alert.success("welcome empleado!");

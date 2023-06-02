@@ -9,16 +9,26 @@ p{
   transition: .3s ease all;
   padding: 5px 10px;
   line-height: 30px;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale3d(0);
 }
 
 .success{
   text-align: center;
   background-color: green;
   color: white;
+  transition: .3s ease all;
+  transform: scale3d(1);
+  z-index: 1000;
 }
 
 .error{
   text-align: center;
   color: white;
   background-color: red;
+  transition: .3s ease all;
+  opacity: 1;
+  transform: scale3d(1);
+  z-index: 1000;
 }

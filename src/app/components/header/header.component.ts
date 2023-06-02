@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit, DoCheck {
   protected loadNav:boolean = false;
   protected identityUser:any;
+  protected role!:string|null;
 
   constructor(private identityService: IdentityService, private router: Router){
   }
@@ -19,6 +20,7 @@ export class HeaderComponent implements OnInit, DoCheck {
 
   ngDoCheck(): void {
     this.identityUser = this.identityService.getUser();
+    this.role = this.identityService.getRole();
   }
 
   protected showNavigation () : void {

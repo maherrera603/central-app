@@ -24,8 +24,8 @@
     </div>
 
     <div class="content-cites__body__body">
-      <p *ngFor="let family of familys" (click)="loadForm(family.document)" >
-        {{family.name}} {{family.lastname}}
+      <p *ngFor="let family of familys; let indice = index" (click)="loadForm(family.document)" >
+        {{indice+1}} {{family.name}} {{family.lastname}}
       </p>
     </div>
   </div>

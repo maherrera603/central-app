@@ -14,6 +14,7 @@ import { PermissionService } from './services/permission.service';
 import { NotpermissionService } from './services/notpermission.service';
 import { RouterModule } from '@angular/router';
 import { FamilyService } from './services/family.service';
+import { EmployeeService } from './services/employee-service.service';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { FamilyService } from './services/family.service';
     PermissionService,
     NotpermissionService,
     FamilyService,
+    EmployeeService
   ],
   bootstrap: [AppComponent]
 })
