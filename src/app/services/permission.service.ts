@@ -14,7 +14,7 @@ export class PermissionService implements CanActivate{
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     let identity = this.identityService.getUser();
     let role = this.identityService.getRole();
-    return (!identity && role != "Paciente") ? this.router.navigate(["/iniciar-sesion"]) : true;
+    return (!identity && role != "paciente") ? this.router.navigate(["/iniciar-sesion"]) : true;
   }
 
 }

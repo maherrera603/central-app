@@ -1,13 +1,13 @@
 <label for="menu" id="menu"><i class="fa-solid fa-bars"></i> Menu</label>
 <nav>
-  <ul *ngIf="role == 'Paciente'">
+  <ul *ngIf="role == 'paciente'">
     <li><a (click)="principal()">Inicio</a></li>
     <li><a (click)="familys()">Familiares</a></li>
     <li><a (click)="solicituds()">Solicitar Cita</a></li>
     <li><a (click)="cites()">Citas</a></li>
   </ul>
 
-  <ul *ngIf="role == 'Administrador'">
+  <ul *ngIf="role == 'administrador'">
     <li><a (click)="principalAdministrador()">Inicio</a></li>
     <li><a (click)="employees()">Empleados</a></li>
     <li><a >Medicos</a></li>

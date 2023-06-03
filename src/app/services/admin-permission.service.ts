@@ -14,6 +14,6 @@ export class AdminPermissionService implements CanActivate{
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     let identity = this.identityService.getUser();
     let role = this.identityService.getRole();
-    return (!identity && role != "Administrador") ? this.router.navigate(["/iniciar-sesion"]) : true;
+    return (!identity && role != "administrador") ? this.router.navigate(["/iniciar-sesion"]) : true;
   }
 }
