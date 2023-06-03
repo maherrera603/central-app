@@ -19,7 +19,7 @@ export class NotpermissionService implements CanActivate{
   }
 
   private urlRole(role:string|null) : string{
-    return (role === "Paciente") ? "sistema" : (role == "Administrador") ? "adminstrador":  "iniciar-sesion";
+    return (role === "paciente") ? "sistema" : (role == "administrador") ? "adminstrador":  "iniciar-sesion";
   }
 
 }

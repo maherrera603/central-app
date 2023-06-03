@@ -98,7 +98,7 @@
       visibility: hidden;
 
       .form{
-        width: 90%;
+        width: 95%;
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
         border-radius: 3px;
@@ -138,6 +138,77 @@
           }
         }
 
+        &__body{
+          display: grid;
+          grid-template-columns: repeat(2,1fr);
+          gap: 10px;
+        }
+
+        button{
+          margin-right: 10px;
+        }
+        .delete{
+          background-color: red;
+        }
+      }
+
+    }
+
+    .content-form-delete{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .form{
+        width: 95%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        transition: .5s ease all;
+        transform: scale(0.1);
+        opacity: 0;
+
+        &__header{
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-size: 1.3rem;
+          }
+
+          .close{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            i{
+              font-size: 1.4rem;
+              color: green;
+              cursor: pointer;
+              padding: 5px 8px;
+              transition: all .7s ease;
+            }
+
+            i:hover{
+              background-color: red;
+              color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        &__body{
+          display: grid;
+          gap: 10px;
+        }
+
         button{
           margin-right: 10px;
         }
@@ -156,6 +227,87 @@
         transform: scale(1);
       }
     }
+
+    .overlay{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .popup {
+        min-width: 40%;
+        width: 80%;
+        max-width: 90%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: scale(.1);
+        transition: .5s ease all;
+
+        &__header{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            font-size: 1.3rem;
+            color: green;
+          }
+
+          i{
+            margin-left: auto;
+            color: green;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 5px 8px;
+            transition: .7s ease all;
+          }
+
+          i:hover{
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+          }
+        }
+
+        &__body{
+          width: 100%;
+          padding: 20px;
+          text-align: center;
+
+          small{
+            font-size: 1.3rem;
+            color: green;
+          }
+
+        }
+
+        &__footer{
+          display: flex;
+          justify-content: flex-end;
+
+          button{
+            background-color: red;
+          }
+        }
+      }
+    }
+
+    .overlay-active{
+      visibility: visible;
+
+
+      .popup{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
   }
 }
 
@@ -259,7 +411,7 @@
       visibility: hidden;
 
       .form{
-        width: 70%;
+        width: 95%;
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
         border-radius: 3px;
@@ -299,6 +451,77 @@
           }
         }
 
+        &__body{
+          display: grid;
+          grid-template-columns: repeat(2,1fr);
+          gap: 10px;
+        }
+
+        button{
+          margin-right: 10px;
+        }
+        .delete{
+          background-color: red;
+        }
+      }
+
+    }
+
+    .content-form-delete{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .form{
+        width: 95%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        transition: .5s ease all;
+        transform: scale(0.1);
+        opacity: 0;
+
+        &__header{
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-size: 1.3rem;
+          }
+
+          .close{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            i{
+              font-size: 1.4rem;
+              color: green;
+              cursor: pointer;
+              padding: 5px 8px;
+              transition: all .7s ease;
+            }
+
+            i:hover{
+              background-color: red;
+              color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        &__body{
+          display: grid;
+          gap: 10px;
+        }
+
         button{
           margin-right: 10px;
         }
@@ -313,6 +536,86 @@
       visibility: visible;
 
       .form{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .overlay{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .popup {
+        min-width: 40%;
+        width: 50%;
+        max-width: 70%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: scale(.1);
+        transition: .5s ease all;
+
+        &__header{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            font-size: 1.3rem;
+            color: green;
+          }
+
+          i{
+            margin-left: auto;
+            color: green;
+            font-size: 1.4rem;
+            cursor: pointer;
+            padding: 5px 8px;
+            transition: .7s ease all;
+          }
+
+          i:hover{
+            border-radius: 50%;
+            background-color: red;
+            color: white;
+          }
+        }
+
+        &__body{
+          width: 100%;
+          padding: 20px;
+          text-align: center;
+
+          small{
+            font-size: 1.3rem;
+            color: green;
+          }
+
+        }
+
+        &__footer{
+          display: flex;
+          justify-content: flex-end;
+
+          button{
+            background-color: red;
+          }
+        }
+      }
+    }
+
+    .overlay-active{
+      visibility: visible;
+
+
+      .popup{
         opacity: 1;
         transform: scale(1);
       }

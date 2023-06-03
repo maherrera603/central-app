@@ -20,7 +20,7 @@ export class IdentityService {
 
   public getRole(){
     let role:string | null = sessionStorage.getItem('role');
-    return (role && role != 'undefined') ? role : null;
+    return (role && role != 'undefined') ? role.toLowerCase() : null;
   }
 
 }

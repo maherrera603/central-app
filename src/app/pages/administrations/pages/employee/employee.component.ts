@@ -41,6 +41,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   protected openForm(): void {
+    this.employee = new Employee("", "", "", "", "", "", "");
     let content = document.querySelector(".content-form");
     content?.classList.add("content-form-active");
   }
