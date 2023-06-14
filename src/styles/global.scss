@@ -111,7 +111,11 @@ span{
   transition: .3s ease all;
   padding: 5px 10px;
   line-height: 30px;
-  background-color: rebeccapurple;
+  font-size: 1.2rem;
+
+  i{
+    font-size: 1.3rem;
+  }
 }
 
 .success{

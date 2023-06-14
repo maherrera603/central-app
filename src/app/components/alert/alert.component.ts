@@ -11,7 +11,7 @@ export class AlertComponent {
 
   success(message:string): void {
     const app_root = document.querySelector("app-root .container")
-    const alert = this.createSpan(message, "success");
+    const alert = this.createSpan(message, "success", '<i class="fa-solid fa-check"></i>');
     app_root?.appendChild(alert);
     setTimeout(() => {
       app_root?.removeChild(alert);
@@ -20,18 +20,18 @@ export class AlertComponent {
 
   error(message:string): void {
     const app_root = document.querySelector("app-root .container")
-    const alert = this.createSpan(message, "error");
+    const alert = this.createSpan(message, "error", '<i class="fa-solid fa-hexagon-exclamation"></i>');
     app_root?.appendChild(alert);
     setTimeout(() => {
       app_root?.removeChild(alert);
     }, 3000);
   }
 
-  private createSpan(message: string, cssClass: string) {
+  private createSpan(message: string, cssClass: string, icon:string) {
     const alert = document.createElement("app-alert")
     const alert_message = document.createElement("span");
     alert_message.classList.add(cssClass);
-    alert_message.innerHTML = message;
+    alert_message.innerHTML =  `${icon} ${message}`;
     alert.appendChild(alert_message);
     return alert;
   }

@@ -54,8 +54,16 @@ export class NavigationLeftComponent implements OnInit {
     this.router.navigate(["administrador"]);
   }
 
+  protected specialitys(): void {
+    this.router.navigate(["administrador/especialidades"]);
+  }
+
   protected employees(): void {
     this.router.navigate(["administrador/empleados"]);
+  }
+
+  protected doctors() : void {
+    this.router.navigate(["administrador/medicos"]);
   }
 
 }

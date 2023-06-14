@@ -1,0 +1,157 @@
+<div class="content-doctor">
+  <app-navigation-left></app-navigation-left>
+
+  <div class="content-doctor__body">
+    <div class="content-doctor__body__header">
+      <div class="content-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          #search="ngModel"
+          (ngModel)="search"
+          placeholder="Buscar..."
+          (keyup)="searchDoctor(search.value)"
+        >
+      </div>
+      <div class="add-doctor">
+        <button type="button" (click)="openForm('save')"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    </div>
+
+    <div class="content-doctor__body__body">
+      <p *ngFor="let doctor of doctors; let indice = index" (click)="getDoctor(doctor.document)">
+        {{indice+1}} {{doctor.name}} {{doctor.lastname}}
+      </p>
+    </div>
+  </div>
+
+  <div class="content-form">
+    <form class="form" #f="ngForm" (submit)="onSubmit(f)">
+      <div class="form__header">
+        <h1 *ngIf="action == 'save'">Agregar Doctor</h1>
+        <h1 *ngIf="action != 'save'">Dr(a) {{doctor.name}}</h1>
+        <div class="close">
+          <i class="fa-solid fa-xmark" (click)="closeForm()"></i>
+        </div>
+      </div>
+      <div class="form__body">
+        <div class="form-control">
+          <label for="name">Nombres</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            #name="ngModel"
+            [(ngModel)]="doctor.name"
+            pattern="[a-zA-Z\s]{3,20}$"
+            required
+          >
+          <small class="error-valid" *ngIf="!name.valid && name.touched">
+            El campo debe contener de 3 a 20 caracteres
+          </small>
+        </div>
+
+        <div class="form-control">
+          <label for="lastname">Apellidos</label>
+          <input
+            type="text"
+            name="lastname"
+            id="lastname"
+            #lastname="ngModel"
+            [(ngModel)]="doctor.lastname"
+            pattern="[a-zA-Z\s]{3,20}$"
+          >
+          <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
+            El campo debe contener de 3 a 20 caracteres
+          </small>
+        </div>
+
+        <div class="form-control">
+          <label for="type_document">Tipo de documento</label>
+          <select
+            name="type_document"
+            id="type_document"
+            #type_document="ngModel"
+            [(ngModel)]="doctor.type_document"
+            pattern="[a-zA-Z\s]{3,30}$"
+            required
+          >
+            <option value="">Seleccione tipo de documento...</option>
+            <option value="cedula de ciudadania">Cedula de ciudadania</option>
+          </select>
+          <small class="error-valid" *ngIf="type_document.value == '' && type_document.touched">
+            Seleccione tipo de documento...
+          </small>
+        </div>
+
+        <div class="form-control">
+          <label for="document">Documento</label>
+          <input
+            type="text"
+            name="document"
+            id="document"
+            #document="ngModel"
+            [(ngModel)]="doctor.document"
+            pattern="[a-zA-Z\d\s]{7,20}$"
+            required
+          >
+          <small class="error-valid" *ngIf="!document.valid && document.touched">
+            El campo debe contener de 7 a 20 caracteres
+          </small>
+        </div>
+
+        <div class="form-control">
+          <label for="phone">Telefono</label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            #phone="ngModel"
+            [(ngModel)]="doctor.phone"
+            pattern="[\d]{10,10}$"
+            required
+          >
+          <small class="error-valid" *ngIf="!phone.valid && phone.touched">
+            El campo debe contener 10 caracteres
+          </small>
+        </div>
+
+        <div class="form-control">
+          <label for="speciality">Especialidades</label>
+          <select
+            name="speciality"
+            id="speciality"
+            #speciality="ngModel"
+            [(ngModel)]="doctor.speciality"
+            required
+          >
+            <option value="" selected>Seleccione una especialidad...</option>
+            <option *ngFor="let speciality of specialitys" value="{{speciality.speciality}}">{{speciality.speciality}}</option>
+          </select>
+          <small class="error-valid" *ngIf="speciality.value == '' && speciality.touched">
+            Seleccione una especialidad
+          </small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="f.invalid">Guardar</button>
+      <button type="button" class="delete" *ngIf="action != 'save'" (click)="openOverlay()">Eliminar</button>
+    </form>
+  </div>
+
+  <div class="overlay">
+    <div class="popup">
+      <div class="popup__header">
+        <h1>Eliminar Doctor</h1>
+        <i class="fa-solid fa-xmark" (click)="closeOverlay()"></i>
+      </div>
+      <div class="popup__body">
+        <small>¿Desea eliminar al Dr(a) {{doctor.name}}?</small>
+      </div>
+      <div class="popup__footer">
+        <button type="button" class="delete" (click)="deleteDoctor(doctor.document)"><i class="fa-solid fa-trash"></i> Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

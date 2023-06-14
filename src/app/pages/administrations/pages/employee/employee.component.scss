@@ -221,6 +221,7 @@
 
     .content-form-active{
       visibility: visible;
+      z-index: 1000;
 
       .form{
         opacity: 1;
@@ -236,6 +237,7 @@
       align-items: center;
       justify-content: center;
       visibility: hidden;
+      z-index: 1000;
 
       .popup {
         min-width: 40%;
@@ -534,6 +536,7 @@
 
     .content-form-active{
       visibility: visible;
+      z-index: 1000;
 
       .form{
         opacity: 1;
@@ -549,6 +552,7 @@
       align-items: center;
       justify-content: center;
       visibility: hidden;
+      z-index: 1000;
 
       .popup {
         min-width: 40%;
@@ -854,6 +858,7 @@
 
     .content-form-active{
       visibility: visible;
+      z-index: 1000;
 
       .form{
         opacity: 1;
@@ -869,6 +874,7 @@
       align-items: center;
       justify-content: center;
       visibility: hidden;
+      z-index: 1000;
 
       .popup {
         width: 30%;
