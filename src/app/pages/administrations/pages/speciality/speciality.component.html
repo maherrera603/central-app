@@ -1,0 +1,74 @@
+<div class="content-speciality">
+  <app-navigation-left></app-navigation-left>
+
+  <div class="content-speciality__body">
+    <div class="content-speciality__body__header">
+      <div class="content-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="search"
+          name="search"
+          id="search"
+          #search="ngModel"
+          (ngModel)="search"
+          placeholder="Buscar..."
+          (keyup)="searchSpeciality(search.value)"
+        >
+      </div>
+      <div class="add-speciality">
+        <button type="button" (click)="openForm('save')"><i class="fa-solid fa-plus"></i></button>
+      </div>
+    </div>
+    <div class="content-speciality__body__body">
+      <p *ngFor="let speciality of specialitys; let indice = index" (click)="getSpeciality(speciality.speciality)">
+        {{indice+1}} {{speciality.speciality}}
+      </p>
+    </div>
+  </div>
+
+  <div class="content-form">
+    <form class="form" #f="ngForm" (submit)="onSubmit(f)">
+      <div class="form__header">
+        <h1 *ngIf="action == 'save'">Agregar especialidad</h1>
+        <h1 *ngIf="action != 'save'">Actualizar especialidad</h1>
+        <div class="close">
+          <i class="fa-solid fa-xmark" (click)="closeForm()"></i>
+        </div>
+      </div>
+      <div class="form__body">
+        <div class="form-control">
+          <label for="speciality">Especialidad</label>
+          <input
+            type="text"
+            name="speciality"
+            id="speciality"
+            #speciality="ngModel"
+            [(ngModel)]="specialit.speciality"
+            pattern="[a-zA-Z\s]{5,20}"
+            required
+          >
+          <small class="error-valid" *ngIf="!speciality.valid && speciality.touched">
+            El campo debe contener de 5 a 20 caracteres
+          </small>
+        </div>
+      </div>
+      <button type="submit" [disabled]="f.invalid">Enviar</button>
+      <button type="button" class="delete" *ngIf="action != 'save'" (click)="openOverlay()">Eliminar</button>
+    </form>
+  </div>
+
+  <div class="overlay">
+    <div class="popup">
+      <div class="popup__header">
+        <h1>Eliminar Especialidad</h1>
+        <i class="fa-solid fa-xmark" (click)="closeOverlay()"></i>
+      </div>
+      <div class="popup__body">
+        <small>¿Desea Eliminar {{specialit.speciality}}?</small>
+      </div>
+      <div class="popup__footer">
+        <button type="button" class="delete" (click)="deleteSpeciality(specialit.speciality)"><i class="fa-solid fa-trash"></i> Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

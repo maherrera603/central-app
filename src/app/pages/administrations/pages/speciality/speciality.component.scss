@@ -1,16 +1,17 @@
-@media screen and (max-width: 500px) {
-  .content-family{
+@media screen and (max-width: 500px){
+  .content-speciality{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     min-height: 500px;
     height: 100%;
-    padding: 10px 0;
     position: relative;
+    padding: 10px 0;
 
     app-navigation-left{
       height: 40px;
     }
+
 
     &__body {
       width: 95%;
@@ -40,11 +41,11 @@
           }
 
           input{
+            width: 100%;
             height: 30px;
             padding: 5px 0;
             border: none;
             outline: none;
-            width: 100%;
           }
 
           input::placeholder{
@@ -53,7 +54,7 @@
           }
         }
 
-        .add-family{
+        .add-speciality{
           display: flex;
           align-items: center;
           justify-content: flex-end;
@@ -97,7 +98,7 @@
       visibility: hidden;
 
       .form{
-        width: 90%;
+        width: 95%;
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
         border-radius: 3px;
@@ -137,6 +138,76 @@
           }
         }
 
+        &__body{
+          display: grid;
+          gap: 10px;
+        }
+
+        button{
+          margin-right: 10px;
+        }
+        .delete{
+          background-color: red;
+        }
+      }
+
+    }
+
+    .content-form-delete{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .form{
+        width: 95%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        transition: .5s ease all;
+        transform: scale(0.1);
+        opacity: 0;
+
+        &__header{
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-size: 1.3rem;
+          }
+
+          .close{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            i{
+              font-size: 1.4rem;
+              color: green;
+              cursor: pointer;
+              padding: 5px 8px;
+              transition: all .7s ease;
+            }
+
+            i:hover{
+              background-color: red;
+              color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        &__body{
+          display: grid;
+          gap: 10px;
+        }
+
         button{
           margin-right: 10px;
         }
@@ -168,7 +239,9 @@
       z-index: 1000;
 
       .popup {
-        width: 90%;
+        min-width: 40%;
+        width: 80%;
+        max-width: 90%;
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
         border-radius: 3px;
@@ -239,13 +312,12 @@
   }
 }
 
-
-@media screen and (min-width: 501px) and (max-width: 1000px) {
-  .content-family{
+@media screen and (min-width: 501px) and (max-width: 1000px){
+  .content-speciality{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    min-height: 850px;
+    min-height: 500px;
     height: 100%;
     position: relative;
     padding: 10px 0;
@@ -254,6 +326,7 @@
       height: 40px;
     }
 
+
     &__body {
       width: 95%;
       margin: 0 auto;
@@ -282,11 +355,11 @@
           }
 
           input{
+            width: 100%;
             height: 30px;
             padding: 5px 0;
             border: none;
             outline: none;
-            width: 100%;
           }
 
           input::placeholder{
@@ -295,8 +368,7 @@
           }
         }
 
-
-        .add-family{
+        .add-speciality{
           display: flex;
           align-items: center;
           justify-content: flex-end;
@@ -340,7 +412,7 @@
       visibility: hidden;
 
       .form{
-        width: 70%;
+        width: 65%;
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
         border-radius: 3px;
@@ -380,6 +452,76 @@
           }
         }
 
+        &__body{
+          display: grid;
+          gap: 10px;
+        }
+
+        button{
+          margin-right: 10px;
+        }
+        .delete{
+          background-color: red;
+        }
+      }
+
+    }
+
+    .content-form-delete{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .form{
+        width: 95%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        transition: .5s ease all;
+        transform: scale(0.1);
+        opacity: 0;
+
+        &__header{
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-size: 1.3rem;
+          }
+
+          .close{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            i{
+              font-size: 1.4rem;
+              color: green;
+              cursor: pointer;
+              padding: 5px 8px;
+              transition: all .7s ease;
+            }
+
+            i:hover{
+              background-color: red;
+              color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        &__body{
+          display: grid;
+          gap: 10px;
+        }
+
         button{
           margin-right: 10px;
         }
@@ -408,9 +550,12 @@
       align-items: center;
       justify-content: center;
       visibility: hidden;
+      z-index: 1000;
 
       .popup {
-        width: 60%;
+        min-width: 40%;
+        width: 50%;
+        max-width: 70%;
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
         border-radius: 3px;
@@ -470,26 +615,27 @@
 
     .overlay-active{
       visibility: visible;
-      z-index: 1000;
+
 
       .popup{
         opacity: 1;
         transform: scale(1);
       }
     }
+
   }
 }
 
-
 @media screen and (min-width: 1001px) {
-  .content-family{
+  .content-speciality{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     min-height: 500px;
-    height: 100%;
+    height: max-content;
+    max-block-size: 100vh;
     position: relative;
     width: 100%;
     margin: 0 auto;
@@ -497,7 +643,7 @@
 
     app-navigation-left{
       min-height: 500px;
-      height: 100%;
+      height: max-content;
       width: 20%;
       margin: 20px auto;
     }
@@ -531,11 +677,11 @@
           }
 
           input{
+            width: 100%;
             height: 30px;
             padding: 5px 0;
             border: none;
             outline: none;
-            width: 100%;
           }
 
           input::placeholder{
@@ -544,8 +690,7 @@
           }
         }
 
-
-        .add-family{
+        .add-speciality{
           display: flex;
           align-items: center;
           justify-content: flex-end;
@@ -588,6 +733,71 @@
       visibility: hidden;
 
       .form{
+        width: 40%;
+        background-color: white;
+        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        border-radius: 3px;
+        padding: 20px;
+        transition: .5s ease all;
+        transform: scale(0.1);
+        opacity: 0;
+
+        &__header{
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          h1{
+            color: green;
+            font-size: 1.3rem;
+          }
+
+          .close{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            i{
+              font-size: 1.4rem;
+              color: green;
+              cursor: pointer;
+              padding: 5px 8px;
+              transition: all .7s ease;
+            }
+
+            i:hover{
+              background-color: red;
+              color: white;
+              border-radius: 50%;
+            }
+          }
+        }
+
+        &__body{
+          display: grid;
+          gap: 10px;
+        }
+
+        button{
+          margin-right: 10px;
+        }
+        .delete{
+          background-color: red;
+        }
+      }
+
+    }
+
+    .content-form-delete{
+      background-color: rgba(0, 80, 0, .6);
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+
+      .form{
         width: 70%;
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
@@ -628,6 +838,11 @@
           }
         }
 
+        &__body{
+          display: grid;
+          gap: 10px;
+        }
+
         button{
           margin-right: 10px;
         }
@@ -656,9 +871,10 @@
       align-items: center;
       justify-content: center;
       visibility: hidden;
+      z-index: 1000;
 
       .popup {
-        width: 30%;
+        width: 35%;
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
         border-radius: 3px;
@@ -718,13 +934,13 @@
 
     .overlay-active{
       visibility: visible;
-      z-index: 1000;
+
 
       .popup{
         opacity: 1;
         transform: scale(1);
       }
     }
-
   }
 }
+
