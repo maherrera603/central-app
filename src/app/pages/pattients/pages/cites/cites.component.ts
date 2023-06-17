@@ -63,7 +63,7 @@ export class CitesComponent implements OnInit{
   }
 
   protected loadForm(idCite:number, status:string): void {
-    if(status != "Pendiente"){
+    if(status.toLocaleLowerCase() != "pendiente"){
       this.citeService.getCite(this.token, idCite).subscribe(
         response => {
           if(response.status == "OK"){
