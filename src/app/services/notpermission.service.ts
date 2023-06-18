@@ -13,12 +13,12 @@ export class NotpermissionService implements CanActivate{
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     let identity = this.identityService.getUser();
-    let role:string | null = this.identityService.getRole();
+    let role:string | null | undefined = this.identityService.getRole();
     let router = this.urlRole(role);
     return (identity && role) ? this.router.navigate([`/${router}`]): true;
   }
 
-  private urlRole(role:string|null) : string{
+  private urlRole(role:string|null|undefined) : string|null|undefined{
     return (role === "paciente") ? "sistema" : (role == "administrador") ? "adminstrador":  "iniciar-sesion";
   }
 

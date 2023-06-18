@@ -20,7 +20,7 @@ export class AlertComponent {
 
   error(message:string): void {
     const app_root = document.querySelector("app-root .container")
-    const alert = this.createSpan(message, "error", '<i class="fa-solid fa-hexagon-exclamation"></i>');
+    const alert = this.createSpan(message, "error", '<i class="fa-solid fa-triangle-exclamation"></i>');
     app_root?.appendChild(alert);
     setTimeout(() => {
       app_root?.removeChild(alert);
