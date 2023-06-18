@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Pattient } from '@app/models/Pattient';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { desencrypt, url } from './global';
+import { url } from './global';
 
 
 @Injectable({
@@ -19,8 +19,6 @@ export class PattientService {
   }
 
   public getPattient(token:string|null, document:string): Observable<any>{
-    console.log(desencrypt(token));
-
     let headers = new HttpHeaders().set("authorization", `Token ${token}`);
     return this.http.get(`${url}pattient/${document}/`, {headers:headers});
   }
