@@ -55,6 +55,7 @@ export class DoctorComponent implements OnInit {
     let content = document.querySelector(".content-form");
     content?.classList.add("content-form-active");
     this.action = action;
+    this.doctor = (this.action === "save") ? new Doctor("", "", "","","", "activo", ""): this.doctor;
   }
 
   protected closeForm(): void {
@@ -154,7 +155,7 @@ export class DoctorComponent implements OnInit {
         if(response.status == "not content") {
           this.allDoctors();
           this.closeForm();
-          this.doctor = new Doctor("", "", "", "", "", "", "activo");
+          this.doctor = new Doctor("", "", "", "", "", "activo", "");
           this.closeOverlay();
           this.alertComponent.success(response.message);
         }else{

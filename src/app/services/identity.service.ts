@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { desencryptAES, sha256 } from './global';
 
 
 @Injectable({
@@ -9,18 +10,23 @@ export class IdentityService {
   constructor() { }
 
   public getUser(){
-    let identity = sessionStorage.getItem('user');
-    return (identity && identity != 'undefined') ? JSON.parse(identity) : null;
+    let user = sha256("user");
+    let identity = sessionStorage.getItem(user);
+    return (identity && identity != 'undefined' && desencryptAES(identity) !== "null") ? JSON.parse(desencryptAES(identity)) : null;
   }
 
   public getToken(){
-    let token = sessionStorage.getItem('token');
-    return (token && token != 'undefined') ? token : null;
+    let tokenSha256 = sha256("token");
+    let token = sessionStorage.getItem(tokenSha256);
+    let descryptToken = desencryptAES(token);
+    return (token && token != 'undefined') ? descryptToken : null;
   }
 
   public getRole(){
-    let role:string | null = sessionStorage.getItem('role');
-    return (role && role != 'undefined') ? role.toLowerCase() : null;
+    let roleSha256 = sha256("role");
+    let role:string | null = sessionStorage.getItem(roleSha256);
+    let rol = desencryptAES(role);
+    return (role && role != 'undefined') ? rol.toLowerCase() : null;
   }
 
 }

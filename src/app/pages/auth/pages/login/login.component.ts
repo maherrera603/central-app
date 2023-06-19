@@ -4,6 +4,7 @@ import { AlertComponent } from '@app/components/alert/alert.component';
 import { User } from '@app/models/User';
 import { UserService } from '@app/services/user.service';
 import { Router } from '@angular/router';
+import { enctrypAES, sha256 } from '@app/services/global';
 
 @Component({
   selector: 'app-login',
@@ -42,13 +43,21 @@ export class LoginComponent implements OnInit {
           this.user.password = "";
           this.alert.error(response.message);
         }else{
-          sessionStorage.setItem("token", response.token);
-          sessionStorage.setItem("user", JSON.stringify(response.user));
-          sessionStorage.setItem("role", response.role);
+          this.loadSessionStorage(response);
           this.loadRole(response.role);
         }
       }
     );
+  }
+
+  private loadSessionStorage(response:any) {
+    let token:string = sha256("token");
+    let user:string = sha256("user");
+    let role:string = sha256("role");
+
+    sessionStorage.setItem(token, enctrypAES(response.token));
+    sessionStorage.setItem(user, enctrypAES(JSON.stringify(response.user)));
+    sessionStorage.setItem(role, enctrypAES(response.role));
   }
 
   private loadRole(role:string) : void{
