@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
 import { Pattient } from '@app/models/Pattient';
+import { enctrypAES, sha256 } from '@app/services/global';
 import { IdentityService } from '@app/services/identity.service';
 import { PattientService } from '@app/services/pattient.service';
 
@@ -48,7 +49,7 @@ export class ProfileComponent implements OnInit {
     this.pattientService.updatePattient(this.pattient, this.token).subscribe(
       response => {
         if (response.status === "created"){
-          sessionStorage.setItem("user", JSON.stringify(response.pattient));
+          sessionStorage.setItem(sha256("user"), enctrypAES(JSON.stringify(response.pattient)));
           this.alert.success(response.message);
         }else{
           this.alert.error(response.message);

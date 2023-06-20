@@ -4,6 +4,7 @@ import { Employee } from '@app/models/employee';
 import { IdentityService } from '@app/services/identity.service';
 import { EmployeeService } from '@app/services/employee-service.service';
 import { AlertComponent } from '@app/components/alert/alert.component';
+import { enctrypAES, sha256 } from '@app/services/global';
 
 @Component({
   selector: 'app-profile',
@@ -54,7 +55,7 @@ export class ProfileComponent implements OnInit {
           this.identity.name = this.admin.name;
           this.identity.lastname = this.admin.lastname;
           this.identity.phone = this.admin.phone;
-          sessionStorage.setItem("user", JSON.stringify(this.identity));
+          sessionStorage.setItem(sha256("user"), enctrypAES(JSON.stringify(this.identity)));
         }else{
           this.alertComponent.error(response.message);
         }

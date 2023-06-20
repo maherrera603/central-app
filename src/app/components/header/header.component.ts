@@ -43,13 +43,8 @@ export class HeaderComponent implements OnInit, DoCheck {
     }
   }
 
-
   protected logout(): void{
     sessionStorage.clear();
     this.router.navigate(['/iniciar-sesion']);
   }
-
-
-
-
 }
