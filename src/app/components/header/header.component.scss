@@ -38,6 +38,10 @@
           background-color:rgba(0, 80, 0, 32);
         }
 
+        i.arrow-rigth{
+          transform: rotate(90deg);
+        }
+
         .navigation{
           position: absolute;
           left: auto;
@@ -214,6 +218,8 @@
           display: none
         }
 
+
+
         .navigation {
           display: flex;
           align-items: center;
@@ -253,6 +259,10 @@
           i:hover{
             border-radius: none;
             background-color: transparent;
+          }
+
+          i.arrow-rigth{
+            transform: rotate(90deg);
           }
         }
 
@@ -344,7 +354,6 @@
   }
 }
 
-
 @media screen and (min-width: 1001px) {
   header{
     width: 100%;
@@ -407,6 +416,10 @@
           i{
             display: inline-block;
             font-size: 1.4rem;
+          }
+
+          i.arrow-rigth{
+            transform: rotate(90deg);
           }
         }
 
@@ -500,3 +513,4 @@
     }
   }
 }
+
