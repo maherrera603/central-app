@@ -31,6 +31,8 @@ export class ProfileComponent implements OnInit {
   private removeNavigation(): void {
     let navigation = document.querySelector(".navigation-user-active");
     navigation?.classList.remove("navigation-user-active");
+    let arrow_bottom = document.querySelector('.fa-sharp.fa-solid.fa-caret-right');
+    arrow_bottom?.classList.remove("arrow-rigth");
   }
 
   private getPattient(){

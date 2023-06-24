@@ -33,6 +33,8 @@ export class ProfileComponent implements OnInit {
   private closeMenu():void{
     let menu = document.querySelector(".navigation-user-active");
     menu?.classList.remove("navigation-user-active");
+    let arrow_bottom = document.querySelector('.fa-sharp.fa-solid.fa-caret-right');
+    arrow_bottom?.classList.remove("arrow-rigth");
   }
 
   private loadProfile(): void {

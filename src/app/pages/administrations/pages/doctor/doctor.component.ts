@@ -31,8 +31,16 @@ export class DoctorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.closeMenu();
     this.allDoctors();
     this.allSpeciality();
+  }
+
+  private closeMenu(): void {
+    let menu = document.querySelector(".navigation-user");
+    menu?.classList.remove("navigation-user-active");
+    let arrow_bottom = document.querySelector('.fa-sharp.fa-solid.fa-caret-right');
+    arrow_bottom?.classList.remove("arrow-rigth");
   }
 
   protected searchDoctor(search:string): void {

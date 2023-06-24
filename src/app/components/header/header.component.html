@@ -9,7 +9,7 @@
         <li><a routerLink="">Inicio</a></li>
       </ul>
       <div class="content-user" (click)="showNavigationUser()" *ngIf="identityUser">
-        <i class="fa-solid fa-user"></i> {{identityUser.name}}
+        <i class="fa-solid fa-user"></i> {{identityUser.name}} <i class="fa-sharp fa-solid fa-caret-right"></i>
       </div>
 
       <ul class="navigation-user" *ngIf="identityUser && role == 'paciente'">

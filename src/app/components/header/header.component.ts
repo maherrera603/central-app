@@ -36,10 +36,13 @@ export class HeaderComponent implements OnInit, DoCheck {
   protected showNavigationUser () : void {
     let navigation = document.querySelector('.navigation-user');
     let navigation_active = document.querySelector(".navigation-user-active");
+    let arrow_bottom = document.querySelector('.fa-sharp.fa-solid.fa-caret-right');
     if (navigation_active == null) {
       navigation?.classList.add("navigation-user-active");
+      arrow_bottom?.classList.add("arrow-rigth");
     }else{
       navigation?.classList.remove("navigation-user-active");
+      arrow_bottom?.classList.remove("arrow-rigth");
     }
   }
 

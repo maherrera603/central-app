@@ -98,9 +98,6 @@ button:hover{
 
 span{
   bottom: 20px;
-  min-width: 24%;
-  width: 34%;
-  max-width: 70%;
   min-height: 30px;
   max-height: auto;
   position: sticky;
@@ -136,3 +133,29 @@ span{
   font-size: 14px;
   display: block;
 }
+
+@media screen and (max-width: 500px) {
+  span{
+    min-width: 24%;
+    width: auto;
+    max-width: 90%;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 1000px) {
+  span{
+    min-width: 34%;
+    width: auto;
+    max-width: 50%;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  span{
+    min-width: 24%;
+    width: 35%;
+    max-width: 50%;
+  }
+}
+
+

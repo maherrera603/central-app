@@ -25,7 +25,15 @@ export class SpecialityComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.closeMenu();
     this.allSpecialities();
+  }
+
+  private closeMenu(): void {
+    let menu = document.querySelector(".navigation-user");
+    menu?.classList.remove("navigation-user-active");
+    let arrow_bottom = document.querySelector('.fa-sharp.fa-solid.fa-caret-right');
+    arrow_bottom?.classList.remove("arrow-rigth");
   }
 
   protected searchSpeciality(search:string): void {
