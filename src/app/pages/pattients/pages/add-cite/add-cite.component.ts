@@ -18,7 +18,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./add-cite.component.scss'],
   providers: [IdentityService, FamilyService, SpecialityService, PattientService, CiteService]
 })
-export class AddCiteComponent implements OnInit, OnDestroy{
+export class AddCiteComponent implements OnInit, OnDestroy {
   private alertComponent: AlertComponent = new AlertComponent();
   private token!:string|null;
   private suscription!:Subscription;
@@ -44,7 +44,7 @@ export class AddCiteComponent implements OnInit, OnDestroy{
     this.removeNavigation();
     this.allFamily();
     this.allSpecialitys();
-    this.citeService.refresh.subscribe(() => this.allFamily());
+    this. suscription = this.citeService.refresh.subscribe(() => this.allFamily());
   }
 
   ngOnDestroy(): void {
