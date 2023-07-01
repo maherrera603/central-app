@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
 import { Employee } from '@app/models/employee';
 import { EmployeeService } from '@app/services/employee-service.service';
 import { IdentityService } from '@app/services/identity.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-employee',
@@ -11,12 +12,12 @@ import { IdentityService } from '@app/services/identity.service';
   styleUrls: ['./employee.component.scss'],
   providers: [IdentityService, EmployeeService]
 })
-export class EmployeeComponent implements OnInit {
+export class EmployeeComponent implements OnInit, OnDestroy{
   protected employees!:Employee[];
   protected employee!:Employee;
   private token!:string|null;
   private alertComponent!:AlertComponent;
-
+  private suscription!:Subscription;
 
   constructor(private identityService:IdentityService, private employeeService:EmployeeService){
     this.token = this.identityService.getToken();
@@ -27,6 +28,11 @@ export class EmployeeComponent implements OnInit {
   ngOnInit(): void {
     this.closeMenu();
     this.allEmployees();
+    this.suscription = this.employeeService.refresh.subscribe( () => this.allEmployees());
+  }
+
+  ngOnDestroy(): void {
+      this.suscription.unsubscribe();
   }
 
   private closeMenu(): void {
@@ -67,12 +73,10 @@ export class EmployeeComponent implements OnInit {
     this.employeeService.saveEmployee(this.token, this.employee).subscribe(
       response => {
         if (response.status == "created"){
-          this.allEmployees();
           form.reset();
           this.closeForm();
           this.alertComponent.success(response.message);
         }else{
-          console.log(response);
           this.alertComponent.error(response.message);
         }
       }
@@ -90,7 +94,6 @@ export class EmployeeComponent implements OnInit {
         }
       }
     );
-
   }
 
   protected openFormDelete(): void {
@@ -119,7 +122,6 @@ export class EmployeeComponent implements OnInit {
       response => {
         if(response.status == "not content"){
           this.closeOverlay();
-          this.allEmployees();
           this.alertComponent.success(response.message);
         }else{
           this.alertComponent.error(response.message);

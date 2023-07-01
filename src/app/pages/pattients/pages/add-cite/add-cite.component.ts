@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
 import { Pattient } from '@app/models/Pattient';
@@ -10,6 +10,7 @@ import { FamilyService } from '@app/services/family.service';
 import { IdentityService } from '@app/services/identity.service';
 import { PattientService } from '@app/services/pattient.service';
 import { SpecialityService } from '@app/services/speciality.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-cite',
@@ -17,10 +18,11 @@ import { SpecialityService } from '@app/services/speciality.service';
   styleUrls: ['./add-cite.component.scss'],
   providers: [IdentityService, FamilyService, SpecialityService, PattientService, CiteService]
 })
-export class AddCiteComponent implements OnInit{
-  protected familys!: Family[];
+export class AddCiteComponent implements OnInit, OnDestroy{
   private alertComponent: AlertComponent = new AlertComponent();
   private token!:string|null;
+  private suscription!:Subscription;
+  protected familys!: Family[];
   protected pattient!:Pattient;
   protected cite!:Cite;
   protected specialitys!: Speciality[];
@@ -42,6 +44,11 @@ export class AddCiteComponent implements OnInit{
     this.removeNavigation();
     this.allFamily();
     this.allSpecialitys();
+    this.citeService.refresh.subscribe(() => this.allFamily());
+  }
+
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
   }
 
   private removeNavigation(): void {

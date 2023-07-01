@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PermissionService } from './services/permission.service';
 import { NotpermissionService } from './services/notpermission.service';
 import { AdminPermissionService } from './services/admin-permission.service';
+import { EmployeePermissionService } from './services/employee-permission.service';
 
 const routes: Routes = [
   {path: "", canActivate: [NotpermissionService], children: [
@@ -16,6 +17,9 @@ const routes: Routes = [
   {path: "administrador", canActivate: [AdminPermissionService], children: [
     {path: "", loadChildren: () => import("./pages/administrations/administrations.module").then(m => m.AdministrationsModule)},
   ]},
+  {path: "gestion", canActivate: [EmployeePermissionService], children: [
+    {path: "", loadChildren: () => import("./pages/employees/employees.module").then(m => m.EmployeesModule)}
+  ]}
 
 ];
 

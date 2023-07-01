@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
 import { Speciality } from '@app/models/speciality';
 import { IdentityService } from '@app/services/identity.service';
 import { SpecialityService } from '@app/services/speciality.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-speciality',
@@ -11,10 +12,11 @@ import { SpecialityService } from '@app/services/speciality.service';
   styleUrls: ['./speciality.component.scss'],
   providers: [IdentityService, SpecialityService]
 })
-export class SpecialityComponent implements OnInit{
+export class SpecialityComponent implements OnInit, OnDestroy{
   private token!:string|null;
-  protected specialitys!:Speciality[];
   private alertComponent!:AlertComponent;
+  private suscription!:Subscription;
+  protected specialitys!:Speciality[];
   protected specialit!:Speciality;
   protected action!:string;
 
@@ -27,6 +29,11 @@ export class SpecialityComponent implements OnInit{
   ngOnInit(): void {
     this.closeMenu();
     this.allSpecialities();
+    this.suscription = this.specialityService.refresh.subscribe( () => this.allSpecialities() );
+  }
+
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
   }
 
   private closeMenu(): void {
@@ -40,11 +47,7 @@ export class SpecialityComponent implements OnInit{
     if(search.length > 0){
       this.specialityService.searchSpeciality(this.token, search).subscribe(
         response => {
-          if(response.status == "OK"){
-            this.specialitys = response.specialitys;
-          }else{
-            this.alertComponent.error(response.message);
-          }
+          (response.status == "OK")? this.specialitys = response.specialitys : this.alertComponent.error(response.message);
         }
       );
     }else{
@@ -56,6 +59,7 @@ export class SpecialityComponent implements OnInit{
     let form = document.querySelector(".content-form");
     form?.classList.add("content-form-active");
     this.action = action;
+    this.specialit = (this.action === "save") ? new Speciality(""): this.specialit;
   }
 
   protected closeForm(): void {
@@ -64,11 +68,7 @@ export class SpecialityComponent implements OnInit{
   }
 
   protected onSubmit(form:NgForm): void {
-    if(this.action == "save"){
-      this.saveSpeciality(form);
-    }else{
-      this.updatedSpeciality();
-    }
+    (this.action == "save") ? this.saveSpeciality(form): this.updatedSpeciality();
   }
 
   private saveSpeciality(form:NgForm): void {
@@ -78,7 +78,6 @@ export class SpecialityComponent implements OnInit{
           this.alertComponent.success(response.message);
           form.reset();
           this.closeForm();
-          this.allSpecialities();
         }else{
           this.alertComponent.error(response.message);
         }
@@ -89,12 +88,7 @@ export class SpecialityComponent implements OnInit{
   protected allSpecialities(): void {
     this.specialityService.allSpecialities(this.token).subscribe(
       response => {
-        if (response.status == "OK"){
-          this.specialitys = response.specialitys;
-        }else{
-          this.alertComponent.error(response.message);
-        }
-
+        (response.status == "OK") ? this.specialitys = response.specialitys: this.alertComponent.error(response.message);
       }
     );
   }
@@ -115,11 +109,7 @@ export class SpecialityComponent implements OnInit{
   protected updatedSpeciality(): void {
     this.specialityService.updateSpeciality(this.token, this.specialit).subscribe(
       response => {
-        if(response.status === "created"){
-          this.alertComponent.success(response.message)
-        }else{
-          this.alertComponent.error(response.message);
-        }
+        (response.status === "created")? this.alertComponent.success(response.message) : this.alertComponent.error(response.message);
       }
     );
   }
@@ -141,7 +131,6 @@ export class SpecialityComponent implements OnInit{
           this.alertComponent.success(response.message);
           this.closeForm();
           this.closeOverlay();
-          this.allSpecialities();
         }else{
           this.alertComponent.error(response.message);
         }

@@ -13,4 +13,9 @@
     <li><a (click)="specialitys()">Especialidades</a></li>
     <li><a (click)="doctors()">Medicos</a></li>
   </ul>
+
+  <ul *ngIf="role == 'empleado'">
+    <li><a (click)="principalEmployees()">Inicio</a></li>
+    <li><a (click)="citesEmployees()">Citas</a></li>
+  </ul>
 </nav>

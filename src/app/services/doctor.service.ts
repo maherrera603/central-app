@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { url } from './global';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { tap } from "rxjs/operators";
 import { Doctor } from '@app/models/doctor';
 
 
@@ -9,8 +10,13 @@ import { Doctor } from '@app/models/doctor';
   providedIn: 'root'
 })
 export class DoctorService {
+  private _refresh$ = new Subject<void>();
 
   constructor(private http:HttpClient) { }
+
+  get refresh(): Subject<void>{
+    return this._refresh$;
+  }
 
   public allDoctors(token:string|null): Observable<any> {
     let headers = new HttpHeaders().set("authorization", `Token ${token}`);
@@ -20,7 +26,9 @@ export class DoctorService {
   public saveDoctor(token:string|null, doctor:Doctor): Observable<any> {
     let params = JSON.stringify(doctor);
     let headers = new HttpHeaders().set("authorization", `Token ${token}`).set("Content-Type", "application/json");
-    return this.http.post(`${url}doctors/`, params, {headers:headers});
+    return this.http.post(`${url}doctors/`, params, {headers:headers}).pipe(
+      tap( () => this._refresh$.next())
+    );
   }
 
   public getDoctor(token:string|null, document:string): Observable<any> {
@@ -31,12 +39,16 @@ export class DoctorService {
   public updateDoctor(token:string|null, doctor:Doctor): Observable<any> {
     let params = JSON.stringify(doctor);
     let headers = new HttpHeaders().set("authorization", `Token ${token}`).set("content-type", "application/json");
-    return this.http.put(`${url}doctor/${doctor.document}/`, params, {headers:headers});
+    return this.http.put(`${url}doctor/${doctor.document}/`, params, {headers:headers}).pipe(
+      tap( () => this._refresh$.next())
+    );
   }
 
   public deleteDoctor(token:string|null, document:string): Observable<any> {
     let headers = new HttpHeaders().set("authorization", `Token ${token}`);
-    return this.http.delete(`${url}doctor/${document}/`, {headers:headers});
+    return this.http.delete(`${url}doctor/${document}/`, {headers:headers}).pipe(
+      tap( () => this._refresh$.next())
+    );
   }
 
   public searchDoctor(token:string|null, search:string): Observable<any> {

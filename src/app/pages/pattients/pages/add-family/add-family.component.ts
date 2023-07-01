@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
 import { Family } from '@app/models/family';
 import { FamilyService } from '@app/services/family.service';
 import { IdentityService } from '@app/services/identity.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-family',
@@ -11,14 +12,15 @@ import { IdentityService } from '@app/services/identity.service';
   styleUrls: ['./add-family.component.scss', "../home/home.component.scss"],
   providers: [FamilyService, IdentityService]
 })
-export class AddFamilyComponent implements OnInit {
+export class AddFamilyComponent implements OnInit, OnDestroy {
+  private alertComponent!:AlertComponent;
+  private suscription!:Subscription;
   protected navLeft: boolean = false;
   protected page:string = "Familiares";
   protected family!:Family;
   protected familys!: Family[];
   private token!:string | null;
   protected titleForm!:string;
-  private alertComponent!:AlertComponent;
   protected methodSend!:string;
 
   constructor(private familyService: FamilyService, private identityService: IdentityService){
@@ -30,6 +32,11 @@ export class AddFamilyComponent implements OnInit {
   ngOnInit(): void {
     this.removeNavigation();
     this.allFamilys();
+    this.suscription = this.familyService.refresh$.subscribe(() => this.allFamilys() );
+  }
+
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
   }
 
   private removeNavigation(): void {
@@ -86,7 +93,6 @@ export class AddFamilyComponent implements OnInit {
     this.familyService.addFamily(this.family, this.token).subscribe(
       response => {
         if (response.status == "created"){
-          this.allFamilys();
           form.reset();
           this.closeForm();
           this.alertComponent.success(response.message);
@@ -103,7 +109,6 @@ export class AddFamilyComponent implements OnInit {
         if (response.status == "created"){
           this.closeForm();
           this.alertComponent.success(response.message);
-          this.allFamilys();
         }else{
           this.alertComponent.error(response.message)
         }
@@ -127,7 +132,6 @@ export class AddFamilyComponent implements OnInit {
       response => {
         if( response.status == "not content"){
           this.closeOverlay();
-          this.allFamilys();
           this.alertComponent.success(response.message);
         }else{
           this.alertComponent.error(response.message);

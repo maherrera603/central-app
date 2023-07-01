@@ -24,6 +24,12 @@
         <li><a (click)="logout()">Salir</a></li>
       </ul>
 
+      <ul class="navigation-user" *ngIf="identityUser && role == 'empleado'">
+        <li><a routerLink="gestion/perfil">Perfil</a></li>
+        <li><a>Cambiar Contraseña</a></li>
+        <li><a (click)="logout()">Salir</a></li>
+      </ul>
+
     </div>
   </div>
 
