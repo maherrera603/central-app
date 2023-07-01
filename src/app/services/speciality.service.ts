@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { url } from './global';
 import { Speciality } from '@app/models/speciality';
 
@@ -8,8 +9,13 @@ import { Speciality } from '@app/models/speciality';
   providedIn: 'root'
 })
 export class SpecialityService {
+  private _refresh$ = new Subject<void>();
 
   constructor(private http:HttpClient) { }
+
+  get refresh(){
+    return this._refresh$;
+  }
 
   public allSpecialities(token:string|null): Observable<any> {
     let headers = new HttpHeaders().set("authorization", `${token}`);
@@ -19,7 +25,9 @@ export class SpecialityService {
   public saveSpeciality(token:string|null, speciality:Speciality): Observable<any> {
     let params = JSON.stringify(speciality);
     let headers = new HttpHeaders().set("authorization", `Token ${token}`).set("Content-Type", "application/json");
-    return this.http.post(`${url}specialitys/`, params, {headers:headers});
+    return this.http.post(`${url}specialitys/`, params, {headers:headers}).pipe(
+      tap( () => this._refresh$.next() )
+    );
   }
 
   public getSpeciality(token:string|null, speciality:string): Observable<any>{
@@ -30,12 +38,16 @@ export class SpecialityService {
   public updateSpeciality(token:string|null, speciality:Speciality): Observable<any> {
     let params = JSON.stringify(speciality);
     let headers = new HttpHeaders().set("authorization", `Token ${token}`).set("content-type", "application/json");
-    return this.http.put(`${url}speciality/${speciality.speciality}/`, params, {headers:headers});
+    return this.http.put(`${url}speciality/${speciality.speciality}/`, params, {headers:headers}).pipe(
+      tap ( () => this._refresh$.next() )
+    );
   }
 
   public deleteSpeciality(token:string|null, speciality:string): Observable<any> {
     let headers = new HttpHeaders().set("authorization", `Token ${token}`);
-    return this.http.delete(`${url}speciality/${speciality}/`, {headers:headers});
+    return this.http.delete(`${url}speciality/${speciality}/`, {headers:headers}).pipe(
+      tap( () => this._refresh$.next() )
+    );
   }
 
   public searchSpeciality(token:string|null, speciality:string): Observable<any> {

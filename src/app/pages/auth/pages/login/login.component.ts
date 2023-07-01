@@ -67,7 +67,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(["administrador"]);
         break;
       case "empleado":
-        this.alert.success("welcome empleado!");
+        this.router.navigate(["gestion"]);
         break
       case "paciente":
         this.router.navigate(["sistema"])

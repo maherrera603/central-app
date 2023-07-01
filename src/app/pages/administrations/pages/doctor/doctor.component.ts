@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
 import { Doctor } from '@app/models/doctor';
@@ -6,6 +6,7 @@ import { Speciality } from '@app/models/speciality';
 import { DoctorService } from '@app/services/doctor.service';
 import { IdentityService } from '@app/services/identity.service';
 import { SpecialityService } from '@app/services/speciality.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-doctor',
@@ -13,10 +14,11 @@ import { SpecialityService } from '@app/services/speciality.service';
   styleUrls: ['./doctor.component.scss'],
   providers: [IdentityService, DoctorService, SpecialityService]
 })
-export class DoctorComponent implements OnInit {
+export class DoctorComponent implements OnInit, OnDestroy {
   private token!:string|null;
   private identity!:null;
   private alertComponent:AlertComponent;
+  private suscription!:Subscription;
   protected doctors!:Doctor[];
   protected specialitys!:Speciality[];
   protected doctor!:Doctor;
@@ -34,6 +36,11 @@ export class DoctorComponent implements OnInit {
     this.closeMenu();
     this.allDoctors();
     this.allSpeciality();
+    this.suscription = this.doctorService.refresh.subscribe( () => this.allDoctors() );
+  }
+
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
   }
 
   private closeMenu(): void {
@@ -46,13 +53,7 @@ export class DoctorComponent implements OnInit {
   protected searchDoctor(search:string): void {
     if (search.length > 0) {
       this.doctorService.searchDoctor(this.token, search).subscribe(
-        response => {
-          if(response.status == "OK"){
-            this.doctors = response.doctors;
-          }else{
-            this.alertComponent.error(response.message);
-          }
-        }
+        response => (response.status == "OK") ? this.doctors = response.doctors : this.alertComponent.error(response.message)
       )
     }else{
       this.allDoctors();
@@ -73,34 +74,20 @@ export class DoctorComponent implements OnInit {
 
   private allDoctors(): void {
     this.doctorService.allDoctors(this.token).subscribe(
-      response => {
-        if(response.status == "OK"){
-          this.doctors = response.doctors;
-        }else{
-          this.alertComponent.error(response.message);
-        }
-      }
+      response => (response.status == "OK") ? this.doctors = response.doctors : this.alertComponent.error(response.message)
     );
   }
 
   protected allSpeciality(): void {
     this.specialityService.allSpecialities(this.token).subscribe(
       response => {
-        if (response.status == "OK") {
-          this.specialitys = response.specialitys;
-        }else{
-          this.alertComponent.error(response.message);
-        }
+        (response.status == "OK") ? this.specialitys = response.specialitys : this.alertComponent.error(response.message);
       }
     );
   }
 
   protected onSubmit(form:NgForm): void {
-    if(this.action == "save"){
-      this.saveDoctor(form);
-    }else{
-      this.updateDoctor();
-    }
+    (this.action == "save") ? this.saveDoctor(form) : this.updateDoctor();
   }
 
   protected saveDoctor(form:NgForm): void {
@@ -108,7 +95,6 @@ export class DoctorComponent implements OnInit {
       response => {
         if(response.status == "created"){
           form.reset();
-          this.allDoctors();
           this.closeForm();
           this.alertComponent.success(response.message);
         }else{
@@ -137,14 +123,12 @@ export class DoctorComponent implements OnInit {
       response => {
         if (response.status == "created"){
           this.closeForm();
-          this.allDoctors();
           this.alertComponent.success(response.message);
         }else{
           this.alertComponent.error(response.message);
         }
       }
     );
-
   }
 
   protected openOverlay(): void {
@@ -161,9 +145,7 @@ export class DoctorComponent implements OnInit {
     this.doctorService.deleteDoctor(this.token, document).subscribe(
       response => {
         if(response.status == "not content") {
-          this.allDoctors();
           this.closeForm();
-          this.doctor = new Doctor("", "", "", "", "", "activo", "");
           this.closeOverlay();
           this.alertComponent.success(response.message);
         }else{

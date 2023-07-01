@@ -1,53 +1,245 @@
+// @media screen and (max-width: 500px) {
+//   .login-content {
+//     width: 90%;
+//     margin: 150px auto;
+//     min-height: 200px;
+//     padding: 20px 0;
+//     border: 1px solid green;
+//     border-radius: 2.5px;
+
+//     &_header {
+//       width: 90%;
+//       margin: 0 auto 10px;
+
+//       h1{
+//         color: green;
+//         font-size: 1.5rem;
+//       }
+//     }
+
+//     &_body {
+//       min-height: 150px;
+//       width: 90%;
+//       margin: 0 auto;
+
+//       button{
+//         width: 100%;
+//       }
+
+//       .links{
+//         height: 30px;
+//         margin: 10px 0 0px;
+//         font-size: 0.8rem;
+//         color: green;
+//         padding: 1px 0;
+//         text-align: center;
+//         line-height: 1.7rem;
+
+//         a{
+//           font-size: .8rem;
+//           color: blue;
+//         }
+//         a:hover{
+//           cursor: pointer;
+
+//         }
+//       }
+//       .links:last-child{
+//         margin-top: 0;
+//       }
+//     }
+//   }
+// }
+
+
+// @media screen and (min-width: 501px) and (max-width: 1000px) {
+
+//   .login-content {
+//     width: 60%;
+//     margin: 150px auto;
+//     min-height: 200px;
+//     padding: 20px 0;
+//     border: 1px solid green;
+//     border-radius: 2.5px;
+
+//     &_header {
+//       width: 90%;
+//       margin: 0 auto 10px;
+
+//       h1{
+//         color: green;
+//         font-size: 1.5rem;
+//       }
+//     }
+
+//     &_body {
+//       min-height: 150px;
+//       width: 90%;
+//       margin: 0 auto;
+
+//       button{
+//         width: 100%;
+//       }
+
+//       .links{
+//         height: 30px;
+//         margin: 10px 0 0px;
+//         font-size: 0.8rem;
+//         color: green;
+//         padding: 1px 0;
+//         text-align: center;
+//         line-height: 1.7rem;
+
+//         a{
+//           font-size: .8rem;
+//           color: blue;
+//         }
+//         a:hover{
+//           cursor: pointer;
+
+//         }
+//       }
+//       .links:last-child{
+//         margin-top: 0;
+//       }
+//     }
+//   }
+
+// }
+
+// @media screen and (min-width: 1001px) {
+
+//   .login-content {
+//     width: 35%;
+//     margin: 150px auto;
+//     min-height: 200px;
+//     padding: 20px 0;
+//     border: 1px solid green;
+//     border-radius: 2.5px;
+
+//     &_header {
+//       width: 90%;
+//       margin: 0 auto 10px;
+
+//       h1{
+//         color: green;
+//         font-size: 1.5rem;
+//       }
+//     }
+
+//     &_body {
+//       min-height: 150px;
+//       width: 90%;
+//       margin: 0 auto;
+
+//       button{
+//         width: 100%;
+//       }
+
+//       .links{
+//         height: 30px;
+//         margin: 10px 0 0px;
+//         font-size: 0.8rem;
+//         color: green;
+//         padding: 1px 0;
+//         text-align: center;
+//         line-height: 1.7rem;
+
+//         a{
+//           font-size: .8rem;
+//           color: blue;
+//         }
+//         a:hover{
+//           cursor: pointer;
+
+//         }
+//       }
+//       .links:last-child{
+//         margin-top: 0;
+//       }
+//     }
+//   }
+
+// }
+
 @media screen and (max-width: 500px) {
   .login-content {
-    width: 90%;
-    margin: 150px auto;
-    min-height: 200px;
-    padding: 20px 0;
+    width: 100%;
+    min-height: 615px;
+    background-image: url("../../../../../assets/img/image.jpg");
+    background-repeat: no-repeat;
+    perspective: 1000px;
+    transform: rotateY(180deg);
+    background-size: 100% 100%;
     border: 1px solid green;
-    border-radius: 2.5px;
 
-    &_header {
-      width: 90%;
-      margin: 0 auto 10px;
+    .content-form{
+      background-color: rgba($color: green, $alpha: .7);
+      min-height: 450px;
+      min-width:40%;
+      width: auto;
+      max-width: 70%;
+      margin: 85px auto;
+      border-radius: 10px;
+      perspective: 1000px;
+      transform: rotateY(180deg);
 
       h1{
-        color: green;
-        font-size: 1.5rem;
-      }
-    }
-
-    &_body {
-      min-height: 150px;
-      width: 90%;
-      margin: 0 auto;
-
-      button{
+        display: block;
+        padding: 30px 20px;
         width: 100%;
+        font-size: 1.6rem;
       }
 
-      .links{
-        height: 30px;
-        margin: 10px 0 0px;
-        font-size: 0.8rem;
-        color: green;
-        padding: 1px 0;
-        text-align: center;
-        line-height: 1.7rem;
+      form{
+        margin: 30px auto;
+        width: 90%;
+        min-height: 200px;
 
+        .form-control{
+          margin: 30px auto;
+
+          label{
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 100;
+          }
+          input{
+            border: none;
+            border-bottom: 1px solid white;
+            background-color: rgba($color: green, $alpha: .0);
+            color: white;
+            outline: none;
+            font-size: 1.2rem;
+            padding: 10px 0;
+            font-weight: lighter;
+          }
+
+          button{
+            width: 100%;
+            background-color: rgba($color: blue, $alpha: .7);
+            color: white;
+            box-shadow: -2px 2px -5px;
+          }
+        }
         a{
-          font-size: .8rem;
-          color: blue;
-        }
-        a:hover{
+          display: block;
+          padding: 8px 0;
+          text-align: center;
           cursor: pointer;
+          color: white;
+          border-radius: 5px;
+          transition: .5s ease all;
 
         }
-      }
-      .links:last-child{
-        margin-top: 0;
+
+        a:hover{
+          background-color: rgba($color: blue, $alpha: .7);
+
+        }
       }
     }
+
   }
 }
 
@@ -55,54 +247,82 @@
 @media screen and (min-width: 501px) and (max-width: 1000px) {
 
   .login-content {
-    width: 60%;
-    margin: 150px auto;
-    min-height: 200px;
-    padding: 20px 0;
+    width: 100%;
+    min-height: 615px;
+    background-image: url("../../../../../assets/img/image.jpg");
+    background-repeat: no-repeat;
+    perspective: 1000px;
+    transform: rotateY(180deg);
+    background-size: 100% 100%;
     border: 1px solid green;
-    border-radius: 2.5px;
 
-    &_header {
-      width: 90%;
-      margin: 0 auto 10px;
+    .content-form{
+      background-color: rgba($color: green, $alpha: .7);
+      min-height: 450px;
+      min-width: 35%;
+      width: auto;
+      max-width: 45%;
+      margin: 85px 50px;
+      border-radius: 10px;
+      perspective: 1000px;
+      transform: rotateY(180deg);
 
       h1{
-        color: green;
-        font-size: 1.5rem;
-      }
-    }
-
-    &_body {
-      min-height: 150px;
-      width: 90%;
-      margin: 0 auto;
-
-      button{
+        display: block;
+        padding: 30px 20px;
         width: 100%;
+        font-size: 1.6rem;
       }
 
-      .links{
-        height: 30px;
-        margin: 10px 0 0px;
-        font-size: 0.8rem;
-        color: green;
-        padding: 1px 0;
-        text-align: center;
-        line-height: 1.7rem;
+      form{
+        margin: 30px auto;
+        width: 90%;
+        min-height: 200px;
 
+        .form-control{
+          margin: 30px auto;
+
+          label{
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 100;
+          }
+          input{
+            border: none;
+            border-bottom: 1px solid white;
+            background-color: rgba($color: green, $alpha: .0);
+            color: white;
+            outline: none;
+            font-size: 1.2rem;
+            padding: 10px 0;
+            font-weight: lighter;
+          }
+
+          button{
+            width: 100%;
+            background-color: rgba($color: blue, $alpha: .7);
+            color: white;
+            box-shadow: -2px 2px -5px;
+          }
+        }
         a{
-          font-size: .8rem;
-          color: blue;
-        }
-        a:hover{
+          display: block;
+          padding: 8px 0;
+          text-align: center;
           cursor: pointer;
+          color: white;
+          border-radius: 5px;
+          transition: .5s ease all;
 
         }
-      }
-      .links:last-child{
-        margin-top: 0;
+
+        a:hover{
+          background-color: rgba($color: blue, $alpha: .7);
+
+        }
       }
     }
+
   }
 
 }
@@ -110,54 +330,84 @@
 @media screen and (min-width: 1001px) {
 
   .login-content {
-    width: 35%;
-    margin: 150px auto;
-    min-height: 200px;
+    width: 100%;
+    min-height: 615px;
+    background-image: url("../../../../../assets/img/image.jpg");
+    background-repeat: no-repeat;
+    perspective: 1000px;
+    transform: rotateY(180deg);
+    background-size: 100vw 100vh;
     padding: 20px 0;
     border: 1px solid green;
-    border-radius: 2.5px;
 
-    &_header {
-      width: 90%;
-      margin: 0 auto 10px;
+    .content-form{
+      background-color: rgba($color: green, $alpha: .7);
+      min-height: 450px;
+      min-width: 30%;
+      width: auto;
+      max-width: 35%;
+      margin: 50px 50px;
+      border-radius: 10px;
+      perspective: 1000px;
+      transform: rotateY(180deg);
 
       h1{
-        color: green;
-        font-size: 1.5rem;
-      }
-    }
-
-    &_body {
-      min-height: 150px;
-      width: 90%;
-      margin: 0 auto;
-
-      button{
+        display: block;
+        padding: 30px 20px;
         width: 100%;
+        font-size: 1.6rem;
       }
 
-      .links{
-        height: 30px;
-        margin: 10px 0 0px;
-        font-size: 0.8rem;
-        color: green;
-        padding: 1px 0;
-        text-align: center;
-        line-height: 1.7rem;
+      form{
+        margin: 30px auto;
+        width: 90%;
+        min-height: 200px;
 
+        .form-control{
+          margin: 30px auto;
+
+          label{
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 100;
+          }
+          input{
+            border: none;
+            border-bottom: 1px solid white;
+            background-color: rgba($color: green, $alpha: .0);
+            color: white;
+            outline: none;
+            font-size: 1.2rem;
+            padding: 10px 0;
+            font-weight: lighter;
+          }
+
+          button{
+            width: 100%;
+            background-color: rgba($color: blue, $alpha: .7);
+            color: white;
+            box-shadow: -2px 2px -5px;
+          }
+        }
         a{
-          font-size: .8rem;
-          color: blue;
-        }
-        a:hover{
+          display: block;
+          padding: 8px 0;
+          text-align: center;
           cursor: pointer;
+          color: white;
+          border-radius: 5px;
+          transition: .5s ease all;
 
         }
-      }
-      .links:last-child{
-        margin-top: 0;
+
+        a:hover{
+          background-color: rgba($color: blue, $alpha: .7);
+
+        }
       }
     }
+
   }
 
 }
+

@@ -1,0 +1,165 @@
+<div class="content-cites">
+  <app-navigation-left></app-navigation-left>
+
+  <div class="content-cites__body">
+    <div class="content-cites__body__header">
+      <h2>Citas Solicitadas</h2>
+      <div class="content-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search"
+          name="search"
+          id="sarch"
+          #search="ngModel"
+          (ngModel)="search"
+          (keyup)="searchCites(search.value)"
+        >
+      </div>
+    </div>
+
+    <div class="content-cites__body__body">
+      <p *ngFor="let cite of cites" (click)="loadCite(cite.id, cite.id_status)">
+        <small class="information">
+          {{cite.name}} {{cite.lastname}}
+        </small>
+        <small class="status">
+          {{cite.id_status}}
+        </small>
+      </p>
+    </div>
+  </div>
+
+  <div class="content-form">
+    <div class="form">
+      <div class="form__header">
+          <h1>{{cite.name}}</h1>
+          <div class="close">
+            <i class="fa-solid fa-xmark" (click)="closeForm()"></i>
+          </div>
+      </div>
+
+      <div class="form__body">
+        <div class="form-control">
+          <label for="name">Nombres</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            #name="ngModel"
+            [(ngModel)]="cite.name"
+            readonly
+          >
+        </div>
+
+        <div class="form-control">
+          <label for="lastname">Apellidos</label>
+          <input
+            type="text"
+            name="lastname"
+            id="lastname"
+            #lastname="ngModel"
+            [(ngModel)]="cite.lastname"
+            readonly
+          >
+        </div>
+
+        <div class="form-control">
+          <label for="type_document">Tipo de documento</label>
+          <input
+            type="text"
+            name="type_document"
+            id="type_document"
+            #type_document="ngModel"
+            [(ngModel)]="cite.type_document"
+            readonly
+          >
+        </div>
+
+        <div class="form-control">
+          <label for="document">Documento</label>
+          <input
+            type="text"
+            name="document"
+            id="document"
+            #document="ngModel"
+            [(ngModel)]="cite.document"
+            readonly
+          >
+        </div>
+
+        <div class="form-control">
+          <label for="eps">Eps</label>
+          <input
+            type="text"
+            name="eps"
+            id="eps"
+            #eps="ngModel"
+            [(ngModel)]="cite.eps"
+            readonly
+          >
+        </div>
+
+        <div class="form-control">
+          <label for="phone">Telefono</label>
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            #phone="ngModel"
+            [(ngModel)]="cite.phone"
+            readonly
+          >
+        </div>
+
+        <div class="form-control">
+          <label for="speciality">Cita medica</label>
+          <input
+            type="text"
+            name="speciality"
+            id="speciality"
+            #speciality="ngModel"
+            [(ngModel)]="cite.speciality"
+            readonly
+          >
+        </div>
+
+        <div class="form-control">
+          <label for="doctor">Medico</label>
+          <select
+            name="doctor"
+            id="doctor"
+            #doctor="ngModel"
+            [(ngModel)]="cite.doctor"
+          >
+            <option value="" selected>Seleccione medico...</option>
+            <option *ngFor="let doctor of doctors" value="{{doctor.name}}">{{doctor.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-control">
+          <label for="date">Fecha de la cita</label>
+          <input
+            type="date"
+            name="date"
+            id="date"
+            #date="ngModel"
+            [(ngModel)]="cite.date"
+            min="{{dateToday | date:'dd-MM-yyyy'}}">
+        </div>
+
+        <div class="form-control">
+          <label for="">Hora de la cita</label>
+          <input
+            type="time"
+            name="hour"
+            id="hour"
+            #hour="ngModel"
+            [(ngModel)]="cite.hour"
+          >
+        </div>
+
+
+      </div>
+      <button>Enviar</button>
+    </div>
+  </div>
+</div>
