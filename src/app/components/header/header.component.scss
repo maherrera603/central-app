@@ -1,9 +1,12 @@
+@import "../../../styles.scss";
+
 @media screen and (max-width: 500px) {
   header{
     width: 100%;
     min-height: 50px;
     height: 50px;
-    background-color: green;
+    background-color: $color-primary;
+    border-bottom: 1px solid $color-secondary;
 
     .header{
       width: 90%;
@@ -15,7 +18,7 @@
       margin: 0 auto;
 
       h1{
-        font-size: 1.4rem;
+        font-size: 2.2rem;
       }
 
       &__content-navigation{
@@ -56,11 +59,11 @@
           opacity: 0;
           transform: scaleY(0);
           transition: .3s ease all;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
 
           li{
             width: 100%;
-            border-bottom: 1px solid green;
+            border-bottom: 1px solid $color-primary;
           }
 
           li:last-child{
@@ -72,12 +75,12 @@
             display: block;
             padding: 8px 5px;
             transition: .5s ease all;
-            color: green;
+            color: $color-primary;
 
           }
 
           li a:hover{
-            background: green;
+            background: $color-primary;
             color: white;
           }
 
@@ -119,7 +122,7 @@
           left: auto;
           top: 40px;
           background-color: white;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
           min-height: 106px;
           border-radius: 5px;
           transform: scaleY(.1);
@@ -129,7 +132,7 @@
           z-index: 1000;
 
           li{
-            border-bottom: 1px solid green;
+            border-bottom: 1px solid $color-primary;
 
             a{
               display: block;
@@ -167,15 +170,15 @@
 
     .header{
       h1{
-        color: green;
-        font-size: 1.5rem;
+        color: $color-primary;
+        font-size: 2.2rem;
         text-shadow: 10px 5px 10px rgba(0, 80, 0, 32);
       }
 
       &__content-navigation{
 
         i{
-          color: green;
+          color: $color-primary;
           transition: .6s ease all;
         }
 
@@ -192,7 +195,8 @@
     width: 100%;
     min-height: 50px;
     height: 50px;
-    background-color: green;
+    background-color: $color-primary;
+    border-bottom: 1px solid $color-secondary;
 
     .header{
       width: 90%;
@@ -277,7 +281,7 @@
           left: auto;
           top: 45px;
           background-color: white;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
           min-height: 106px;
           border-radius: 5px;
           transform: scaleY(.1);
@@ -287,7 +291,7 @@
           z-index: 1000;
 
           li{
-            border-bottom: 1px solid green;
+            border-bottom: 1px solid $color-primary;
 
             a{
               display: block;
@@ -324,7 +328,7 @@
 
     .header{
       h1{
-        color: green;
+        color: $color-primary;
         font-size: 1.5rem;
         text-shadow: 10px 5px 10px rgba(0, 80, 0, 32);
       }
@@ -332,7 +336,7 @@
       &__content-navigation{
 
         i{
-          color: green;
+          color: $color-primary;
           transition: .6s ease all;
         }
 
@@ -344,7 +348,7 @@
 
           li{
             a{
-              color: green;
+              color: $color-primary;
               font-weight: bold;
             }
           }
@@ -359,7 +363,8 @@
     width: 100%;
     min-height: 50px;
     height: 50px;
-    background-color: green;
+    background-color: $color-primary;
+    border-bottom: 1px solid $color-secondary;
 
     .header{
       width: 90%;
@@ -371,7 +376,7 @@
       margin: 0 auto;
 
       h1{
-        font-size: 1.4rem;
+        font-size: 2.2rem;
       }
 
       &__content-navigation{
@@ -434,7 +439,7 @@
           left: auto;
           top: 45px;
           background-color: white;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
           min-height: 106px;
           border-radius: 5px;
           transform: scaleY(.1);
@@ -444,7 +449,7 @@
           z-index: 1000;
 
           li{
-            border-bottom: 1px solid green;
+            border-bottom: 1px solid $color-primary;
 
             a{
               display: block;
@@ -484,15 +489,15 @@
 
     .header{
       h1{
-        color: green;
-        font-size: 1.5rem;
+        color: $color-primary;
+        font-size: 2.2rem;
         text-shadow: 10px 5px 10px rgba(0, 80, 0, 32);
       }
 
       &__content-navigation{
 
         i{
-          color: green;
+          color: $color-primary;
           transition: .6s ease all;
         }
 
@@ -504,7 +509,7 @@
 
           li{
             a{
-              color: green;
+              color: $color-primary;
               font-weight: bold;
             }
           }

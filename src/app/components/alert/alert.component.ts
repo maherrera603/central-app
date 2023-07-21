@@ -24,7 +24,7 @@ export class AlertComponent {
     app_root?.appendChild(alert);
     setTimeout(() => {
       app_root?.removeChild(alert);
-    }, 3000);
+    }, 15000);
   }
 
   private createSpan(message: string, cssClass: string, icon:string) {

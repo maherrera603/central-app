@@ -36,8 +36,8 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(form: NgForm){
     this.pattientService.registerPattient(this.pattient).subscribe(
-      response => {
-        if (response.status == "bad request"){
+      response => {  
+        if (response.status === "bad request" || response.status === "not found"){
           this.alert.error(response.message)
         }else{
           this.alert.success(response.message);
