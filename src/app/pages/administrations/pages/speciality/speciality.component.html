@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="content-speciality__body__body">
-      <p *ngFor="let speciality of specialitys; let indice = index" (click)="getSpeciality(speciality.speciality)">
+      <p *ngFor="let speciality of specialitys; let indice = index" (click)="getSpeciality(speciality.id)">
         {{indice+1}} {{speciality.speciality}}
       </p>
     </div>
@@ -67,7 +67,7 @@
         <small>¿Desea Eliminar {{specialit.speciality}}?</small>
       </div>
       <div class="popup__footer">
-        <button type="button" class="delete" (click)="deleteSpeciality(specialit.speciality)"><i class="fa-solid fa-trash"></i> Eliminar</button>
+        <button type="button" class="delete" (click)="deleteSpeciality(specialit.id)"><i class="fa-solid fa-trash"></i> Eliminar</button>
       </div>
     </div>
   </div>

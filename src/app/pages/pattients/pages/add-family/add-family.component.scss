@@ -1,3 +1,5 @@
+@import "../../../../../styles.scss";
+
 @media screen and (max-width: 500px) {
   .content-family{
     display: flex;
@@ -29,14 +31,14 @@
 
         .content-search{
           width: 100%;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
           border-radius: 5px;
           display: flex;
           flex-direction: row;
           align-items: center;
           i{
             padding: 5px 8px;
-            color: green;
+            color: $color-primary;
           }
 
           input{
@@ -48,7 +50,7 @@
           }
 
           input::placeholder{
-            color: green;
+            color: $color-primary;
             font-size: 1rem;
           }
         }
@@ -66,29 +68,29 @@
         min-height: 500px;
         height: 100%;
         margin-top: 5px;
-        border-top: 1px solid green;
+        border-top: 1px solid $color-primary;
 
         p{
           display: grid;
           width: 100%;
           min-height: 40px;
-          border-bottom: 1px solid green;
+          border-bottom: 1px solid $color-primary;
           align-items: center;
           padding: 0 5px;
           transition: .3s ease all;
-          color: green;
+          color: $color-primary;
         }
 
         p:hover{
           cursor: pointer;
-          background-color: rgba(0, 80, 0, 32);
+          background-color: rgba($color: $color-primary, $alpha: 32);
           color: white;
         }
       }
     }
 
     .content-form{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -97,10 +99,10 @@
       visibility: hidden;
 
       .form{
-        width: 90%;
+        width: 85%;
         background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
-        border-radius: 3px;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
+        border-radius: 8px;
         padding: 20px;
         transition: .5s ease all;
         transform: scale(0.1);
@@ -112,7 +114,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -123,7 +125,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -134,6 +136,20 @@
               color: white;
               border-radius: 50%;
             }
+          }
+        }
+
+
+        .group_control{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+
+        .form-control{
+          input, select{
+            border-radius: 5px;
+            border: 1px solid $color-primary;
           }
         }
 
@@ -158,7 +174,7 @@
     }
 
     .overlay{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -170,7 +186,7 @@
       .popup {
         width: 90%;
         background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
         border-radius: 3px;
         padding: 20px;
         margin: 0 auto;
@@ -184,12 +200,12 @@
 
           h1{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
           i{
             margin-left: auto;
-            color: green;
+            color: $color-primary;
             font-size: 1.4rem;
             cursor: pointer;
             padding: 5px 8px;
@@ -210,7 +226,7 @@
 
           small{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
         }
@@ -271,14 +287,14 @@
 
         .content-search{
           width: 100%;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
           border-radius: 5px;
           display: flex;
           flex-direction: row;
           align-items: center;
           i{
             padding: 5px 8px;
-            color: green;
+            color: $color-primary;
           }
 
           input{
@@ -290,7 +306,7 @@
           }
 
           input::placeholder{
-            color: green;
+            color: $color-primary;
             font-size: 1rem;
           }
         }
@@ -309,29 +325,29 @@
         min-height: 500px;
         height: 100%;
         margin-top: 5px;
-        border-top: 1px solid green;
+        border-top: 1px solid $color-primary;
 
         p{
           display: grid;
           width: 100%;
           min-height: 40px;
-          border-bottom: 1px solid green;
+          border-bottom: 1px solid $color-primary;
           align-items: center;
           padding: 0 5px;
           transition: .3s ease all;
-          color: green;
+          color: $color-primary;
         }
 
         p:hover{
           cursor: pointer;
-          background-color: rgba(0, 80, 0, 32);
+          background-color: rgba($color: $color-primary, $alpha: 32);
           color: white;
         }
       }
     }
 
     .content-form{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -340,11 +356,11 @@
       visibility: hidden;
 
       .form{
-        width: 70%;
+        width: 50%;
         background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
-        border-radius: 3px;
-        padding: 20px;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
+        border-radius: 5px;
+        padding: 20px 25px;
         transition: .5s ease all;
         transform: scale(0.1);
         opacity: 0;
@@ -355,7 +371,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -366,7 +382,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -377,6 +393,19 @@
               color: white;
               border-radius: 50%;
             }
+          }
+        }
+
+        .group_control{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+
+        .form-control{
+          input, select{
+            border-radius: 5px;
+            border: 1px solid $color-primary;
           }
         }
 
@@ -401,7 +430,7 @@
     }
 
     .overlay{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -412,7 +441,7 @@
       .popup {
         width: 60%;
         background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
         border-radius: 3px;
         padding: 20px;
         margin: 0 auto;
@@ -426,12 +455,12 @@
 
           h1{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
           i{
             margin-left: auto;
-            color: green;
+            color: $color-primary;
             font-size: 1.4rem;
             cursor: pointer;
             padding: 5px 8px;
@@ -452,7 +481,7 @@
 
           small{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
         }
@@ -520,14 +549,14 @@
 
         .content-search{
           width: 100%;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
           border-radius: 5px;
           display: flex;
           flex-direction: row;
           align-items: center;
           i{
             padding: 5px 8px;
-            color: green;
+            color: $color-primary;
           }
 
           input{
@@ -539,11 +568,10 @@
           }
 
           input::placeholder{
-            color: green;
+            color: $color-primary;
             font-size: 1rem;
           }
         }
-
 
         .add-family{
           display: flex;
@@ -557,29 +585,29 @@
         width: 100%;
         height: max-content;
         margin-top: 5px;
-        border-top: 1px solid green;
+        border-top: 1px solid $color-primary;
 
         p{
           display: grid;
           width: 100%;
           min-height: 40px;
-          border-bottom: 1px solid green;
+          border-bottom: 1px solid $color-primary;
           align-items: center;
           padding: 0 5px;
           transition: .3s ease all;
-          color: green;
+          color: $color-primary;
         }
 
         p:hover{
           cursor: pointer;
-          background-color: rgba(0, 80, 0, 32);
+          background-color: rgba($color: $color-primary, $alpha: 32);
           color: white;
         }
       }
     }
 
     .content-form{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -588,14 +616,14 @@
       visibility: hidden;
 
       .form{
-        width: 70%;
+        width: 50%;
         background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
-        border-radius: 3px;
-        padding: 20px;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
+        padding: 20px 30px;
         transition: .5s ease all;
         transform: scale(0.1);
         opacity: 0;
+        border-radius: 8px;
 
         &__header{
           width: 100%;
@@ -603,7 +631,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -614,7 +642,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -627,6 +655,21 @@
             }
           }
         }
+
+        .group_control{
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+        }
+
+        .form-control{
+          input, select{
+            border-radius: 5px;
+            border: 1px solid $color-primary;
+          }
+        }
+
+        
 
         button{
           margin-right: 10px;
@@ -649,7 +692,7 @@
     }
 
     .overlay{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -660,7 +703,7 @@
       .popup {
         width: 30%;
         background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
         border-radius: 3px;
         padding: 20px;
         margin: 0 auto;
@@ -674,12 +717,12 @@
 
           h1{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
           i{
             margin-left: auto;
-            color: green;
+            color: $color-primary;
             font-size: 1.4rem;
             cursor: pointer;
             padding: 5px 8px;
@@ -700,7 +743,7 @@
 
           small{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
         }

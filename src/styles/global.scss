@@ -43,7 +43,7 @@ body::-webkit-scrollbar-track {
 h1, h2, h3{
   font-size: $font-size;
   font-weight: $font-weight;
-  color:white;
+  color:$color-secondary;
 }
 
 a{
@@ -88,7 +88,7 @@ button{
   border: none;
   padding: 10px 10px;
   background-color: $color-primary;
-  color: white;
+  color: $color-secondary;
   cursor: pointer;
   border-radius: 2.5px;
 }
@@ -107,31 +107,35 @@ span{
   border-radius: 5px;
   box-shadow: 5px 5px 5px black;
   transition: .3s ease all;
-  padding: 5px 10px;
-  line-height: 30px;
-  font-size: 1.2rem;
+  padding: 10px 10px;
+  line-height: 25px;
+  font-size: 1rem;
 
   i{
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 }
 
 .success{
-  position: relative;
-  text-align: center;
   background-color: $color-primary;
-  color: white;
+  position: absolute;
+  height: 40px;
+  text-align: center;
+  color: $color-secondary;
+  top: 75px;
+  left: 63%;
+  transition: .3s ease all;
+  transform: rotateX(0.5);
 }
 
 .error {
+  background-color: #FF5B67;
   position: absolute;
-  min-height: 40px;
   height: 40px;
   text-align: center;
-  color: white;
-  background-color: #df0513;
-  top: 500px;
-  left: 60%;
+  color: $color-secondary;
+  top: 75px;
+  left: 63%;
   transition: .3s ease all;
   transform: rotateX(0.5);
 }

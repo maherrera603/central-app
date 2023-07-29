@@ -55,4 +55,12 @@ export class CiteService {
     let headers = new HttpHeaders().set("authorization", `Token ${token}`);
     return this.http.get(`${url}citeForEmployee/${idCite}/`, {headers:headers});
   }
+
+  public putCiteForEmployee(token:string|null, cite:Cite): Observable<any>{
+    let params = JSON.stringify(cite);
+    let headers = new HttpHeaders().set("authorization", `Token ${token}`).set("content-type", "application/json");
+    return this.http.put(`${url}citeForEmployee/${cite.id}/`, params, {headers:headers}).pipe(
+      tap( () => this.refresh.next())
+    );
+  }
 }

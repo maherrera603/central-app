@@ -25,7 +25,7 @@
 
     <div class="content-cites__body__body">
       <p *ngFor="let family of familys; let indice = index" (click)="loadForm(family.document)" >
-        {{indice+1}} {{family.name}} {{family.lastname}}
+        {{indice+1}} {{family.name}} {{family.last_name}}
       </p>
     </div>
   </div>
@@ -40,36 +40,38 @@
       </div>
 
       <div class="form__body">
-        <div class="form-control">
-          <label for="name">Nombres</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            #name="ngModel"
-            [(ngModel)]="cite.name"
-            pattern="[a-zA-Z\s]{3,20}$"
-            required
-          >
-          <small class="error-valid" *ngIf="!name.valid && name.touched">
-            El campo debe contener de 3 a 20 caracteres
-          </small>
-        </div>
-
-        <div class="form-control">
-          <label for="lastname">Apellidos</label>
-          <input
-            type="text"
-            name="lastname"
-            id="lastname"
-            #lastname="ngModel"
-            [(ngModel)]="cite.lastname"
-            pattern="[a-zA-Z\s]{3,20}$"
-            required
-          >
-          <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
-            El campo debe contener de 3 a 20 caracteres
-          </small>
+        <div class="group_control">
+          <div class="form-control">
+            <label for="name">Nombres</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              #name="ngModel"
+              [(ngModel)]="cite.name"
+              pattern="[a-zA-Z\s]{3,20}$"
+              required
+            >
+            <small class="error-valid" *ngIf="!name.valid && name.touched">
+              El campo debe contener de 3 a 20 caracteres
+            </small>
+          </div>
+  
+          <div class="form-control">
+            <label for="lastname">Apellidos</label>
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              #lastname="ngModel"
+              [(ngModel)]="cite.last_name"
+              pattern="[a-zA-Z\s]{3,20}$"
+              required
+            >
+            <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
+              El campo debe contener de 3 a 20 caracteres
+            </small>
+          </div>
         </div>
 
         <div class="form-control">
@@ -106,36 +108,38 @@
           </small>
         </div>
 
-        <div class="form-control">
-          <label for="phone">Telefono</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            #phone="ngModel"
-            [(ngModel)]="cite.phone"
-            pattern="[\d]{10,10}$"
-            required
-          >
-          <small class="error-valid" *ngIf="!phone.valid && phone.touched">
-            El campo debe contener 10 caracteres
-          </small>
-        </div>
-
-        <div class="form-control">
-          <label for="eps">Eps</label>
-          <input
-            type="text"
-            name="eps"
-            id="eps"
-            #eps="ngModel"
-            [(ngModel)]="cite.eps"
-            pattern="[a-zA-Z\s]{5,20}$"
-            required
-          >
-          <small class="error-valid" *ngIf="!eps.valid && eps.touched">
-            El campo debe contener de 5 a 20 caracteres
-          </small>
+        <div class="group_control">
+          <div class="form-control">
+            <label for="phone">Telefono</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              #phone="ngModel"
+              [(ngModel)]="cite.phone"
+              pattern="[\d]{10,10}$"
+              required
+            >
+            <small class="error-valid" *ngIf="!phone.valid && phone.touched">
+              El campo debe contener 10 caracteres
+            </small>
+          </div>
+  
+          <div class="form-control">
+            <label for="eps">Eps</label>
+            <input
+              type="text"
+              name="eps"
+              id="eps"
+              #eps="ngModel"
+              [(ngModel)]="cite.eps"
+              pattern="[a-zA-Z\s]{5,20}$"
+              required
+            >
+            <small class="error-valid" *ngIf="!eps.valid && eps.touched">
+              El campo debe contener de 5 a 20 caracteres
+            </small>
+          </div>
         </div>
 
         <div class="form-control">
@@ -148,7 +152,7 @@
             required
           >
             <option value="" selected>Seleccione cita medica...</option>
-            <option *ngFor="let speciality of specialitys" value="{{speciality.speciality}}">{{speciality.speciality}}</option>
+            <option *ngFor="let speciality of specialitys" value="{{speciality.id}}">{{speciality.speciality}}</option>
           </select>
           <small class="error-valid" *ngIf="cites.value == '' && cites.touched">
             Debe seleccionar un opcion

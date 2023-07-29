@@ -1,9 +1,11 @@
+@import "../../../styles.scss";
+
 @media screen and (max-width: 500px) {
 
   label{
     display: block;
     width: 30%;
-    color: green;
+    color: $color-primary;
     font-size: 1.3rem;
     padding: 5px 10px;
     cursor: pointer;
@@ -18,7 +20,7 @@
   }
 
   label:hover{
-    background-color: rgba(0, 80, 0, 32);
+    background-color: rgba($color: $color-primary, $alpha: 1.0);
     color: white;
   }
 
@@ -35,7 +37,7 @@
       width: 100%;
       min-height: 500px;
       height: 100%;
-      background: green;
+      background: $color-primary;
       border-top-right-radius: 5px;
 
       li{
@@ -53,7 +55,8 @@
         }
 
         a:hover{
-          background-color: rgba(0, 80, 0, 32);
+          background-color: $color-primary;
+          opacity: .6;
         }
 
       }
@@ -76,7 +79,7 @@
     display: inline-block;
     min-width: 20%;
 
-    color: green;
+    color: $color-primary;
     font-size: 1.3rem;
     padding: 5px 30px;
     cursor: pointer;
@@ -91,7 +94,7 @@
   }
 
   label:hover{
-    background-color: rgba(0, 80, 0, 32);
+    background-color: rgba($color: $color-primary, $alpha: 30);
     color: white;
   }
 
@@ -108,7 +111,7 @@
       width: 100%;
       min-height: 500px;
       height: 100%;
-      background: green;
+      background: $color-primary;
       border-top-right-radius: 5px;
 
       li{
@@ -126,7 +129,8 @@
         }
 
         a:hover{
-          background-color: rgba(0, 80, 0, 32);
+          background-color: $color-primary;
+          opacity: .6;
         }
 
       }
@@ -148,7 +152,7 @@
   label{
     display: none;
     width: 20%;
-    color: green;
+    color: $color-primary;
     font-size: 1.3rem;
     padding: 5px 10px;
     cursor: pointer;
@@ -163,7 +167,7 @@
   }
 
   label:hover{
-    background-color: rgba(0, 80, 0, 32);
+    background-color: rgba($color: $color-primary, $alpha: 32);
     color: white;
   }
 
@@ -181,7 +185,7 @@
       min-height: 500px;
       height: 100%;
       max-height: max-content;
-      background: green;
+      background: $color-primary;
       border-radius: 5px;
 
       li{
@@ -200,7 +204,8 @@
         }
 
         a:hover{
-          background-color: rgba(0, 80, 0, 32);
+          background-color: $color-primary;
+          opacity: .8;
         }
 
       }

@@ -22,7 +22,7 @@
 
     <div class="content-doctor__body__body">
       <p *ngFor="let doctor of doctors; let indice = index" (click)="getDoctor(doctor.document)">
-        {{indice+1}} {{doctor.name}} {{doctor.lastname}}
+        {{indice+1}} Dr(a) {{doctor.name}} {{doctor.last_name}}
       </p>
     </div>
   </div>
@@ -37,35 +37,36 @@
         </div>
       </div>
       <div class="form__body">
-        <div class="form-control">
-          <label for="name">Nombres</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            #name="ngModel"
-            [(ngModel)]="doctor.name"
-            pattern="[a-zA-Z\s]{3,20}$"
-            required
-          >
-          <small class="error-valid" *ngIf="!name.valid && name.touched">
-            El campo debe contener de 3 a 20 caracteres
-          </small>
-        </div>
-
-        <div class="form-control">
-          <label for="lastname">Apellidos</label>
-          <input
-            type="text"
-            name="lastname"
-            id="lastname"
-            #lastname="ngModel"
-            [(ngModel)]="doctor.lastname"
-            pattern="[a-zA-Z\s]{3,20}$"
-          >
-          <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
-            El campo debe contener de 3 a 20 caracteres
-          </small>
+        <div class="group_form">
+          <div class="form-control">
+            <label for="name">Nombres</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              #name="ngModel"
+              [(ngModel)]="doctor.name"
+              pattern="[a-zA-Z\s]{3,20}$"
+              required
+            >
+            <small class="error-valid" *ngIf="!name.valid && name.touched">
+              El campo debe contener de 3 a 20 caracteres
+            </small>
+          </div>
+          <div class="form-control">
+            <label for="lastname">Apellidos</label>
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              #lastname="ngModel"
+              [(ngModel)]="doctor.last_name"
+              pattern="[a-zA-Z\s]{3,20}$"
+            >
+            <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
+              El campo debe contener de 3 a 20 caracteres
+            </small>
+          </div>
         </div>
 
         <div class="form-control">
@@ -128,7 +129,7 @@
             required
           >
             <option value="" selected>Seleccione una especialidad...</option>
-            <option *ngFor="let speciality of specialitys" value="{{speciality.speciality}}">{{speciality.speciality}}</option>
+            <option *ngFor="let speciality of specialitys" value="{{speciality.id}}">{{speciality.speciality}}</option>
           </select>
           <small class="error-valid" *ngIf="speciality.value == '' && speciality.touched">
             Seleccione una especialidad

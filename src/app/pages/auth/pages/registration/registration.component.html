@@ -2,44 +2,44 @@
   <div class="background">
   </div>
   <div class="content-form">
-    <h1>Crear Nueva Cuenta</h1>
+    <h1>Crear Cuenta</h1>
     <form class="form" #f="ngForm" (submit)="onSubmit(f)" autocomplete="on">
-      <div class="form-control w-50">
-        <input 
-          type="text" 
-          name="name" 
-          id="name"
-          #name="ngModel"
-          [(ngModel)]="pattient.name"
-          placeholder="Nombres Completos"
-          pattern="[a-zA-Z\s]{3,20}"
-          maxlength="20"
-          required
-
-        >
-        <small class="error-valid" *ngIf="name.invalid && name.touched">
-          el campo debe contener de 3 a 20 caracteres
-        </small>
+      <div class="group_control">
+        <div class="form-control">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            #name="ngModel"
+            [(ngModel)]="pattient.name"
+            placeholder="Nombres Completos"
+            pattern="[a-zA-Z\s]{3,20}"
+            maxlength="20"
+            required
+          >
+          <small class="error-valid" *ngIf="name.invalid && name.touched">
+            el campo debe contener de 3 a 20 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <input
+            type="text"
+            name="lastname"
+            id="lastname"
+            #lastname="ngModel"
+            [(ngModel)]="pattient.last_name"
+            placeholder="Apellidos Completos"
+            pattern="[a-zA-Z\s]{3,20}"
+            maxlength="20"
+            required
+          >
+          <small class="error-valid" *ngIf="lastname.invalid && lastname.touched">
+            el campo debe contener de 3 a 20 caracteres
+          </small>
+        </div>
       </div>
 
-      <div class="form-control w-50">
-        <input 
-          type="text" 
-          name="lastname" 
-          id="lastname"
-          #lastname="ngModel"
-          [(ngModel)]="pattient.lastname"
-          placeholder="Apellidos Completos"
-          pattern="[a-zA-Z\s]{3,20}"
-          maxlength="20"
-          required
-        >
-        <small class="error-valid" *ngIf="lastname.invalid && lastname.touched">
-          el campo debe contener de 3 a 20 caracteres
-        </small>
-      </div>
-
-      <div class="form-control w-100">
+      <div class="form-control">
         <select 
           name="type_document" 
           id="type_document"
@@ -55,7 +55,7 @@
         </small>
       </div>
 
-      <div class="form-control w-100">
+      <div class="form-control">
         <input 
           type="text" 
           name="document" 
@@ -72,70 +72,73 @@
         </small>
       </div>
 
-      <div class="form-control w-50">
-        <input 
-          type="tel" 
-          name="phone" 
-          id="phone"
-          #phone="ngModel"
-          [(ngModel)]="pattient.phone"
-          placeholder="Telefono"
-          maxlength="10"
-          pattern="[\d]{10,10}"
-          required
-        >
-        <small class="error-valid" *ngIf="phone.invalid && phone.touched">
-          El campo debe contener 10 caracteres
-        </small>
-      </div>
-      <div class="form-control w-50">
-        <input 
-          type="email" 
-          name="email" 
-          id="email"
-          #email="ngModel"
-          [(ngModel)]="pattient.email"
-          placeholder="Correo"  
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-          required
+      <div class="group_control">
+        <div class="form-control">
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            #phone="ngModel"
+            [(ngModel)]="pattient.phone"
+            placeholder="Telefono"
+            maxlength="10"
+            pattern="[\d]{10,10}"
+            required
           >
-        <small class="error-valid" *ngIf="email.invalid && email.touched">
-          El campo debe contener un formato de correo valido
-        </small>
+          <small class="error-valid" *ngIf="phone.invalid && phone.touched">
+            El campo debe contener 10 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            #email="ngModel"
+            [(ngModel)]="pattient.user.email"
+            placeholder="Correo"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            required
+            >
+          <small class="error-valid" *ngIf="email.invalid && email.touched">
+            El campo debe contener un formato de correo valido
+          </small>
+        </div>
       </div>
 
-      <div class="form-control w-50">
-        <input 
-          type="password" 
-          name="password" 
-          id="password"
-          #password="ngModel"
-          [(ngModel)]="pattient.password"
-          placeholder="Contraseña"
-          pattern="[a-zA-Z\d]{8,12}"
-          maxlength="12"
-          required
-        >
-        <small class="error-valid" *ngIf="password.invalid && password.touched">
-          El campo debe contener de 8 a 12 caracteres
-        </small>
-      </div>
-
-      <div class="form-control w-50">
-        <input 
-          type="password" 
-          name="password" 
-          id="password"
-          #pass="ngModel"
-          (ngModel)="pass"
-          placeholder="Repetir Contraseña"
-          pattern="[a-zA-Z\d]{8,12}"
-          maxlength="12"
-          required
-        >
-        <small class="error-valid" *ngIf="pass.invalid && password.value === pass.value">
-          Repita la contraseña anteriror
-        </small>
+      <div class="group_control">
+        <div class="form-control">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            #password="ngModel"
+            [(ngModel)]="pattient.user.password"
+            placeholder="Contraseña"
+            pattern="[a-zA-Z\d]{8,12}"
+            maxlength="12"
+            required
+          >
+          <small class="error-valid" *ngIf="password.invalid && password.touched">
+            El campo debe contener de 8 a 12 caracteres
+          </small>
+        </div>
+        <div class="form-control">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            #pass="ngModel"
+            (ngModel)="pass"
+            placeholder="Repetir Contraseña"
+            pattern="[a-zA-Z\d]{8,12}"
+            maxlength="12"
+            required
+          >
+          <small class="error-valid" *ngIf="pass.invalid && pass.touched && password.value === pass.value">
+            Repita la contraseña anteriror
+          </small>
+        </div>
       </div>
 
       <button type="submit" [disabled]="f.invalid">Registrarse</button>

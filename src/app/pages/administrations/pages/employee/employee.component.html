@@ -20,7 +20,7 @@
     </div>
     <div class="content-employee__body__body">
       <p *ngFor="let employee of employees; let indice = index" (click)="getEmployee(employee.document)">
-        {{indice+1}} {{employee.name}} {{employee.lastname}}
+        {{indice+1}} {{employee.name}} {{employee.last_name}}
       </p>
     </div>
   </div>
@@ -34,35 +34,37 @@
         </div>
       </div>
       <div class="form__body">
-        <div class="form-control">
-          <label for="name">Nombres</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            #name="ngModel"
-            [(ngModel)]="employee.name"
-            pattern="[a-zA-Z\s]{3,20}$"
-            required
-          >
-          <small class="error-valid" *ngIf="!name.valid && name.touched">
-            El campo debe contener de 3 a 20 caracteres
-          </small>
-        </div>
-        <div class="form-control">
-          <label for="lastname">Apellidos</label>
-          <input
-            type="text"
-            name="lastname"
-            id="lastname"
-            #lastname="ngModel"
-            [(ngModel)]="employee.lastname"
-            pattern="[a-zA-Z\s]{3,20}$"
-            required
-          >
-          <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
-            El campo debe contener de 3 a 20 caracteres
-          </small>
+        <div class="group_control">
+          <div class="form-control">
+            <label for="name">Nombres</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              #name="ngModel"
+              [(ngModel)]="employee.name"
+              pattern="[a-zA-Z\s]{3,20}$"
+              required
+            >
+            <small class="error-valid" *ngIf="!name.valid && name.touched">
+              El campo debe contener de 3 a 20 caracteres
+            </small>
+          </div>
+          <div class="form-control">
+            <label for="lastname">Apellidos</label>
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              #lastname="ngModel"
+              [(ngModel)]="employee.last_name"
+              pattern="[a-zA-Z\s]{3,20}$"
+              required
+            >
+            <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
+              El campo debe contener de 3 a 20 caracteres
+            </small>
+          </div>
         </div>
         <div class="form-control">
           <label for="type_document">Tipo de documento</label>
@@ -96,68 +98,73 @@
             El campo debe contener de 7 a 20 caracteres
           </small>
         </div>
-        <div class="form-control">
-          <label for="phone">Telefono</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            #phone="ngModel"
-            [(ngModel)]="employee.phone"
-            pattern="[\d]{10,10}"
-            required
-          >
-          <small class="error-valid" *ngIf="!phone.valid && phone.touched">
-            El campo debe contener 10 caracteres
-          </small>
+        <div class="group_control">
+          <div class="form-control">
+            <label for="phone">Telefono</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              #phone="ngModel"
+              [(ngModel)]="employee.phone"
+              pattern="[\d]{10,10}"
+              required
+            >
+            <small class="error-valid" *ngIf="!phone.valid && phone.touched">
+              El campo debe contener 10 caracteres
+            </small>
+          </div>
+          <div class="form-control">
+            <label for="email">Correo electronico</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              #email="ngModel"
+              [(ngModel)]="employee.user.email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
+              required
+            >
+            <small class="error-valid" *ngIf="!email.valid && email.touched">
+              Formato de correo invalido
+            </small>
+          </div>
         </div>
-        <div class="form-control">
-          <label for="email">Correo electronico</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            #email="ngModel"
-            [(ngModel)]="employee.email"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"
-            required
-          >
-          <small class="error-valid" *ngIf="!email.valid && email.touched">
-            Formato de correo invalido
-          </small>
-        </div>
-        <div class="form-control">
-          <label for="password">Contreseña</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            #password="ngModel"
-            [(ngModel)]="employee.password"
-            pattern="[a-zA-Z\d]{8,12}$"
-            required
-          >
-          <small class="error-valid" *ngIf="!password.valid && password.touched">
-            El campo debe contenter de 8 a 12 caracteres
-          </small>
-        </div>
-        <div class="form-control">
-          <label for="confirmPassword">Confirmar contraseña</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            #confirmPassword="ngModel"
-            (ngModel)="confirmPassword"
-            pattern="[a-zA-Z\d]{8,12}$"
-            required
-          >
-          <small class="error-valid" *ngIf="!confirmPassword.valid && confirmPassword.touched">
-            El campo debe contenter de 8 a 12 caracteres
-          </small>
-          <small class="error-valid" *ngIf="password.value != confirmPassword.value">
-            Las constraseñas son incorrectas
-          </small>
+
+        <div class="group_control">
+          <div class="form-control">
+            <label for="password">Contreseña</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              #password="ngModel"
+              [(ngModel)]="employee.user.password"
+              pattern="[a-zA-Z\d]{8,12}$"
+              required
+            >
+            <small class="error-valid" *ngIf="!password.valid && password.touched">
+              El campo debe contenter de 8 a 12 caracteres
+            </small>
+          </div>
+          <div class="form-control">
+            <label for="confirmPassword">Confirmar contraseña</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              #confirmPassword="ngModel"
+              (ngModel)="confirmPassword"
+              pattern="[a-zA-Z\d]{8,12}$"
+              required
+            >
+            <small class="error-valid" *ngIf="!confirmPassword.valid && confirmPassword.touched">
+              El campo debe contenter de 8 a 12 caracteres
+            </small>
+            <small class="error-valid" *ngIf="password.value != confirmPassword.value && confirmPassword.touched">
+              Las constraseñas son incorrectas
+            </small>
+          </div>
         </div>
       </div>
       <button type="submit" [disabled]="f.invalid">Guardar</button>
@@ -167,7 +174,7 @@
   <div class="content-form-delete">
     <form class="form">
       <div class="form__header">
-        <h1>Info. {{employee.name}} {{employee.lastname}}</h1>
+        <h1>Info. {{employee.name}} {{employee.last_name}}</h1>
         <div class="close">
           <i class="fa-solid fa-xmark" (click)="closeFormDelete()"></i>
         </div>
@@ -196,7 +203,7 @@
             name="lastnames"
             id="lastnames"
             #lastnames="ngModel"
-            [(ngModel)]="employee.lastname"
+            [(ngModel)]="employee.last_name"
             pattern="[a-zA-Z\s]{3,20}$"
             required
             readonly

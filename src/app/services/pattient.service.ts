@@ -13,7 +13,7 @@ export class PattientService {
   constructor(private http:HttpClient) { }
 
   public registerPattient(pattient: Pattient): Observable<any>{
-    let params = JSON.stringify(pattient)
+    let params = JSON.stringify(pattient);
     let headers = new HttpHeaders().set("Content-Type", "application/json");
     return this.http.post(`${url}register/`, params, {headers:headers});
   }

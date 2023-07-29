@@ -1,15 +1,15 @@
 import { Speciality } from "./speciality";
 
-export class Doctor extends Speciality{
+export class Doctor{
   constructor(
+    public id:number,
     public name:string,
-    public lastname:string,
+    public last_name:string,
     public type_document:string,
     public document:string,
     public phone:string,
-    public status:string,
-    override speciality:string
+    public status:number,
+    public speciality:Speciality
   ){
-    super(speciality);
   }
 }

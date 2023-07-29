@@ -1,15 +1,12 @@
 import { User } from "./User";
 
-export class Employee extends User {
+export class Employee {
   constructor(
     public name:string,
-    public lastname:string,
+    public last_name:string,
     public type_document:string,
     public document:string,
     public phone:string,
-    override email:string,
-    override password:string
-  ){
-    super(email, password);
-  }
+    public user: User
+  ){}
 }

@@ -1,18 +1,26 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { IdentityService } from '@app/services/identity.service';
+import { UserService } from '@app/services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  providers: [IdentityService, UserService]
 })
 export class HeaderComponent implements OnInit, DoCheck {
+  private token!:string|null;
   protected loadNav:boolean = false;
   protected identityUser:any;
   protected role!:string|null;
 
-  constructor(private identityService: IdentityService, private router: Router){
+
+  constructor(
+    private identityService: IdentityService, 
+    private userService:UserService, 
+    private router: Router
+  ){
   }
 
   ngOnInit(): void {
@@ -21,6 +29,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   ngDoCheck(): void {
     this.identityUser = this.identityService.getUser();
     this.role = this.identityService.getRole();
+    this.token = this.identityService.getToken();
   }
 
   protected showNavigation () : void {
@@ -47,7 +56,13 @@ export class HeaderComponent implements OnInit, DoCheck {
   }
 
   protected logout(): void{
-    sessionStorage.clear();
-    this.router.navigate(['/iniciar-sesion']);
+    this.userService.logout(this.token).subscribe(
+      response => {
+        if (response.status === "not content"){
+          sessionStorage.clear();
+          this.router.navigate(['/iniciar-sesion']);
+        }
+      }
+    );
   }
 }

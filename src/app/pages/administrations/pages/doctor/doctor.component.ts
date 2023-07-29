@@ -19,6 +19,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
   private identity!:null;
   private alertComponent:AlertComponent;
   private suscription!:Subscription;
+  private speciality!:Speciality;
   protected doctors!:Doctor[];
   protected specialitys!:Speciality[];
   protected doctor!:Doctor;
@@ -29,7 +30,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
     this.token = this.identityService.getToken();
     this.alertComponent = new AlertComponent();
     this.doctors = [];
-    this.doctor = new Doctor("", "", "","","", "activo", "");
+    this.doctor = new Doctor(1,"", "", "","","", 1, this.speciality);
   }
 
   ngOnInit(): void {
@@ -64,7 +65,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
     let content = document.querySelector(".content-form");
     content?.classList.add("content-form-active");
     this.action = action;
-    this.doctor = (this.action === "save") ? new Doctor("", "", "","","", "activo", ""): this.doctor;
+    this.doctor = (this.action === "save") ? new Doctor(1,"", "", "","","", 1, this.speciality): this.doctor;
   }
 
   protected closeForm(): void {
@@ -119,6 +120,7 @@ export class DoctorComponent implements OnInit, OnDestroy {
   }
 
   protected updateDoctor(): void {
+    console.log(this.doctor);
     this.doctorService.updateDoctor(this.token, this.doctor).subscribe(
       response => {
         if (response.status == "created"){

@@ -5,6 +5,7 @@ import { IdentityService } from '@app/services/identity.service';
 import { EmployeeService } from '@app/services/employee-service.service';
 import { AlertComponent } from '@app/components/alert/alert.component';
 import { enctrypAES, sha256 } from '@app/services/global';
+import { User } from '@app/models/User';
 
 @Component({
   selector: 'app-profile',
@@ -13,13 +14,14 @@ import { enctrypAES, sha256 } from '@app/services/global';
   providers: [IdentityService, EmployeeService]
 })
 export class ProfileComponent implements OnInit {
-  protected admin:Employee;
   private identity:any;
   private token:string|null;
   private alertComponent!:AlertComponent;
+  private user!:User;
+  protected admin:Employee;
 
   constructor(private identityService:IdentityService, private employeeService:EmployeeService){
-    this.admin =  new Employee("", "", "", "", "", "", "")
+    this.admin =  new Employee("", "", "", "", "", this.user);
     this.token = this.identityService.getToken();
     this.identity = this.identityService.getUser();
     this.alertComponent = new AlertComponent();
@@ -41,7 +43,7 @@ export class ProfileComponent implements OnInit {
     this.employeeService.getEmployees(this.token, this.identity.document).subscribe(
       response => {
         if(response.status == "OK" ){
-          this.admin = response.administrator;
+          this.admin = response.employee;
         }else{
           this.alertComponent.error(response.message);
         }
@@ -54,10 +56,7 @@ export class ProfileComponent implements OnInit {
       response => {
         if(response.status == "created"){
           this.alertComponent.success(response.message);
-          this.identity.name = this.admin.name;
-          this.identity.lastname = this.admin.lastname;
-          this.identity.phone = this.admin.phone;
-          sessionStorage.setItem(sha256("user"), enctrypAES(JSON.stringify(this.identity)));
+          sessionStorage.setItem(sha256("user"), enctrypAES(JSON.stringify(response.admin)));
         }else{
           this.alertComponent.error(response.message);
         }

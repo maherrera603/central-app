@@ -11,7 +11,7 @@ export class AlertComponent {
 
   success(message:string): void {
     const app_root = document.querySelector("app-root .container")
-    const alert = this.createSpan(message, "success", '<i class="fa-solid fa-check"></i>');
+    const alert = this.createSpan(message, "success", '<i class="fa-solid fa-check"></i> ');
     app_root?.appendChild(alert);
     setTimeout(() => {
       app_root?.removeChild(alert);
@@ -24,7 +24,7 @@ export class AlertComponent {
     app_root?.appendChild(alert);
     setTimeout(() => {
       app_root?.removeChild(alert);
-    }, 15000);
+    }, 3000);
   }
 
   private createSpan(message: string, cssClass: string, icon:string) {

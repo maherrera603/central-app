@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderModule } from './components/header/header.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './components/alert/alert.component';
@@ -20,7 +20,6 @@ import { EmployeeService } from './services/employee-service.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
     AlertComponent,
 
@@ -29,7 +28,8 @@ import { EmployeeService } from './services/employee-service.service';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    HeaderModule,
   ],
   providers: [
     PattientService,

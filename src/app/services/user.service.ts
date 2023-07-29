@@ -16,4 +16,9 @@ export class UserService {
     let headers = new HttpHeaders().set("Content-Type", "application/json");
     return this.http.post(`${url}login/`, params, {headers:headers});
   }
+
+  public logout(token:string|null):Observable<any>{
+    let headers = new HttpHeaders().set("authorization", `Token ${token}`)
+    return this.http.delete(`${url}logout/`, {headers:headers})
+  }
 }
