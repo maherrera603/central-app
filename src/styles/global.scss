@@ -1,4 +1,5 @@
 @import "./fonts.scss";
+
 *{
   top: 0;
   left: 0;
@@ -31,7 +32,7 @@ body::-webkit-scrollbar:horizontal {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: green;
+  background-color: $color-primary;
   // border-radius: 10px;
 }
 
@@ -42,7 +43,7 @@ body::-webkit-scrollbar-track {
 h1, h2, h3{
   font-size: $font-size;
   font-weight: $font-weight;
-  color:white;
+  color:$color-secondary;
 }
 
 a{
@@ -66,7 +67,7 @@ ul{
 
   label{
     display: block;
-    color: green;
+    color: $color-primary;
     font-size: .9rem;
   }
 
@@ -74,9 +75,9 @@ ul{
   select{
     height: 30px;
     width: 100%;
-    outline-color: green;
+    outline-color: $color-primary;
     padding: 2px 5px;
-    color: green;
+    color: $color-primary;
     box-sizing: border-box;
     font-size: .9rem;
     font-weight: 300;
@@ -86,8 +87,8 @@ ul{
 button{
   border: none;
   padding: 10px 10px;
-  background-color: green;
-  color: white;
+  background-color: $color-primary;
+  color: $color-secondary;
   cursor: pointer;
   border-radius: 2.5px;
 }
@@ -106,30 +107,42 @@ span{
   border-radius: 5px;
   box-shadow: 5px 5px 5px black;
   transition: .3s ease all;
-  padding: 5px 10px;
-  line-height: 30px;
-  font-size: 1.2rem;
+  padding: 10px 10px;
+  line-height: 25px;
+  font-size: 1rem;
 
   i{
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 }
 
 .success{
+  background-color: $color-primary;
+  position: absolute;
+  height: 40px;
   text-align: center;
-  background-color: green;
-  color: white;
+  color: $color-secondary;
+  top: 75px;
+  left: 63%;
+  transition: .3s ease all;
+  transform: rotateX(0.5);
 }
 
-.error{
+.error {
+  background-color: #FF5B67;
+  position: absolute;
+  height: 40px;
   text-align: center;
-  color: white;
-  background-color: red;
+  color: $color-secondary;
+  top: 75px;
+  left: 63%;
+  transition: .3s ease all;
+  transform: rotateX(0.5);
 }
 
 
 .error-valid{
-  color: red;
+  color: #df0513;
   font-size: 14px;
   display: block;
 }

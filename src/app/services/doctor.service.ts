@@ -55,4 +55,9 @@ export class DoctorService {
     let headers = new HttpHeaders().set("authorization", `Token ${token}`);
     return this.http.get(`${url}doctors/search/${search}/`, {headers:headers});
   }
+
+  public getDoctorBySpeciality(token:string|null, pk:number): Observable<any> {
+    let headers = new HttpHeaders().set("authorization", `Token ${token}`);
+    return this.http.get(`${url}doctor/speciality/${pk}/`, {headers:headers})
+  }
 }

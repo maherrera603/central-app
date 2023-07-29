@@ -1,9 +1,12 @@
+@import "../../../styles.scss";
+
 @media screen and (max-width: 500px) {
   header{
     width: 100%;
     min-height: 50px;
     height: 50px;
-    background-color: green;
+    background-color: $color-primary;
+    border-bottom: 1px solid $color-secondary;
 
     .header{
       width: 90%;
@@ -15,7 +18,11 @@
       margin: 0 auto;
 
       h1{
-        font-size: 1.4rem;
+        font-size: 1.3rem;
+
+        ::before{
+          font-size: 1.6rem;
+        }
       }
 
       &__content-navigation{
@@ -26,7 +33,7 @@
 
         i{
           font-size: 1.4rem;
-          color: white;
+          color: $color-secondary;
           margin-left: auto;
           padding: 5px 10px;
           cursor: pointer;
@@ -35,7 +42,7 @@
 
         i:hover{
           border-radius: 50%;
-          background-color:rgba(0, 80, 0, 32);
+          background-color: rgba($color: $color-primary, $alpha: 32);
         }
 
         i.arrow-rigth{
@@ -46,7 +53,7 @@
           position: absolute;
           left: auto;
           width: 100%;
-          background-color: white;
+          background-color: $color-secondary;
           min-height: 106px;
           height: auto;
           border-radius: 5px;
@@ -56,11 +63,11 @@
           opacity: 0;
           transform: scaleY(0);
           transition: .3s ease all;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
 
           li{
             width: 100%;
-            border-bottom: 1px solid green;
+            border-bottom: 1px solid $color-primary;
           }
 
           li:last-child{
@@ -72,13 +79,13 @@
             display: block;
             padding: 8px 5px;
             transition: .5s ease all;
-            color: green;
+            color: $color-primary;
 
           }
 
           li a:hover{
-            background: green;
-            color: white;
+            background: $color-primary;
+            color: $color-secondary;
           }
 
         }
@@ -92,7 +99,7 @@
         .content-user{
           display: inline-block;
           padding: 5px 8px;
-          color: white;
+          color: $color-secondary;
           font-size: 1.2rem;
           text-transform: capitalize;
           border-radius: 5px;
@@ -109,7 +116,7 @@
         }
 
         .content-user:hover{
-          background-color: rgba(0, 80, 0, 32);
+          background-color: rgba($color: $color-primary, $alpha: 32);
 
         }
 
@@ -118,8 +125,8 @@
           position: absolute;
           left: auto;
           top: 40px;
-          background-color: white;
-          border: 1px solid green;
+          background-color: $color-secondary;
+          border: 1px solid $color-primary;
           min-height: 106px;
           border-radius: 5px;
           transform: scaleY(.1);
@@ -129,18 +136,19 @@
           z-index: 1000;
 
           li{
-            border-bottom: 1px solid green;
+            border-bottom: 1px solid $color-primary;
 
             a{
               display: block;
               padding: 8px 5px;
               cursor: pointer;
               transition: .3s ease all;
+              color: $color-primary;
             }
 
             a:hover{
-              background-color: rgba(0, 80, 0, 32);
-              color: white;
+              background-color: rgba($color: $color-primary, $alpha: 32);
+              color: $color-secondary;
             }
           }
 
@@ -158,33 +166,38 @@
       }
     }
   }
-
+  
   .index{
-    background-image: url("../../../assets/img/hospital.avif");
-    height: 400px;
-    width: 100%;
-    background-size: 100% 100%;
+    background-color: $color-secondary;
 
     .header{
+      border-bottom: 1px solid $color-primary;
+
       h1{
-        color: green;
-        font-size: 1.5rem;
-        text-shadow: 10px 5px 10px rgba(0, 80, 0, 32);
+        color: $color-primary;
       }
 
       &__content-navigation{
 
         i{
-          color: green;
-          transition: .6s ease all;
+          display: block;
+          color: $color-primary;
         }
 
         i:hover{
-          color: white;
+          color: $color-secondary;
+        }
+
+        .navigation-user{
+          li a{
+            color: $color-primary;
+          }
         }
       }
+
     }
   }
+
 }
 
 @media screen and (min-width: 501px) and (max-width: 1000px) {
@@ -192,7 +205,8 @@
     width: 100%;
     min-height: 50px;
     height: 50px;
-    background-color: green;
+    background-color: $color-primary;
+    border-bottom: 1px solid $color-secondary;
 
     .header{
       width: 90%;
@@ -204,7 +218,11 @@
       margin: 0 auto;
 
       h1{
-        font-size: 1.4rem;
+        font-size: 1.6rem;
+
+        ::before{
+          font-size: 1.7rem;
+        }
       }
 
       &__content-navigation{
@@ -227,20 +245,20 @@
           li a{
             padding: 5px 10px;
             margin-left: 10px;
-            color: white;
+            color: $color-secondary;
             cursor: pointer;
             transition: .3s ease all;
           }
 
           li a:hover{
-            text-shadow: 5px 5px 5px rgba(0, 80, 0, 32);
+            text-shadow: 5px 5px 5px rgba($color: $color-primary, $alpha: 32);
           }
         }
 
         .content-user{
           display: inline-block;
           padding: 10px 10px;
-          color: white;
+          color: $color-secondary;
           font-size: 1.2rem;
           text-transform: capitalize;
           border-radius: 5px;
@@ -267,7 +285,7 @@
         }
 
         .content-user:hover{
-          background-color: rgba(0, 80, 0, 32);
+          background-color: rgba($color: $color-primary, $alpha: 32);
 
         }
 
@@ -276,8 +294,8 @@
           position: absolute;
           left: auto;
           top: 45px;
-          background-color: white;
-          border: 1px solid green;
+          background-color: $color-secondary;
+          border: 1px solid $color-primary;
           min-height: 106px;
           border-radius: 5px;
           transform: scaleY(.1);
@@ -287,18 +305,19 @@
           z-index: 1000;
 
           li{
-            border-bottom: 1px solid green;
+            border-bottom: 1px solid $color-primary;
 
             a{
               display: block;
               padding: 8px 5px;
               cursor: pointer;
               transition: .3s ease all;
+              color: $color-primary;
             }
 
             a:hover{
-              background-color: rgba(0, 80, 0, 32);
-              color: white;
+              background-color: rgba($color: $color-primary, $alpha: 32);
+              color: $color-secondary;
             }
           }
 
@@ -317,39 +336,33 @@
   }
 
   .index{
-    background-image: url("../../../assets/img/hospital.avif");
-    height: 500px;
-    width: 100%;
-    background-size: 100% 100%;
+    background-color: $color-secondary;
 
     .header{
+      border-bottom: 1px solid $color-primary;
+
       h1{
-        color: green;
-        font-size: 1.5rem;
-        text-shadow: 10px 5px 10px rgba(0, 80, 0, 32);
+        color: $color-primary;
       }
 
       &__content-navigation{
 
         i{
-          color: green;
-          transition: .6s ease all;
+          display: none;
+          color: $color-primary;
         }
 
         i:hover{
-          color: white;
+          color: $color-secondary;
         }
 
         .navigation{
-
-          li{
-            a{
-              color: green;
-              font-weight: bold;
-            }
+          li a{
+            color: $color-primary;
           }
         }
       }
+
     }
   }
 }
@@ -359,7 +372,8 @@
     width: 100%;
     min-height: 50px;
     height: 50px;
-    background-color: green;
+    background-color: $color-primary;
+    border-bottom: 1px solid $color-secondary;
 
     .header{
       width: 90%;
@@ -371,7 +385,11 @@
       margin: 0 auto;
 
       h1{
-        font-size: 1.4rem;
+        font-size: 1.8rem;
+
+        ::before{
+          font-size: 1.9rem;
+        }
       }
 
       &__content-navigation{
@@ -392,20 +410,20 @@
           li a{
             padding: 5px 10px;
             margin-left: 10px;
-            color: white;
+            color: $color-secondary;
             cursor: pointer;
             transition: .3s ease all;
           }
 
           li a:hover{
-            text-shadow: 5px 5px 5px rgba(0, 80, 0, 32);
+            text-shadow: 5px 5px 5px rgba($color: $color-primary, $alpha: 32);
           }
         }
 
         .content-user{
           display: inline-block;
           padding: 10px 10px;
-          color: white;
+          color: $color-secondary;
           font-size: 1.2rem;
           text-transform: capitalize;
           border-radius: 5px;
@@ -424,8 +442,7 @@
         }
 
         .content-user:hover{
-          background-color: rgba(0, 80, 0, 32);
-
+          background-color: rgba($color: $color-primary, $alpha: 32);
         }
 
         .navigation-user{
@@ -433,8 +450,8 @@
           position: absolute;
           left: auto;
           top: 45px;
-          background-color: white;
-          border: 1px solid green;
+          background-color: $color-secondary;
+          border: 1px solid $color-primary;
           min-height: 106px;
           border-radius: 5px;
           transform: scaleY(.1);
@@ -444,18 +461,19 @@
           z-index: 1000;
 
           li{
-            border-bottom: 1px solid green;
+            border-bottom: 1px solid $color-primary;
 
             a{
               display: block;
               padding: 8px 5px;
               cursor: pointer;
               transition: .3s ease all;
+              color: $color-primary;
             }
 
             a:hover{
-              background-color: rgba(0, 80, 0, 32);
-              color: white;
+              background-color: rgba($color: $color-primary, $alpha: 32);
+              color: $color-secondary
             }
           }
 
@@ -476,41 +494,35 @@
   }
 
   .index{
-    background-image: url("../../../assets/img/hospital.avif");
-    min-height: 400px;
-    height: 600px;
-    width: 100%;
-    background-size: 100% 100%;
+    background-color: $color-secondary;
 
     .header{
+      border-bottom: 1px solid $color-primary;
+
       h1{
-        color: green;
-        font-size: 1.5rem;
-        text-shadow: 10px 5px 10px rgba(0, 80, 0, 32);
+        color: $color-primary;
       }
 
       &__content-navigation{
 
         i{
-          color: green;
-          transition: .6s ease all;
+          display: none;
+          color: $color-primary;
         }
 
         i:hover{
-          color: white;
+          color: $color-secondary;
         }
 
         .navigation{
-
-          li{
-            a{
-              color: green;
-              font-weight: bold;
-            }
+          li a{
+            color: $color-primary;
           }
         }
       }
+
     }
   }
+
 }
 

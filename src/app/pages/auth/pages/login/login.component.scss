@@ -1,10 +1,11 @@
+@import "../../../../../styles.scss";
 // @media screen and (max-width: 500px) {
 //   .login-content {
 //     width: 90%;
 //     margin: 150px auto;
 //     min-height: 200px;
 //     padding: 20px 0;
-//     border: 1px solid green;
+//     border: 1px solid $color-primary;
 //     border-radius: 2.5px;
 
 //     &_header {
@@ -12,7 +13,7 @@
 //       margin: 0 auto 10px;
 
 //       h1{
-//         color: green;
+//         color: $color-primary;
 //         font-size: 1.5rem;
 //       }
 //     }
@@ -30,7 +31,7 @@
 //         height: 30px;
 //         margin: 10px 0 0px;
 //         font-size: 0.8rem;
-//         color: green;
+//         color: $color-primary;
 //         padding: 1px 0;
 //         text-align: center;
 //         line-height: 1.7rem;
@@ -59,7 +60,7 @@
 //     margin: 150px auto;
 //     min-height: 200px;
 //     padding: 20px 0;
-//     border: 1px solid green;
+//     border: 1px solid $color-primary;
 //     border-radius: 2.5px;
 
 //     &_header {
@@ -67,7 +68,7 @@
 //       margin: 0 auto 10px;
 
 //       h1{
-//         color: green;
+//         color: $color-primary;
 //         font-size: 1.5rem;
 //       }
 //     }
@@ -85,7 +86,7 @@
 //         height: 30px;
 //         margin: 10px 0 0px;
 //         font-size: 0.8rem;
-//         color: green;
+//         color: $color-primary;
 //         padding: 1px 0;
 //         text-align: center;
 //         line-height: 1.7rem;
@@ -114,7 +115,7 @@
 //     margin: 150px auto;
 //     min-height: 200px;
 //     padding: 20px 0;
-//     border: 1px solid green;
+//     border: 1px solid $color-primary;
 //     border-radius: 2.5px;
 
 //     &_header {
@@ -122,7 +123,7 @@
 //       margin: 0 auto 10px;
 
 //       h1{
-//         color: green;
+//         color: $color-primary;
 //         font-size: 1.5rem;
 //       }
 //     }
@@ -140,7 +141,7 @@
 //         height: 30px;
 //         margin: 10px 0 0px;
 //         font-size: 0.8rem;
-//         color: green;
+//         color: $color-primary;
 //         padding: 1px 0;
 //         text-align: center;
 //         line-height: 1.7rem;
@@ -171,10 +172,10 @@
     perspective: 1000px;
     transform: rotateY(180deg);
     background-size: 100% 100%;
-    border: 1px solid green;
+    border: 1px solid $color-primary;
 
     .content-form{
-      background-color: rgba($color: green, $alpha: .7);
+      background-color: rgba($color: $color-primary, $alpha: .7);
       min-height: 450px;
       min-width:40%;
       width: auto;
@@ -207,7 +208,7 @@
           input{
             border: none;
             border-bottom: 1px solid white;
-            background-color: rgba($color: green, $alpha: .0);
+            background-color: rgba($color: $color-primary, $alpha: .0);
             color: white;
             outline: none;
             font-size: 1.2rem;
@@ -217,9 +218,10 @@
 
           button{
             width: 100%;
-            background-color: rgba($color: blue, $alpha: .7);
+            background-color: rgba($color: $color-primary, $alpha: .0);
             color: white;
-            box-shadow: -2px 2px -5px;
+            box-shadow: none;
+            border: 1px solid white;
           }
         }
         a{
@@ -254,10 +256,10 @@
     perspective: 1000px;
     transform: rotateY(180deg);
     background-size: 100% 100%;
-    border: 1px solid green;
+    border: 1px solid $color-primary;
 
     .content-form{
-      background-color: rgba($color: green, $alpha: .7);
+      background-color: rgba($color: $color-primary, $alpha: .7);
       min-height: 450px;
       min-width: 35%;
       width: auto;
@@ -290,7 +292,7 @@
           input{
             border: none;
             border-bottom: 1px solid white;
-            background-color: rgba($color: green, $alpha: .0);
+            background-color: rgba($color: $color-primary, $alpha: .0);
             color: white;
             outline: none;
             font-size: 1.2rem;
@@ -300,9 +302,10 @@
 
           button{
             width: 100%;
-            background-color: rgba($color: blue, $alpha: .7);
+            background-color: rgba($color: $color-primary, $alpha: .0);
             color: white;
-            box-shadow: -2px 2px -5px;
+            box-shadow: none;
+            border: 1px solid white;
           }
         }
         a{
@@ -338,28 +341,32 @@
     transform: rotateY(180deg);
     background-size: 100% 100%;
     padding: 20px 0;
-    border: 1px solid green;
+    border: 1px solid $color-primary;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 50px;
+
 
     .content-form{
-      background-color: rgba($color: green, $alpha: .7);
-      min-height: 450px;
+      background-color: rgba($color: $color-primary, $alpha: .7);
+      min-height: 400px;
       min-width: 30%;
       width: auto;
       max-width: 35%;
-      margin: 50px 50px;
       border-radius: 10px;
       perspective: 1000px;
       transform: rotateY(180deg);
 
       h1{
         display: block;
-        padding: 30px 20px;
+        padding: 30px 20px 15px;
         width: 100%;
         font-size: 1.6rem;
       }
 
       form{
-        margin: 30px auto;
+        margin: 0px auto 20px;
         width: 90%;
         min-height: 200px;
 
@@ -374,7 +381,7 @@
           input{
             border: none;
             border-bottom: 1px solid white;
-            background-color: rgba($color: green, $alpha: .0);
+            background-color: rgba($color: $color-primary, $alpha: .0);
             color: white;
             outline: none;
             font-size: 1.2rem;
@@ -384,9 +391,10 @@
 
           button{
             width: 100%;
-            background-color: rgba($color: blue, $alpha: .7);
+            background-color: rgba($color: $color-primary, $alpha: .0);
+            border: 1px solid $color-secondary;
             color: white;
-            box-shadow: -2px 2px -5px;
+            box-shadow: none;
           }
         }
         a{

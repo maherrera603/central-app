@@ -18,9 +18,9 @@
     </div>
 
     <div class="content-cites__body__body">
-      <p class="content-person" *ngFor="let cite of cites; let indice = index" title="Ver" (click)="loadForm(cite.id, cite.id_status)">
-        <small class="information"> {{indice+1}} {{cite.name}} {{cite.lastname}}</small>
-        <small class="status">{{cite.id_status}}</small>
+      <p class="content_person" #statusHtml *ngFor="let cite of cites; let indice = index" title="Ver" (click)="loadForm(cite.id, cite.status.status)">
+        <small class="information"> {{indice+1}} {{cite.name}} {{cite.last_name}}</small>
+        <small class="status">{{cite.status.status}}</small>
       </p>
     </div>
   </div>
@@ -67,7 +67,7 @@
             name="lastname"
             id="lastname"
             #lastname="ngModel"
-            [(ngModel)]="cite.lastname"
+            [(ngModel)]="cite.last_name"
             readonly
           >
         </div>
@@ -127,7 +127,7 @@
             name="speciality"
             id="speciality"
             #speciality="ngModel"
-            [(ngModel)]="cite.speciality"
+            [(ngModel)]="cite.speciality.speciality"
             readonly
           >
         </div>
@@ -139,7 +139,7 @@
             name="doctor"
             id="doctor"
             #doctor="ngModel"
-            [(ngModel)]="cite.doctor"
+            [(ngModel)]="cite.doctor.name"
             readonly
           >
         </div>
@@ -151,7 +151,7 @@
             name="date"
             id="date"
             #date="ngModel"
-            [(ngModel)]="cite.date"
+            [(ngModel)]="cite.date_cite"
             readonly
           >
         </div>
@@ -163,13 +163,13 @@
             name="hour"
             id="hour"
             #hour="ngModel"
-            [(ngModel)]="cite.hour"
+            [(ngModel)]="cite.hour_cite"
             readonly
           >
         </div>
 
       </div>
-      <button type="submit" *ngIf="cite.id_status == 'Pendiente' ">Actualizar</button>
+      <!-- <button type="submit" *ngIf="cite.status.status == 'Pendiente' ">Actualizar</button> -->
     </form>
   </div>
 

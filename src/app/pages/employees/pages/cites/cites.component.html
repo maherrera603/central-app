@@ -17,19 +17,19 @@
     </div>
 
     <div class="content-cites__body__body">
-      <p *ngFor="let cite of cites" (click)="loadCite(cite.id, cite.id_status)">
+      <p *ngFor="let cite of cites" (click)="loadCite(cite.id, cite.status.status, cite.speciality.id)">
         <small class="information">
-          {{cite.name}} {{cite.lastname}}
+          {{cite.name}} {{cite.last_name}}
         </small>
         <small class="status">
-          {{cite.id_status}}
+          {{cite.status.status}}
         </small>
       </p>
     </div>
   </div>
 
   <div class="content-form">
-    <div class="form">
+    <form class="form" #f="ngForm" (submit)="onSubmit(f)">
       <div class="form__header">
           <h1>{{cite.name}}</h1>
           <div class="close">
@@ -38,28 +38,29 @@
       </div>
 
       <div class="form__body">
-        <div class="form-control">
-          <label for="name">Nombres</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            #name="ngModel"
-            [(ngModel)]="cite.name"
-            readonly
-          >
-        </div>
-
-        <div class="form-control">
-          <label for="lastname">Apellidos</label>
-          <input
-            type="text"
-            name="lastname"
-            id="lastname"
-            #lastname="ngModel"
-            [(ngModel)]="cite.lastname"
-            readonly
-          >
+        <div class="group_control">
+          <div class="form-control">
+            <label for="name">Nombres</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              #name="ngModel"
+              [(ngModel)]="cite.name"
+              readonly
+            >
+          </div>
+          <div class="form-control">
+            <label for="lastname">Apellidos</label>
+            <input
+              type="text"
+              name="lastname"
+              id="lastname"
+              #lastname="ngModel"
+              [(ngModel)]="cite.last_name"
+              readonly
+            >
+          </div>
         </div>
 
         <div class="form-control">
@@ -86,80 +87,81 @@
           >
         </div>
 
-        <div class="form-control">
-          <label for="eps">Eps</label>
-          <input
-            type="text"
-            name="eps"
-            id="eps"
-            #eps="ngModel"
-            [(ngModel)]="cite.eps"
-            readonly
-          >
+        <div class="group_control">
+          <div class="form-control">
+            <label for="eps">Eps</label>
+            <input
+              type="text"
+              name="eps"
+              id="eps"
+              #eps="ngModel"
+              [(ngModel)]="cite.eps"
+              readonly
+            >
+          </div>
+          <div class="form-control">
+            <label for="phone">Telefono</label>
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              #phone="ngModel"
+              [(ngModel)]="cite.phone"
+              readonly
+            >
+          </div>
         </div>
 
-        <div class="form-control">
-          <label for="phone">Telefono</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            #phone="ngModel"
-            [(ngModel)]="cite.phone"
-            readonly
-          >
+        <div class="group_control">
+          <div class="form-control">
+            <label for="speciality">Cita medica</label>
+            <input
+              type="text"
+              name="speciality"
+              id="speciality"
+              #speciality="ngModel"
+              [(ngModel)]="cite.speciality.speciality"
+              readonly
+            >
+          </div>
+          <div class="form-control">
+            <label for="doctor">Medico</label>
+            <select
+              name="doctor"
+              id="doctor"
+              #doctor="ngModel"
+              [(ngModel)]="cite.doctor"
+            >
+              <option value="" selected>Seleccione medico...</option>
+              <option *ngFor="let doctor of doctors" value="{{doctor.id}}">{{doctor.name}}</option>
+            </select>
+          </div>
         </div>
 
-        <div class="form-control">
-          <label for="speciality">Cita medica</label>
-          <input
-            type="text"
-            name="speciality"
-            id="speciality"
-            #speciality="ngModel"
-            [(ngModel)]="cite.speciality"
-            readonly
-          >
+        <div class="group_control">
+          <div class="form-control">
+            <label for="date">Fecha de la cita</label>
+            <input
+              type="date"
+              name="date"
+              id="date"
+              #date="ngModel"
+              [(ngModel)]="cite.date_cite"
+              min="{{dateToday | date:'dd-MM-yyyy'}}">
+          </div>
+          <div class="form-control">
+            <label for="">Hora de la cita</label>
+            <input
+              type="time"
+              name="hour"
+              id="hour"
+              #hour="ngModel"
+              [(ngModel)]="cite.hour_cite"
+            >
+          </div>
         </div>
-
-        <div class="form-control">
-          <label for="doctor">Medico</label>
-          <select
-            name="doctor"
-            id="doctor"
-            #doctor="ngModel"
-            [(ngModel)]="cite.doctor"
-          >
-            <option value="" selected>Seleccione medico...</option>
-            <option *ngFor="let doctor of doctors" value="{{doctor.name}}">{{doctor.name}}</option>
-          </select>
-        </div>
-
-        <div class="form-control">
-          <label for="date">Fecha de la cita</label>
-          <input
-            type="date"
-            name="date"
-            id="date"
-            #date="ngModel"
-            [(ngModel)]="cite.date"
-            min="{{dateToday | date:'dd-MM-yyyy'}}">
-        </div>
-
-        <div class="form-control">
-          <label for="">Hora de la cita</label>
-          <input
-            type="time"
-            name="hour"
-            id="hour"
-            #hour="ngModel"
-            [(ngModel)]="cite.hour"
-          >
-        </div>
-
-
       </div>
       <button>Enviar</button>
-    </div>
+    </form>
   </div>
 </div>

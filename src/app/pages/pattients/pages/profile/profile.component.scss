@@ -1,3 +1,5 @@
+@import "../../../../../styles.scss";
+
 @media screen and (max-width: 500px) {
   .content-profile{
     display: flex;
@@ -29,7 +31,7 @@
         align-items: center;
 
         h1{
-          color: green;
+          color: $color-primary;
           font-size: 1.4rem;
         }
       }
@@ -39,7 +41,7 @@
         min-height: 500px;
         height: 100%;
         margin-top: 5px;
-        border-top: 1px solid green;
+        border-top: 1px solid $color-primary;
 
         form{
           margin-top: 20px;
@@ -48,7 +50,7 @@
     }
 
     .content-form{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary,  $alpha:  .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -58,8 +60,8 @@
 
       .form{
         width: 90%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary,  $alpha:  .6);
         border-radius: 3px;
         padding: 20px;
         transition: .5s ease all;
@@ -72,7 +74,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -84,7 +86,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -92,7 +94,7 @@
 
             i:hover{
               background-color: red;
-              color: white;
+              color: $color-secondary;
               border-radius: 50%;
             }
 
@@ -103,8 +105,8 @@
               height: 40px;
               max-height: max-content;
               height: auto;
-              background-color: white;
-              border: 1px solid green;
+              background-color: $color-secondary;
+              border: 1px solid $color-primary;
               width: 100%;
               top: 35px;
               margin-left: auto;
@@ -120,7 +122,7 @@
                 grid-template-columns: 85% 15%;
                 min-height: 40px;
                 height: 40px;
-                border-bottom: 1px solid green;
+                border-bottom: 1px solid $color-primary;
 
                 small{}
 
@@ -177,7 +179,7 @@
     }
 
     .overlay{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary,  $alpha:  .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -187,8 +189,8 @@
 
       .popup {
         width: 90%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary,  $alpha:  .6);
         border-radius: 3px;
         padding: 20px;
         margin: 0 auto;
@@ -202,12 +204,12 @@
           align-items: center;
           h1{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
           i{
             margin-left: auto;
-            color: green;
+            color: $color-primary;
             font-size: 1.4rem;
             cursor: pointer;
             padding: 5px 8px;
@@ -217,7 +219,7 @@
           i:hover{
             border-radius: 50%;
             background-color: red;
-            color: white;
+            color: $color-secondary;
           }
         }
 
@@ -227,7 +229,7 @@
           text-align: left;
 
           label{
-            color: green;
+            color: $color-primary;
             font-size: 1.1rem;
           }
 
@@ -238,13 +240,13 @@
             min-height: 50px;
             height: 70px;
             padding: 5px;
-            outline-color: green;
+            outline-color: $color-primary;
             outline-width: .5px;
             margin-top: 10px;
           }
 
           textarea::placeholder{
-            color: green;
+            color: $color-primary;
           }
 
 
@@ -305,7 +307,7 @@
         align-items: center;
 
         h1{
-          color: green;
+          color: $color-primary;
           font-size: 1.4rem;
         }
 
@@ -316,7 +318,7 @@
         min-height: 500px;
         height: 100%;
         margin-top: 5px;
-        border-top: 1px solid green;
+        border-top: 1px solid $color-primary;
 
         form{
           margin: 20px 0;
@@ -326,14 +328,14 @@
 
         p:hover{
           cursor: pointer;
-          background-color: rgba(0, 80, 0, 32);
-          color: white;
+          background-color: rgba($color: $color-primary, $alpha:  32);
+          color: $color-secondary;
         }
       }
     }
 
     .content-form{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary,  $alpha:  .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -343,8 +345,8 @@
 
       .form{
         width: 90%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary,  $alpha:  .6);
         border-radius: 3px;
         padding: 20px;
         transition: .5s ease all;
@@ -357,7 +359,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -368,7 +370,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -376,7 +378,7 @@
 
             i:hover{
               background-color: red;
-              color: white;
+              color: $color-secondary;
               border-radius: 50%;
             }
 
@@ -387,8 +389,8 @@
               height: 40px;
               max-height: max-content;
               height: auto;
-              background-color: white;
-              border: 1px solid green;
+              background-color: $color-secondary;
+              border: 1px solid $color-primary;
               width: 50%;
               top: 55px;
               margin-left: auto;
@@ -404,9 +406,7 @@
                 grid-template-columns: 85% 15%;
                 min-height: 40px;
                 height: 40px;
-                border-bottom: 1px solid green;
-
-                small{}
+                border-bottom: 1px solid $color-primary;
 
                 i{
                   display: flex;
@@ -464,7 +464,7 @@
     }
 
     .overlay{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary,  $alpha:  .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -474,8 +474,8 @@
 
       .popup {
         width: 70%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary,  $alpha:  .6);
         border-radius: 3px;
         padding: 20px;
         margin: 0 auto;
@@ -489,12 +489,12 @@
           align-items: center;
           h1{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
           i{
             margin-left: auto;
-            color: green;
+            color: $color-primary;
             font-size: 1.4rem;
             cursor: pointer;
             padding: 5px 8px;
@@ -504,7 +504,7 @@
           i:hover{
             border-radius: 50%;
             background-color: red;
-            color: white;
+            color: $color-secondary;
           }
         }
 
@@ -514,7 +514,7 @@
           text-align: left;
 
           label{
-            color: green;
+            color: $color-primary;
             font-size: 1.1rem;
 
           }
@@ -526,12 +526,12 @@
             min-height: 50px;
             height: 70px;
             padding: 5px;
-            outline-color: green;
+            outline-color: $color-primary;
             outline-width: .5px;
           }
 
           textarea::placeholder{
-            color: green;
+            color: $color-primary;
           }
 
 
@@ -599,7 +599,7 @@
         align-items: center;
 
         h1{
-          color: green;
+          color: $color-primary;
           font-size: 1.4rem;
         }
       }
@@ -608,7 +608,7 @@
         width: 100%;
         height: max-content;
         margin-top: 5px;
-        border-top: 1px solid green;
+        border-top: 1px solid $color-primary;
 
         form{
           width: 100%;
@@ -620,7 +620,7 @@
     }
 
     .content-form{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary,  $alpha:  .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -631,8 +631,8 @@
 
       .form{
         width: 70%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary,  $alpha:  .6);
         border-radius: 3px;
         padding: 20px;
         transition: .5s ease all;
@@ -645,7 +645,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -656,7 +656,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -665,13 +665,13 @@
 
             i:hover{
               background-color: red;
-              color: white;
+              color: $color-secondary;
               border-radius: 50%;
             }
 
             i.icons:hover{
-              background-color: green;
-              color: white;
+              background-color: $color-primary;
+              color: $color-secondary;
               border-radius: 50%;
             }
 
@@ -682,8 +682,8 @@
               height: 40px;
               max-height: max-content;
               height: auto;
-              background-color: white;
-              border: 1px solid green;
+              background-color: $color-secondary;
+              border: 1px solid $color-primary;
               width: 40%;
               top: 55px;
               margin-left: auto;
@@ -699,7 +699,7 @@
                 grid-template-columns: 85% 15%;
                 min-height: 40px;
                 height: 40px;
-                border-bottom: 1px solid green;
+                border-bottom: 1px solid $color-primary;
 
                 small{}
 
@@ -760,7 +760,7 @@
     }
 
     .overlay{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary,  $alpha:  .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -770,8 +770,8 @@
 
       .popup {
         width: 30%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary,  $alpha:  .6);
         border-radius: 3px;
         padding: 20px;
         margin: 0 auto;
@@ -785,12 +785,12 @@
           align-items: center;
           h1{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
           i{
             margin-left: auto;
-            color: green;
+            color: $color-primary;
             font-size: 1.4rem;
             cursor: pointer;
             padding: 5px 8px;
@@ -800,7 +800,7 @@
           i:hover{
             border-radius: 50%;
             background-color: red;
-            color: white;
+            color: $color-secondary;
           }
         }
 
@@ -810,7 +810,7 @@
           text-align: left;
 
           label{
-            color: green;
+            color: $color-primary;
             font-size: 1.1rem;
 
           }
@@ -822,12 +822,12 @@
             min-height: 50px;
             height: 70px;
             padding: 5px;
-            outline-color: green;
+            outline-color: $color-primary;
             outline-width: .5px;
           }
 
           textarea::placeholder{
-            color: green;
+            color: $color-primary;
           }
 
 

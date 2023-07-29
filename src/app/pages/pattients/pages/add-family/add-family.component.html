@@ -22,7 +22,7 @@
     </div>
     <div class="content-family__body__body">
       <p *ngFor="let family of familys; let indice = index" (click)="loadForm(family.document)">
-        {{indice+1}} {{family.name}} {{family.lastname}}
+        {{indice+1}} {{family.name}} {{family.last_name}}
       </p>
     </div>
   </div>
@@ -33,36 +33,38 @@
         <h1>{{titleForm}}</h1>
         <div class="close"><i class="fa-solid fa-xmark" (click)="closeForm()"></i></div>
       </div>
-      <div class="form-control">
-        <label for="name">Nombres</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          #name="ngModel"
-          [(ngModel)]="family.name"
-          pattern="[a-zA-Z\s]{3,20}$"
-          required
-        >
-        <small class="error-valid" *ngIf="!name.valid && name.touched">
-          El campo debe contener de 3 a 20 caracteres
-        </small>
-      </div>
-
-      <div class="form-control">
-        <label for="lastname">Apellidos</label>
-        <input
-          type="text"
-          name="lastname"
-          id="lastname"
-          #lastname="ngModel"
-          [(ngModel)]="family.lastname"
-          pattern="[a-zA-Z\s]{3,20}$"
-          required
-        >
-        <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
-          El campo debe contener de 3 a 20 caracteres
-        </small>
+      <div class="group_control">
+        <div class="form-control">
+          <label for="name">Nombres</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            #name="ngModel"
+            [(ngModel)]="family.name"
+            pattern="[a-zA-Z\s]{3,20}$"
+            required
+          >
+          <small class="error-valid" *ngIf="!name.valid && name.touched">
+            El campo debe contener de 3 a 20 caracteres
+          </small>
+        </div>
+  
+        <div class="form-control">
+          <label for="lastname">Apellidos</label>
+          <input
+            type="text"
+            name="lastname"
+            id="lastname"
+            #lastname="ngModel"
+            [(ngModel)]="family.last_name"
+            pattern="[a-zA-Z\s]{3,20}$"
+            required
+          >
+          <small class="error-valid" *ngIf="!lastname.valid && lastname.touched">
+            El campo debe contener de 3 a 20 caracteres
+          </small>
+        </div>
       </div>
 
       <div class="form-control">

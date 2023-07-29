@@ -30,22 +30,22 @@ export class SpecialityService {
     );
   }
 
-  public getSpeciality(token:string|null, speciality:string): Observable<any>{
+  public getSpeciality(token:string|null, pk:number): Observable<any>{
     let headers = new HttpHeaders().set("authorization", `Token ${token}`);
-    return this.http.get(`${url}speciality/${speciality}/`, {headers:headers})
+    return this.http.get(`${url}speciality/${pk}/`, {headers:headers})
   }
 
   public updateSpeciality(token:string|null, speciality:Speciality): Observable<any> {
     let params = JSON.stringify(speciality);
     let headers = new HttpHeaders().set("authorization", `Token ${token}`).set("content-type", "application/json");
-    return this.http.put(`${url}speciality/${speciality.speciality}/`, params, {headers:headers}).pipe(
+    return this.http.put(`${url}speciality/${speciality.id}/`, params, {headers:headers}).pipe(
       tap ( () => this._refresh$.next() )
     );
   }
 
-  public deleteSpeciality(token:string|null, speciality:string): Observable<any> {
+  public deleteSpeciality(token:string|null, pk:number): Observable<any> {
     let headers = new HttpHeaders().set("authorization", `Token ${token}`);
-    return this.http.delete(`${url}speciality/${speciality}/`, {headers:headers}).pipe(
+    return this.http.delete(`${url}speciality/${pk}/`, {headers:headers}).pipe(
       tap( () => this._refresh$.next() )
     );
   }

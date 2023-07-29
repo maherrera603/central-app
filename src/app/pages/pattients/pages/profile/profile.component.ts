@@ -38,11 +38,7 @@ export class ProfileComponent implements OnInit {
   private getPattient(){
     this.pattientService.getPattient(this.token, this.pattient.document).subscribe(
       response => {
-        if(response.status === "OK"){
-          this.pattient = response.pattient;
-        }else{
-          this.alert.error(response.message);
-        }
+        (response.status === "OK") ? this.pattient = response.pattient : this.alert.error(response.message);  
       }
     );
   }

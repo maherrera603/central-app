@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
+import { User } from '@app/models/User';
 import { Employee } from '@app/models/employee';
 import { EmployeeService } from '@app/services/employee-service.service';
 import { IdentityService } from '@app/services/identity.service';
@@ -13,16 +14,17 @@ import { Subscription } from 'rxjs';
   providers: [IdentityService, EmployeeService]
 })
 export class EmployeeComponent implements OnInit, OnDestroy{
-  protected employees!:Employee[];
-  protected employee!:Employee;
   private token!:string|null;
   private alertComponent!:AlertComponent;
   private suscription!:Subscription;
+  protected user:User = new User("","");
+  protected employees!:Employee[];
+  protected employee!:Employee;
 
   constructor(private identityService:IdentityService, private employeeService:EmployeeService){
     this.token = this.identityService.getToken();
     this.alertComponent = new AlertComponent();
-    this.employee = new Employee("", "", "", "", "", "", "");
+    this.employee = new Employee("", "", "", "", "", this.user);
   }
 
   ngOnInit(): void {
@@ -55,7 +57,7 @@ export class EmployeeComponent implements OnInit, OnDestroy{
   }
 
   protected openForm(): void {
-    this.employee = new Employee("", "", "", "", "", "", "");
+    this.employee = new Employee("", "", "", "", "", this.user);
     let content = document.querySelector(".content-form");
     content?.classList.add("content-form-active");
   }
@@ -87,7 +89,7 @@ export class EmployeeComponent implements OnInit, OnDestroy{
     this.employeeService.getEmployees(this.token, document).subscribe(
       response => {
         if(response.status == "OK"){
-          this. employee = response.administrator;
+          this. employee = response.employee;
           this.openFormDelete();
         }else{
           this.alertComponent.error(response.message)

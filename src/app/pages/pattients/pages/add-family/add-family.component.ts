@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
+import { Pattient } from '@app/models/Pattient';
 import { Family } from '@app/models/family';
 import { FamilyService } from '@app/services/family.service';
 import { IdentityService } from '@app/services/identity.service';
@@ -15,17 +16,19 @@ import { Subscription } from 'rxjs';
 export class AddFamilyComponent implements OnInit, OnDestroy {
   private alertComponent!:AlertComponent;
   private suscription!:Subscription;
+  private token!:string | null;
+  private pattient!:Pattient;
   protected navLeft: boolean = false;
   protected page:string = "Familiares";
   protected family!:Family;
   protected familys!: Family[];
-  private token!:string | null;
   protected titleForm!:string;
   protected methodSend!:string;
 
   constructor(private familyService: FamilyService, private identityService: IdentityService){
     this.token = this.identityService.getToken();
-    this.family = new Family("", "", "", "", "", "");
+    this.pattient = this.identityService.getUser();    
+    this.family = new Family("", "", "", "", "", "", this.pattient);
     this.alertComponent = new AlertComponent();
   }
 
@@ -70,7 +73,7 @@ export class AddFamilyComponent implements OnInit, OnDestroy {
 
   protected addForm(methodSend:string): void {
     this.titleForm = "Agregar Familiar";
-    this.family = new Family("", "", "", "", "", "");
+    this.family = new Family("", "", "", "", "", "", this.pattient);
     this.showForm(methodSend);
   }
 
@@ -89,7 +92,7 @@ export class AddFamilyComponent implements OnInit, OnDestroy {
     (this.methodSend == "add") ? this.addFamily(form) : this.updateFamily();
   }
 
-  private addFamily(form:NgForm):void {
+  private addFamily(form:NgForm):void {   
     this.familyService.addFamily(this.family, this.token).subscribe(
       response => {
         if (response.status == "created"){

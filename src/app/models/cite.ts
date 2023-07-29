@@ -1,23 +1,24 @@
+import { Pattient } from "./Pattient";
 import { Family } from "./family";
+import { Doctor } from "./doctor";
+import { Speciality } from "./speciality";
+import { Status } from "./status";
 
-export class Cite extends Family{
+export class Cite{
   constructor(
     public id : number,
-    override name:string,
-    override lastname:string,
-    override type_document:string,
-    override document:string,
-    override phone:string,
-    override eps:string,
-    public speciality:string,
-    public status:string,
-    public id_speciality:string,
-    public doctor:string,
-    public id_status:string,
-    public date:string,
-    public hour:string
+    public name:string,
+    public last_name:string,
+    public type_document:string,
+    public document:string,
+    public phone:string,
+    public eps:string,
+    public speciality:Speciality,
+    public status:Status,
+    public doctor:Doctor,
+    public date_cite:string,
+    public hour_cite:string,
+    public pattient:Pattient
 
-  ){
-    super(name, lastname, type_document, document, phone, eps)
-  }
+  ){}
 }

@@ -1,3 +1,5 @@
+@import "../../../../../styles.scss";
+
 @media screen and (max-width: 500px){
   .content-employee{
     display: flex;
@@ -30,14 +32,14 @@
 
         .content-search{
           width: 100%;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
           border-radius: 5px;
           display: flex;
           flex-direction: row;
           align-items: center;
           i{
             padding: 5px 8px;
-            color: green;
+            color: $color-primary;
           }
 
           input{
@@ -49,7 +51,7 @@
           }
 
           input::placeholder{
-            color: green;
+            color: $color-primary;
             font-size: 1rem;
           }
         }
@@ -67,29 +69,29 @@
         min-height: 500px;
         height: 100%;
         margin-top: 5px;
-        border-top: 1px solid green;
+        border-top: 1px solid $color-primary;
 
         p{
           display: grid;
           width: 100%;
           min-height: 40px;
-          border-bottom: 1px solid green;
+          border-bottom: 1px solid $color-primary;
           align-items: center;
           padding: 0 5px;
           transition: .3s ease all;
-          color: green;
+          color: $color-primary;
         }
 
         p:hover{
           cursor: pointer;
-          background-color: rgba(0, 80, 0, 32);
-          color: white;
+          background-color: rgba($color: $color-primary, $alpha: 32);
+          color: $color-secondary;
         }
       }
     }
 
     .content-form{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -99,9 +101,9 @@
 
       .form{
         width: 95%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
-        border-radius: 3px;
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
+        border-radius: 8px;
         padding: 20px;
         transition: .5s ease all;
         transform: scale(0.1);
@@ -113,7 +115,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -124,7 +126,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -132,16 +134,27 @@
 
             i:hover{
               background-color: red;
-              color: white;
+              color: $color-secondary;
               border-radius: 50%;
             }
           }
         }
 
         &__body{
-          display: grid;
-          grid-template-columns: repeat(2,1fr);
-          gap: 10px;
+
+          .group_control{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+          }
+
+          .form-control{
+            input, select{
+              border-radius: 5px;
+              border: 1px solid $color-primary;
+            }
+          }
+
         }
 
         button{
@@ -155,7 +168,7 @@
     }
 
     .content-form-delete{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -164,10 +177,10 @@
       visibility: hidden;
 
       .form{
-        width: 95%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
-        border-radius: 3px;
+        width: 90%;
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
+        border-radius: 8px;
         padding: 20px;
         transition: .5s ease all;
         transform: scale(0.1);
@@ -179,7 +192,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -190,7 +203,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -198,7 +211,7 @@
 
             i:hover{
               background-color: red;
-              color: white;
+              color: $color-secondary;
               border-radius: 50%;
             }
           }
@@ -207,6 +220,13 @@
         &__body{
           display: grid;
           gap: 10px;
+
+          .form-control{
+            input, select {
+              border: 1px solid $color-primary;
+              border-radius: 5px;
+            }
+          }
         }
 
         button{
@@ -230,7 +250,7 @@
     }
 
     .overlay{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -243,8 +263,8 @@
         min-width: 40%;
         width: 80%;
         max-width: 90%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
         border-radius: 3px;
         padding: 20px;
         margin: 0 auto;
@@ -258,12 +278,12 @@
 
           h1{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
           i{
             margin-left: auto;
-            color: green;
+            color: $color-primary;
             font-size: 1.4rem;
             cursor: pointer;
             padding: 5px 8px;
@@ -273,7 +293,7 @@
           i:hover{
             border-radius: 50%;
             background-color: red;
-            color: white;
+            color: $color-secondary;
           }
         }
 
@@ -284,7 +304,7 @@
 
           small{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
         }
@@ -345,14 +365,14 @@
 
         .content-search{
           width: 100%;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
           border-radius: 5px;
           display: flex;
           flex-direction: row;
           align-items: center;
           i{
             padding: 5px 8px;
-            color: green;
+            color: $color-primary;
           }
 
           input{
@@ -364,7 +384,7 @@
           }
 
           input::placeholder{
-            color: green;
+            color: $color-primary;
             font-size: 1rem;
           }
         }
@@ -382,29 +402,29 @@
         min-height: 500px;
         height: 100%;
         margin-top: 5px;
-        border-top: 1px solid green;
+        border-top: 1px solid $color-primary;
 
         p{
           display: grid;
           width: 100%;
           min-height: 40px;
-          border-bottom: 1px solid green;
+          border-bottom: 1px solid $color-primary;
           align-items: center;
           padding: 0 5px;
           transition: .3s ease all;
-          color: green;
+          color: $color-primary;
         }
 
         p:hover{
           cursor: pointer;
-          background-color: rgba(0, 80, 0, 32);
-          color: white;
+          background-color: rgba($color: $color-primary, $alpha: 32);
+          color: $color-secondary;
         }
       }
     }
 
     .content-form{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -413,10 +433,10 @@
       visibility: hidden;
 
       .form{
-        width: 95%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
-        border-radius: 3px;
+        width: 60%;
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
+        border-radius: 8px;
         padding: 20px;
         transition: .5s ease all;
         transform: scale(0.1);
@@ -428,7 +448,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -439,7 +459,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -447,16 +467,25 @@
 
             i:hover{
               background-color: red;
-              color: white;
+              color: $color-secondary;
               border-radius: 50%;
             }
           }
         }
 
         &__body{
-          display: grid;
-          grid-template-columns: repeat(2,1fr);
-          gap: 10px;
+          .group_control{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+          }
+
+          .form-control{
+            input, select{
+              border-radius: 5px;
+              border: 1px solid $color-primary;
+            }
+          }
         }
 
         button{
@@ -470,7 +499,7 @@
     }
 
     .content-form-delete{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -479,9 +508,9 @@
       visibility: hidden;
 
       .form{
-        width: 95%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        width: 70%;
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
         border-radius: 3px;
         padding: 20px;
         transition: .5s ease all;
@@ -494,7 +523,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -505,7 +534,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -513,7 +542,7 @@
 
             i:hover{
               background-color: red;
-              color: white;
+              color: $color-secondary;
               border-radius: 50%;
             }
           }
@@ -522,6 +551,13 @@
         &__body{
           display: grid;
           gap: 10px;
+
+          .form-control{
+            input, select {
+              border: 1px solid $color-primary;
+              border-radius: 5px;
+            }
+          }
         }
 
         button{
@@ -545,7 +581,7 @@
     }
 
     .overlay{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -558,8 +594,8 @@
         min-width: 40%;
         width: 50%;
         max-width: 70%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
         border-radius: 3px;
         padding: 20px;
         margin: 0 auto;
@@ -573,12 +609,12 @@
 
           h1{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
           i{
             margin-left: auto;
-            color: green;
+            color: $color-primary;
             font-size: 1.4rem;
             cursor: pointer;
             padding: 5px 8px;
@@ -588,7 +624,7 @@
           i:hover{
             border-radius: 50%;
             background-color: red;
-            color: white;
+            color: $color-secondary;
           }
         }
 
@@ -599,7 +635,7 @@
 
           small{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
         }
@@ -668,14 +704,14 @@
 
         .content-search{
           width: 100%;
-          border: 1px solid green;
+          border: 1px solid $color-primary;
           border-radius: 5px;
           display: flex;
           flex-direction: row;
           align-items: center;
           i{
             padding: 5px 8px;
-            color: green;
+            color: $color-primary;
           }
 
           input{
@@ -687,7 +723,7 @@
           }
 
           input::placeholder{
-            color: green;
+            color: $color-primary;
             font-size: 1rem;
           }
         }
@@ -704,29 +740,29 @@
         width: 100%;
         height: max-content;
         margin-top: 5px;
-        border-top: 1px solid green;
+        border-top: 1px solid $color-primary;
 
         p{
           display: grid;
           width: 100%;
           min-height: 40px;
-          border-bottom: 1px solid green;
+          border-bottom: 1px solid $color-primary;
           align-items: center;
           padding: 0 5px;
           transition: .3s ease all;
-          color: green;
+          color: $color-primary;
         }
 
         p:hover{
           cursor: pointer;
-          background-color: rgba(0, 80, 0, 32);
-          color: white;
+          background-color: rgba($color: $color-primary, $alpha: 32);
+          color: $color-secondary;
         }
       }
     }
 
     .content-form{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -735,10 +771,10 @@
       visibility: hidden;
 
       .form{
-        width: 70%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
-        border-radius: 3px;
+        width: 50%;
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
+        border-radius: 8px;
         padding: 20px;
         transition: .5s ease all;
         transform: scale(0.1);
@@ -750,7 +786,7 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
+            color: $color-primary;
             font-size: 1.3rem;
           }
 
@@ -761,7 +797,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -769,16 +805,25 @@
 
             i:hover{
               background-color: red;
-              color: white;
+              color: $color-secondary;
               border-radius: 50%;
             }
           }
         }
 
         &__body{
-          display: grid;
-          grid-template-columns: repeat(2,1fr);
-          gap: 10px;
+          .group_control{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+          }
+
+          .form-control{
+            input, select{
+              border-radius: 5px;
+              border: 1px solid $color-primary;
+            }
+          }
         }
 
         button{
@@ -792,7 +837,7 @@
     }
 
     .content-form-delete{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -801,10 +846,10 @@
       visibility: hidden;
 
       .form{
-        width: 70%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
-        border-radius: 3px;
+        width: 50%;
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
+        border-radius: 8px;
         padding: 20px;
         transition: .5s ease all;
         transform: scale(0.1);
@@ -816,8 +861,8 @@
           grid-template-columns: repeat(2, 1fr);
 
           h1{
-            color: green;
-            font-size: 1.3rem;
+            color: $color-primary;
+            font-size: 1.08rem;
           }
 
           .close{
@@ -827,7 +872,7 @@
 
             i{
               font-size: 1.4rem;
-              color: green;
+              color: $color-primary;
               cursor: pointer;
               padding: 5px 8px;
               transition: all .7s ease;
@@ -835,7 +880,7 @@
 
             i:hover{
               background-color: red;
-              color: white;
+              color: $color-secondary;
               border-radius: 50%;
             }
           }
@@ -844,6 +889,14 @@
         &__body{
           display: grid;
           gap: 10px;
+
+          .form-control{
+            input, select{
+              border-radius: 5px;
+              border: 1px solid $color-primary;
+            }
+          }
+
         }
 
         button{
@@ -867,7 +920,7 @@
     }
 
     .overlay{
-      background-color: rgba(0, 80, 0, .6);
+      background-color: rgba($color: $color-primary, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -878,8 +931,8 @@
 
       .popup {
         width: 30%;
-        background-color: white;
-        box-shadow: 0px 0px 5px 0px rgba(0, 80, 0, .6);
+        background-color: $color-secondary;
+        box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
         border-radius: 3px;
         padding: 20px;
         margin: 0 auto;
@@ -893,12 +946,12 @@
 
           h1{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
           i{
             margin-left: auto;
-            color: green;
+            color: $color-primary;
             font-size: 1.4rem;
             cursor: pointer;
             padding: 5px 8px;
@@ -908,7 +961,7 @@
           i:hover{
             border-radius: 50%;
             background-color: red;
-            color: white;
+            color: $color-secondary;
           }
         }
 
@@ -919,7 +972,7 @@
 
           small{
             font-size: 1.3rem;
-            color: green;
+            color: $color-primary;
           }
 
         }

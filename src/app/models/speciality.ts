@@ -1,3 +1,9 @@
+import { Employee } from "./employee";
+
 export class Speciality {
-  constructor(public speciality:string){}
+  constructor(
+    public id:number,
+    public speciality:string,
+    public employee:Employee
+  ){}
 }

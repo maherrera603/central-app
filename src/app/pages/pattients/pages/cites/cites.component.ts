@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
+import { User } from '@app/models/User';
+import { Pattient } from '@app/models/Pattient';
+import { Employee } from '@app/models/employee';
 import { Cite } from '@app/models/cite';
+import { Doctor } from '@app/models/doctor';
+import { Speciality } from '@app/models/speciality';
+import { Status } from '@app/models/status';
 import { CiteService } from '@app/services/cite.service';
 import { IdentityService } from '@app/services/identity.service';
 
@@ -11,22 +17,37 @@ import { IdentityService } from '@app/services/identity.service';
   styleUrls: ['./cites.component.scss'],
   providers: [IdentityService, CiteService]
 })
-export class CitesComponent implements OnInit{
+export class CitesComponent implements OnInit, DoCheck{
   private token!:string|null;
   private alertComponent!:AlertComponent;
+  private user:User = new User("", "");
+  private employee:Employee = new Employee("", "", "","","", this.user);
+  private speciality:Speciality = new Speciality(1, "", this.employee);
+  private status!:Status;
+  private pattient!:Pattient;
+  private doctor:Doctor = new Doctor(1, "", "", "", "", "", 1, this.speciality)
   protected cites!:Cite[];
   protected cite!:Cite;
 
 
-  constructor(private identityService: IdentityService, private citeService: CiteService){
+  constructor(
+    private identityService: IdentityService, 
+    private citeService: CiteService,
+    
+  ){
     this.token = this.identityService.getToken();
     this.alertComponent = new AlertComponent();
-    this.cite = new Cite(1, "", "", "", "", "", "", "", "", "", "", "", "", "");
+    this.cite = new Cite(1,"", "", "", "","", "", this.speciality, this.status, this.doctor, "","", this.pattient);
   }
 
   ngOnInit(): void {
     this.allCites();
     this.removeNavigation();
+  }
+
+  ngDoCheck():void{
+    this.loadStyleStatus();
+
   }
 
   private removeNavigation(): void {
@@ -114,5 +135,18 @@ export class CitesComponent implements OnInit{
   protected closeOverlay() : void {
     let overlay = document.querySelector(".overlay");
     overlay?.classList.remove("overlay-active");
+  }
+
+  private loadStyleStatus():void{
+    let statusHtml =  document.querySelectorAll(".content_person .status");
+    statusHtml.forEach( e => {
+      if (e.textContent === "Pendiente") {
+        e.classList.add("danger")
+      }else{
+        e.classList.remove("danger")
+      }
+      
+      
+    });
   }
 }

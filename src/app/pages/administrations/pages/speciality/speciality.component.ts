@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
+import { Employee } from '@app/models/employee';
 import { Speciality } from '@app/models/speciality';
 import { IdentityService } from '@app/services/identity.service';
 import { SpecialityService } from '@app/services/speciality.service';
@@ -16,6 +17,7 @@ export class SpecialityComponent implements OnInit, OnDestroy{
   private token!:string|null;
   private alertComponent!:AlertComponent;
   private suscription!:Subscription;
+  private employee!:Employee;
   protected specialitys!:Speciality[];
   protected specialit!:Speciality;
   protected action!:string;
@@ -23,7 +25,7 @@ export class SpecialityComponent implements OnInit, OnDestroy{
   constructor(private identityService:IdentityService, private specialityService:SpecialityService){
     this.token = this.identityService.getToken();
     this.alertComponent = new AlertComponent();
-    this.specialit = new Speciality("");
+    this.specialit = new Speciality(1,"", this.employee);
   }
 
   ngOnInit(): void {
@@ -59,7 +61,7 @@ export class SpecialityComponent implements OnInit, OnDestroy{
     let form = document.querySelector(".content-form");
     form?.classList.add("content-form-active");
     this.action = action;
-    this.specialit = (this.action === "save") ? new Speciality(""): this.specialit;
+    this.specialit = (this.action === "save") ? new Speciality(1,"", this.employee): this.specialit;
   }
 
   protected closeForm(): void {
@@ -93,8 +95,8 @@ export class SpecialityComponent implements OnInit, OnDestroy{
     );
   }
 
-  protected getSpeciality(speciality:string): void{
-    this.specialityService.getSpeciality(this.token, speciality).subscribe(
+  protected getSpeciality(pk:number): void{
+    this.specialityService.getSpeciality(this.token, pk).subscribe(
       response => {
         if(response.status == "OK"){
           this.specialit = response.speciality;
@@ -109,7 +111,12 @@ export class SpecialityComponent implements OnInit, OnDestroy{
   protected updatedSpeciality(): void {
     this.specialityService.updateSpeciality(this.token, this.specialit).subscribe(
       response => {
-        (response.status === "created")? this.alertComponent.success(response.message) : this.alertComponent.error(response.message);
+        if (response.status === "created"){ 
+          this.alertComponent.success(response.message);
+          this.closeForm();
+        }else{ 
+          this.alertComponent.error(response.message);
+        }
       }
     );
   }
@@ -124,8 +131,8 @@ export class SpecialityComponent implements OnInit, OnDestroy{
     overlay?.classList.remove("overlay-active");
   }
 
-  protected deleteSpeciality(speciality:string): void {
-    this.specialityService.deleteSpeciality(this.token, speciality).subscribe(
+  protected deleteSpeciality(pk:number): void {
+    this.specialityService.deleteSpeciality(this.token, pk).subscribe(
       response => {
         if (response.status == "not content"){
           this.alertComponent.success(response.message);
