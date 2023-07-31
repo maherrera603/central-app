@@ -1,6 +1,6 @@
 import * as CryptoJS from "crypto-js"
 
-export const url: string = "https://central-w7gy.onrender.com/api/"
+export const url: string = "https://central-402w.onrender.com/api/"
 const key:string = "HolaMundo";
 
 
