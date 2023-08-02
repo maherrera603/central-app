@@ -20,7 +20,7 @@ export class CiteService {
 
   public allCites(token:string|null): Observable<any>{
     let headers = new HttpHeaders().set("authorization", `Token ${token}`);
-    return this.http.get(`${url}cites/`, {headers:headers});
+    return this.http.get(`${url}cites/`, {headers:headers}).pipe(tap ( () => this._refresh$.next));
   }
 
   public addCite(token:string|null, cite:Cite): Observable<any>{

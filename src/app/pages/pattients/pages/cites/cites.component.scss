@@ -224,6 +224,13 @@
           }
         }
 
+        button{
+          margin-right: 10px;
+        }
+        .delete{
+          background-color: red;
+        }
+
       }
 
     }
@@ -315,10 +322,15 @@
 
         &__footer{
           display: flex;
-          justify-content: flex-end;
+          justify-content: center;
 
-          button{
+          .cancel {
             background-color: red;
+            margin-right: 5px;
+          }
+          .confirm{
+            background-color: $color-primary;
+            margin-left: 5px;
           }
         }
       }
@@ -664,10 +676,15 @@
 
         &__footer{
           display: flex;
-          justify-content: flex-end;
+          justify-content: center;
 
-          button{
+          .cancel {
             background-color: red;
+            margin-right: 5px;
+          }
+          .confirm{
+            background-color: $color-primary;
+            margin-left: 5px;
           }
         }
       }

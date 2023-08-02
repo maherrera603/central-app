@@ -44,7 +44,9 @@ export class CitesComponent implements OnInit, DoCheck, OnDestroy{
   ngOnInit(): void {
     this.allCites();
     this.removeNavigation();
-    this.suscription = this.citeService.refresh$.subscribe(() => this.allCites())
+    this.suscription = this.citeService.refresh$.subscribe(() => {
+      this.allCites()
+    })
   }
 
   ngDoCheck():void{
