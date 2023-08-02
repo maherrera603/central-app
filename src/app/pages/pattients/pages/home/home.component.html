@@ -2,6 +2,26 @@
   <app-navigation-left></app-navigation-left>
 
   <div class="content-home__body">
-    
+    <div class="content-home__body__header">
+      <h1>Noticias e Informacion</h1>
+    </div>
+
+    <div class="content-home__body__body">
+      <div class="content_notice" *ngFor="let notice of notices">
+        <img src="https://www.paho.org/sites/default/files/2020-04/adolescents-social%20media-es-self.jpg" alt="">
+        <p>
+          Qué es Lorem Ipsum?
+          Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. 
+          Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, 
+          cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una 
+          galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. 
+          No sólo sobrevivió 500 años,
+        </p>
+      </div>
+    </div>
+
+    <a target="_blank" class="whatsapp-content">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
   </div>
 </div>

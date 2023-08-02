@@ -22,7 +22,7 @@
     </div>
     <div class="content-family__body__body">
       <p *ngFor="let family of familys; let indice = index" (click)="loadForm(family.document)">
-        {{indice+1}} {{family.name}} {{family.last_name}}
+        <i class="fa-solid fa-circle-user"></i> {{family.name}} {{family.last_name}}
       </p>
     </div>
   </div>

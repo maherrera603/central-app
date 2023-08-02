@@ -17,9 +17,9 @@
     </div>
 
     <div class="content-cites__body__body">
-      <p *ngFor="let cite of cites" (click)="loadCite(cite.id, cite.status.status, cite.speciality.id)">
+      <p *ngFor="let cite of cites; let indice = index" (click)="loadCite(cite.id, cite.status.status, cite.speciality.id)">
         <small class="information">
-          {{cite.name}} {{cite.last_name}}
+          {{indice+1}} {{cite.name}} {{cite.last_name}}
         </small>
         <small class="status">
           {{cite.status.status}}

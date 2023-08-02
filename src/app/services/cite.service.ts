@@ -14,7 +14,7 @@ export class CiteService {
 
   constructor(private http:HttpClient) {}
 
-  get refresh(){
+  get refresh$(){
     return this._refresh$;
   }
 
@@ -27,7 +27,7 @@ export class CiteService {
     let params = JSON.stringify(cite);
     let headers = new HttpHeaders().set("Authorization", `Token ${token}`).set("Content-Type", "application/json");
     return this.http.post(`${url}cites/`, params, {headers:headers}).pipe(
-      tap( () => this.refresh.next())
+      tap( () => this.refresh$.next())
     );
   }
 
@@ -39,6 +39,13 @@ export class CiteService {
   public getSearchCites(token:string| null, search:string): Observable<any>{
     let headers = new HttpHeaders().set("authorization", `Token ${token}`);
     return this.http.get(`${url}cite/search/${search}/`, {headers:headers});
+  }
+
+  public deleteCite(token:string|null, idCite:number): Observable<any> {
+    let headers = new HttpHeaders().set("authorization", `Token ${token}`);
+    return this.http.delete(`${url}cite/${idCite}/`, {headers: headers}).pipe(
+      tap( () => this.refresh$.next() )
+    );
   }
 
   public allCitesForEmployees(token:string| null): Observable<any> {
@@ -60,7 +67,7 @@ export class CiteService {
     let params = JSON.stringify(cite);
     let headers = new HttpHeaders().set("authorization", `Token ${token}`).set("content-type", "application/json");
     return this.http.put(`${url}citeForEmployee/${cite.id}/`, params, {headers:headers}).pipe(
-      tap( () => this.refresh.next())
+      tap( () => this.refresh$.next())
     );
   }
 }

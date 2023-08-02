@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavigationLeftComponent } from './navigation-left.component';
+import { RouterModule } from '@angular/router';
+
 
 
 
@@ -9,7 +11,8 @@ import { NavigationLeftComponent } from './navigation-left.component';
     NavigationLeftComponent
   ],
   imports: [
-    CommonModule
+    RouterModule,
+    CommonModule,
   ],
   exports: [
     NavigationLeftComponent

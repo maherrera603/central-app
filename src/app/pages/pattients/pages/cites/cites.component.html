@@ -25,152 +25,35 @@
     </div>
   </div>
 
-  <div class="content-form">
-    <form class="form" #f="ngForm" (submit)="onSubmit(f)">
-      <div class="form__header">
-        <h1>Cita {{cite.name}}</h1>
+  <div class="content_info">
+    <div class="info">
+      <div class="info__header">
+        <h1>Cita Medica</h1>
         <div class="close">
-          <i class="fa-sharp fa-solid fa-comment"  title="Comentarios" (click)="showNotifications()"></i>
-          <div class="notifications">
-            <p class="content-info">
-              <small></small>
-              <i class="fa-solid fa-trash"></i>
-            </p>
-
-            <p class="content-info">
-              <small></small>
-              <i class="fa-solid fa-trash"></i>
-            </p>
-          </div>
-          <i class="fa-solid fa-trash" title="Eliminar" (click)="showOverlay()"></i>
-          <i class="fa-solid fa-xmark" title="Cerrar" (click)="closeForm()"></i>
+          <i class="fa-solid fa-xmark" (click)="closeForm()"></i>
         </div>
       </div>
 
-      <div class="form__body">
-        <div class="form-control">
-          <label for="name">Nombres</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            #name="ngModel"
-            [(ngModel)]="cite.name"
-            readonly
-          >
+      <div class="info__body">
+        <!-- <i class="fa-solid fa-circle-check"></i> -->
+        <i class="fa-regular fa-circle-check"></i>
+
+        <div class="information">
+          <p><b>Nombre</b> {{cite.name}}</p>
+          <p><b>Apellidos</b> {{cite.last_name}}</p>
+          <p><b>Tipo de Documento</b> {{cite.type_document}}</p>
+          <p><b>Documento</b> {{cite.document}}</p>
+          <p><b>Eps</b> {{cite.eps}}</p>
+          <p><b>Telefono</b> {{cite.phone}}</p>
+          <p><b>Cita Medica</b> {{cite.speciality.speciality}}</p>
+          <p><b>Medico</b> {{cite.doctor.name}}</p>
+          <p><b>Dia de la cita</b> {{cite.date_cite}}</p>
+          <p><b>Hora de la cita</b> {{cite.hour_cite}}</p>
         </div>
 
-        <div class="form-control">
-          <label for="lastname">Apellidos</label>
-          <input
-            type="text"
-            name="lastname"
-            id="lastname"
-            #lastname="ngModel"
-            [(ngModel)]="cite.last_name"
-            readonly
-          >
-        </div>
-
-        <div class="form-control">
-          <label for="type_document">Tipo de documento</label>
-          <input
-            type="text"
-            name="type_document"
-            id="type_document"
-            #type_document="ngModel"
-            [(ngModel)]="cite.type_document"
-            readonly
-          >
-        </div>
-
-        <div class="form-control">
-          <label for="document">Documento</label>
-          <input
-            type="text"
-            name="document"
-            id="document"
-            #document="ngModel"
-            [(ngModel)]="cite.document"
-            readonly
-          >
-        </div>
-
-        <div class="form-control">
-          <label for="phone">Telefono</label>
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            #phone="ngModel"
-            [(ngModel)]="cite.phone"
-            readonly
-          >
-        </div>
-
-        <div class="form-control">
-          <label for="eps">Eps</label>
-          <input
-            type="text"
-            name="eps"
-            id="eps"
-            #eps="ngModel"
-            [(ngModel)]="cite.eps"
-            readonly
-          >
-        </div>
-
-        <div class="form-control">
-          <label for="speciality">Cita medica</label>
-          <input
-            type="text"
-            name="speciality"
-            id="speciality"
-            #speciality="ngModel"
-            [(ngModel)]="cite.speciality.speciality"
-            readonly
-          >
-        </div>
-
-        <div class="form-control">
-          <label for="doctor">Doctor</label>
-          <input
-            type="text"
-            name="doctor"
-            id="doctor"
-            #doctor="ngModel"
-            [(ngModel)]="cite.doctor.name"
-            readonly
-          >
-        </div>
-
-        <div class="form-control">
-          <label for="date">Fecha programada</label>
-          <input
-            type="text"
-            name="date"
-            id="date"
-            #date="ngModel"
-            [(ngModel)]="cite.date_cite"
-            readonly
-          >
-        </div>
-
-        <div class="form-control">
-          <label for="hour">Hora Programada</label>
-          <input
-            type="text"
-            name="hour"
-            id="hour"
-            #hour="ngModel"
-            [(ngModel)]="cite.hour_cite"
-            readonly
-          >
-        </div>
-
+        <button class="">Eliminar</button>
       </div>
-      <!-- <button type="submit" *ngIf="cite.status.status == 'Pendiente' ">Actualizar</button> -->
-    </form>
+    </div>
   </div>
 
   <div class="overlay">
@@ -181,15 +64,14 @@
       </div>
 
       <div class="popup__body">
-        <label for="delete">¿Desea Eliminar la cita de  {{cite.name}}?</label>
-        <textarea
-          name="reason"
-          id=""
-          cols="30"
-          rows="10"
-          placeholder="Motivo ha eliminar la cita"
-        ></textarea>
+        <label for="delete">¿Desea Eliminar la cita de {{cite.name}}?</label>
+      </div>
+
+      <div class="popup__footer">
+        <button class="cancel" (click)="closeOverlay()">Cancelar</button>
+        <button class="confirm" (click)="deleteCite(cite.id)">Confirmar</button>
       </div>
     </div>
   </div>
+
 </div>

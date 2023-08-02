@@ -48,7 +48,7 @@ export class CitesComponent implements OnInit, DoCheck{
 
   ngOnInit(): void {
     this.allCites();
-    this.suscription = this.citeService.refresh.subscribe( () => this.allCites())
+    this.suscription = this.citeService.refresh$.subscribe( () => this.allCites())
   }
 
   ngDoCheck(): void{

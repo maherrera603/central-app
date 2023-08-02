@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit{
+  protected notices!:number[];
 
-  constructor(){}
+  constructor(){
+    this.notices = [1,2,3,4,5,6,7,8] ;
+  }
 
   ngOnInit(): void {
     this.removeNavigation();

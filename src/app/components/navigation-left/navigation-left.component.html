@@ -1,21 +1,21 @@
 <label for="menu" id="menu"><i class="fa-solid fa-bars"></i> Menu</label>
 <nav>
   <ul *ngIf="role == 'paciente'">
-    <li><a (click)="principal()">Inicio</a></li>
-    <li><a (click)="familys()">Familiares</a></li>
-    <li><a (click)="solicituds()">Solicitar Cita</a></li>
-    <li><a (click)="cites()">Citas</a></li>
+    <li><a routerLink="/sistema">Inicio</a></li>
+    <li><a routerLink="/sistema/familiares">Nucleo Familiar</a></li>
+    <li><a routerLink="/sistema/solicitudes">Solicitar Cita</a></li>
+    <li><a routerLink="/sistema/citas">Citas</a></li>
   </ul>
 
   <ul *ngIf="role == 'administrador'">
-    <li><a (click)="principalAdministrador()">Inicio</a></li>
-    <li><a (click)="employees()">Empleados</a></li>
-    <li><a (click)="specialitys()">Especialidades</a></li>
-    <li><a (click)="doctors()">Medicos</a></li>
+    <li><a routerLink="/administrador">Inicio</a></li>
+    <li><a routerLink="/administrador/empleados">Empleados</a></li>
+    <li><a routerLink="/administrador/especialidades">Especialidades</a></li>
+    <li><a routerLink="/administrador/medicos">Medicos</a></li>
   </ul>
 
   <ul *ngIf="role == 'empleado'">
-    <li><a (click)="principalEmployees()">Inicio</a></li>
-    <li><a (click)="citesEmployees()">Citas</a></li>
+    <li><a routerLink="/gestion">Inicio</a></li>
+    <li><a routerLink="/gestion/citas">Citas</a></li>
   </ul>
 </nav>
