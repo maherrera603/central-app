@@ -1,3 +1,5 @@
+@import "../../../../../styles.scss";
+
 @media screen and (max-width: 500px) {
   .content-home{
     display: flex;
@@ -20,43 +22,65 @@
       &__header{
         min-height: 30px;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
         align-items: center;
 
-        input{
-          height: 30px;
-          padding: 5px 5px;
-          outline-color: green;
-          border-width: 1px;
-          border-color: gray;
-          border-radius: 5px;
-        }
-        input::placeholder{
-          color: green;
-          font-size: 1rem;
-        }
-
-
-        .add-family{
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
+        h1{
+          color: $color-primary;
+          font-size: 1.4rem;
         }
 
       }
 
       &__body{
         width: 100%;
-        min-height: 500px;
-        margin-top: 10px;
-        border-top: 1px solid green;
+        height: auto;
+        overflow: hidden;
 
-        p{
-          display: block;
+        .content_notice{
           width: 100%;
-          // background-color: red;
-          min-height: 40px;
-          border-bottom: 1px solid green;
+          min-height: 100px;
+          border-radius: 5px;
+          border: 1px solid $color-primary;
+          margin: 10px auto;
+          display: grid;
+          grid-template-columns: 30% 70%;
+
+          img{
+            width: 90%;
+            height: 90%;
+            margin: 10px auto;
+          }
+
+          p{
+            text-align: justify;
+            padding: 10px 30px 5px 0;
+            color: $color-primary;
+            // margin-top: 30px;
+          }
+
+        }
+
+      }
+
+      .whatsapp-content{
+        min-height: 50px;
+        width: 10%;
+        position: absolute;
+        top: 96.5%;
+        bottom: auto;
+        background-color: $color-primary;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: auto;
+        right: 10px;
+        z-index: 1000;
+
+
+        i{
+          font-size: 2rem;
+          color: $color-secondary;
         }
       }
     }
@@ -86,43 +110,67 @@
       &__header{
         min-height: 30px;
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
         align-items: center;
 
-        input{
-          height: 30px;
-          padding: 5px 5px;
-          outline-color: green;
-          border-width: 1px;
-          border-color: gray;
-          border-radius: 5px;
-        }
-        input::placeholder{
-          color: green;
-          font-size: 1rem;
-        }
-
-
-        .add-family{
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
+        h1{
+          color: $color-primary;
+          font-size: 1.4rem;
         }
 
       }
 
       &__body{
         width: 100%;
-        min-height: 500px;
-        margin-top: 10px;
-        border-top: 1px solid green;
+        // min-height: 500px;
+        height: auto;
+        overflow: hidden;
 
-        p{
-          display: block;
+        .content_notice{
           width: 100%;
-          // background-color: red;
-          min-height: 40px;
-          border-bottom: 1px solid green;
+          min-height: 100px;
+          border-radius: 5px;
+          border: 1px solid $color-primary;
+          margin: 10px auto;
+          display: grid;
+          grid-template-columns: 20% 80%;
+
+          img{
+            width: 90%;
+            height: 150px;
+            margin: 10px auto;
+          }
+
+          p{
+            text-align: justify;
+            padding: 10px 30px 0 0;
+            color: $color-primary;
+            margin-top: 30px;
+          }
+
+        }
+
+      }
+
+      .whatsapp-content{
+        min-height: 50px;
+        width: 6%;
+        max-width: 10%;
+        position: absolute;
+        top: 96.5%;
+        bottom: auto;
+        background-color: $color-primary;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: auto;
+        right: 10px;
+        z-index: 1000;
+        padding: 10px 20px;
+
+        i{
+          font-size: 2rem;
+          color: $color-secondary;
         }
       }
     }
@@ -135,11 +183,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
     min-height: 500px;
-    height: max-content;
-    max-block-size: 100vh;
+    height: auto;
     position: relative;
     width: 100%;
     margin: 0 auto;
@@ -160,6 +206,73 @@
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
+      position: relative;
+
+      &__header{
+        width: 100%;
+        border-bottom: 1px solid $color-primary;
+        min-height: 30px;
+        line-height: 30px;
+        padding: 0 0 5px;
+
+        h1{
+          color: $color-primary;
+          font-size: 1.4rem;
+        }
+      }
+
+      &__body{
+        width: 100%;
+        // min-height: 500px;
+        height: auto;
+        overflow: hidden;
+
+        .content_notice{
+          width: 100%;
+          min-height: 100px;
+          border-radius: 5px;
+          border: 1px solid $color-primary;
+          margin: 10px auto;
+          display: grid;
+          grid-template-columns: 20% 80%;
+
+          img{
+            width: 90%;
+            height: 150px;
+            margin: 10px auto;
+          }
+
+          p{
+            text-align: justify;
+            padding: 10px 30px 0 0;
+            color: $color-primary;
+            margin-top: 30px;
+          }
+
+        }
+
+      }
+
+      .whatsapp-content{
+        min-height: 50px;
+        width: 6%;
+        position: absolute;
+        top: 96.5%;
+        bottom: auto;
+        background-color: $color-primary;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: auto;
+        z-index: 1000;
+
+
+        i{
+          font-size: 2rem;
+          color: $color-secondary;
+        }
+      }
     }
   }
 }

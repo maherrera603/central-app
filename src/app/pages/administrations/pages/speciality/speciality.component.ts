@@ -24,6 +24,7 @@ export class SpecialityComponent implements OnInit, OnDestroy{
 
   constructor(private identityService:IdentityService, private specialityService:SpecialityService){
     this.token = this.identityService.getToken();
+    this.employee = this.identityService.getUser();
     this.alertComponent = new AlertComponent();
     this.specialit = new Speciality(1,"", this.employee);
   }

@@ -49,7 +49,7 @@ export class AddCiteComponent implements OnInit, OnDestroy {
     this.removeNavigation();
     this.allFamily();
     this.allSpecialitys();
-    this.suscription = this.citeService.refresh.subscribe(() => this.allFamily());
+    this.suscription = this.citeService.refresh$.subscribe(() => this.allFamily());
   }
 
   ngOnDestroy(): void {

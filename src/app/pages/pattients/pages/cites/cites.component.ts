@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '@app/components/alert/alert.component';
 import { User } from '@app/models/User';
@@ -10,6 +10,7 @@ import { Speciality } from '@app/models/speciality';
 import { Status } from '@app/models/status';
 import { CiteService } from '@app/services/cite.service';
 import { IdentityService } from '@app/services/identity.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-cites',
@@ -17,8 +18,9 @@ import { IdentityService } from '@app/services/identity.service';
   styleUrls: ['./cites.component.scss'],
   providers: [IdentityService, CiteService]
 })
-export class CitesComponent implements OnInit, DoCheck{
+export class CitesComponent implements OnInit, DoCheck, OnDestroy{
   private token!:string|null;
+  private suscription!:Subscription;
   private alertComponent!:AlertComponent;
   private user:User = new User("", "");
   private employee:Employee = new Employee("", "", "","","", this.user);
@@ -33,7 +35,6 @@ export class CitesComponent implements OnInit, DoCheck{
   constructor(
     private identityService: IdentityService, 
     private citeService: CiteService,
-    
   ){
     this.token = this.identityService.getToken();
     this.alertComponent = new AlertComponent();
@@ -43,11 +44,15 @@ export class CitesComponent implements OnInit, DoCheck{
   ngOnInit(): void {
     this.allCites();
     this.removeNavigation();
+    this.suscription = this.citeService.refresh$.subscribe(() => this.allCites())
   }
 
   ngDoCheck():void{
     this.loadStyleStatus();
+  }
 
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
   }
 
   private removeNavigation(): void {
@@ -60,13 +65,9 @@ export class CitesComponent implements OnInit, DoCheck{
   protected searchCite(search:string): void {
     if(search.length > 0){
       this.citeService.getSearchCites(this.token, search).subscribe(
-        response => {
-          if(response.status === "OK"){
-            this.cites = response.cites;
-          }else{
-            this.alertComponent.error(response.message);
-          }
-        }
+        response => (response.status === "OK") ?
+          this.cites = response.cites :
+          this.alertComponent.error(response.message)
       );
     }else{
       this.allCites();
@@ -76,54 +77,48 @@ export class CitesComponent implements OnInit, DoCheck{
   private allCites(){
     this.citeService.allCites(this.token).subscribe(
       response => {
-        if(response.status === "OK"){
-          this.cites = response.cites;
-        }else{
-          this.alertComponent.error(response.message)
-        }
+        (response.status === "OK") ? this.cites = response.cites: 
+          this.alertComponent.error(response.message);
       }
     );
   }
 
   protected loadForm(idCite:number, status:string): void {
-    if(status.toLocaleLowerCase() != "pendiente"){
-      this.citeService.getCite(this.token, idCite).subscribe(
-        response => {
-          if(response.status == "OK"){
-            this.cite = response.cite;
-            this.showForm();
-          }
-        }
-      );
+    this.citeService.getCite(this.token, idCite).subscribe(
+      response => (response.status === "OK") ? this.showAction(response.cite) : null
+    );
+  }
+
+  private showAction(cite:Cite): void{
+    if (cite.status.status.toLocaleLowerCase() === "pendiente"){
+      this.cite.name = cite.name;
+      this.cite.id = cite.id;
+      this.showOverlay();
     }else{
-      this.alertComponent.error("La cita no ha sido confirmada");
+      this.cite = cite;
+      this.showForm();
     }
   }
 
   protected showForm():void {
-    let content_form = document.querySelector(".content-form");
-    content_form?.classList.add("content-form-active");
+    let content_form = document.querySelector(".content_info");
+    content_form?.classList.add("content_info_active");
     let notifications = document.querySelector(".notifications");
     notifications?.classList.remove("notifications-active");
   }
 
   protected closeForm():void {
-    let content_form = document.querySelector(".content-form");
-    content_form?.classList.remove("content-form-active");
+    let content_form = document.querySelector(".content_info");
+    content_form?.classList.remove("content_info_active");
   }
 
-  protected onSubmit(form:NgForm):void{
-
-  }
 
   protected showNotifications():void{
     let notifications = document.querySelector(".notifications");
     let notifications_active = document.querySelector(".notifications-active");
-    if(notifications_active == null){
-      notifications?.classList.add("notifications-active");
-    }else{
+    (notifications_active == null) ?
+      notifications?.classList.add("notifications-active") :
       notifications?.classList.remove("notifications-active");
-    }
   }
 
   protected showOverlay():void {
@@ -140,13 +135,19 @@ export class CitesComponent implements OnInit, DoCheck{
   private loadStyleStatus():void{
     let statusHtml =  document.querySelectorAll(".content_person .status");
     statusHtml.forEach( e => {
-      if (e.textContent === "Pendiente") {
-        e.classList.add("danger")
-      }else{
-        e.classList.remove("danger")
-      }
-      
-      
+      (e.textContent === "Pendiente") ? e.classList.add("danger") :
+      e.classList.remove("danger");
     });
+  }
+
+  protected deleteCite(idCite: number): void {
+    this.citeService.deleteCite(this.token, idCite).subscribe(
+      response => { 
+        (response.code === 204) ?
+        this.alertComponent.success(response.message) :
+        this.alertComponent.error(response.message);
+        this.closeOverlay();
+      }
+    );
   }
 }

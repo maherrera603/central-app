@@ -101,7 +101,7 @@
       }
     }
 
-    .content-form{
+    .content_info{
       background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
@@ -110,15 +110,16 @@
       justify-content: center;
       visibility: hidden;
 
-      .form{
+      .info{
         width: 90%;
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
-        border-radius: 3px;
+        border-radius: 8px;
         padding: 20px;
         transition: .5s ease all;
         transform: scale(0.1);
         opacity: 0;
+        border: 1px solid $color-primary;
 
         &__header{
           width: 100%;
@@ -176,8 +177,6 @@
                 height: 40px;
                 border-bottom: 1px solid $color-primary;
 
-                small{}
-
                 i{
                   display: flex;
                   min-height: 40px;
@@ -210,23 +209,30 @@
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 20px;
+
+          p{
+            b{
+              color: $color-primary;
+              font-weight: lighter;
+            }
+          }
+
+          i{
+            font-size: 11rem;
+            color: $color-primary;
+            margin: auto 0;
+          }
         }
 
-        button{
-          margin-right: 10px;
-        }
-        .delete{
-          background-color: red;
-        }
       }
 
     }
 
-    .content-form-active{
+    .content_info_active{
       visibility: visible;
       z-index: 1000;
 
-      .form{
+      .info{
         opacity: 1;
         transform: scale(1);
       }
@@ -438,7 +444,7 @@
       }
     }
 
-    .content-form{
+    .content_info{
       background-color: rgba($color: $color-primary, $alpha: .6);
       position: fixed;
       inset: 0;
@@ -447,7 +453,7 @@
       justify-content: center;
       visibility: hidden;
 
-      .form{
+      .info{
         width: 90%;
         background-color: white;
         box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
@@ -546,6 +552,19 @@
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 15px;
+
+          i{
+            font-size: 11rem;
+            color: $color-primary;
+            margin: auto;
+          }
+
+          p{
+            b{
+              color: $color-primary;
+              font-weight: lighter;
+            }
+          }
         }
 
         button{
@@ -558,11 +577,11 @@
 
     }
 
-    .content-form-active{
+    .content_info_active{
       visibility: visible;
       z-index: 1000;
 
-      .form{
+      .info{
         opacity: 1;
         transform: scale(1);
       }
@@ -672,9 +691,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
-    // min-height: 500px;
     height: 100%;
     position: relative;
     width: 100%;
@@ -774,8 +791,8 @@
       }
     }
 
-    .content-form{
-      background-color: rgba($color: $color-primary, $alpha: .6);
+    .content_info{
+      background-color: rgba($color: transparent, $alpha: .6);
       position: fixed;
       inset: 0;
       display: flex;
@@ -784,11 +801,11 @@
       justify-content: center;
       visibility: hidden;
 
-      .form{
-        width: 70%;
-        background-color: white;
+      .info{
+        width: 50%;
+        background-color: $color-secondary;
         box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
-        border-radius: 3px;
+        border-radius: 8px;
         padding: 20px;
         transition: .5s ease all;
         transform: scale(0);
@@ -887,10 +904,36 @@
 
         &__body{
           width: 100%;
-          min-height: 200px;
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 10px;
+          min-height: 300px;
+          
+          i{
+            font-size: 10rem;
+            color: $color-primary;
+            display: block;
+            text-align: center;
+          }
+
+          .information{
+            margin: 20px 0 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            justify-content: center;
+            
+
+            b{
+              color: $color-primary;
+              font-size: 1.4rem;
+              font-weight: 100;
+              display: block;
+            }
+
+          }
+          button{
+            margin-left: 88%;
+            background-color: red;
+            margin-right: 0;
+          }
         }
 
         button{
@@ -903,11 +946,11 @@
 
     }
 
-    .content-form-active{
+    .content_info_active{
       visibility: visible;
       z-index: 1000;
 
-      .form{
+      .info{
         opacity: 1;
         transform: scale(1);
       }
@@ -962,38 +1005,26 @@
         &__body{
           width: 100%;
           padding: 10px 0;
-          text-align: left;
+          text-align: center;
 
           label{
             color: $color-primary;
             font-size: 1.1rem;
-
           }
-
-          textarea{
-            width: 100%;
-            margin: 0 auto;
-            resize: none;
-            min-height: 50px;
-            height: 70px;
-            padding: 5px;
-            outline-color: $color-primary;
-            outline-width: .5px;
-          }
-
-          textarea::placeholder{
-            color: $color-primary;
-          }
-
 
         }
 
         &__footer{
           display: flex;
-          justify-content: flex-end;
+          justify-content: center;
 
-          button{
+          .cancel {
             background-color: red;
+            margin-right: 5px;
+          }
+          .confirm{
+            background-color: $color-primary;
+            margin-left: 5px;
           }
         }
       }

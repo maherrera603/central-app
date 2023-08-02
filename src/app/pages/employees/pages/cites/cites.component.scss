@@ -114,11 +114,12 @@
         width: 90%;
         background-color: $color-secondary;
         box-shadow: 0px 0px 5px 0px rgba($color: $color-primary, $alpha: .6);
-        border-radius: 3px;
+        border-radius: 8px;
         padding: 20px;
         transition: .5s ease all;
         transform: scale(0.1);
         opacity: 0;
+        border: 1px solid $color-primary;
 
         &__header{
           width: 100%;
@@ -696,7 +697,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
     // min-height: 500px;
     height: 100%;

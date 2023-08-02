@@ -32,46 +32,6 @@ export class NavigationLeftComponent implements OnInit {
         navbar?.classList.remove("active");
       }
       visible = !visible;
-    })
-  }
-  protected principal (): void {
-    this.router.navigate(["sistema"]);
-  }
-
-  protected familys (): void {
-    this.router.navigate(["sistema/familiares"]);
-  }
-
-  protected solicituds (): void {
-    this.router.navigate(["sistema/solicitudes"]);
-  }
-
-  protected cites (): void {
-    this.router.navigate(["sistema/citas"]);
-  }
-
-  protected principalAdministrador(): void {
-    this.router.navigate(["administrador"]);
-  }
-
-  protected specialitys(): void {
-    this.router.navigate(["administrador/especialidades"]);
-  }
-
-  protected employees(): void {
-    this.router.navigate(["administrador/empleados"]);
-  }
-
-  protected doctors() : void {
-    this.router.navigate(["administrador/medicos"]);
-  }
-
-  protected principalEmployees(): void {
-    this.router.navigate(["gestion"]);
-  }
-
-  protected citesEmployees() : void {
-    this.router.navigate(["gestion/citas"]);
-  }
-
+    });
+  } 
 }

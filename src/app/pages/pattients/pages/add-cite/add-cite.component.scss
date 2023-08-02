@@ -72,7 +72,7 @@
         border-top: 1px solid $color-primary;
 
         p{
-          display: grid;
+          display: flex;
           width: 100%;
           min-height: 40px;
           border-bottom: 1px solid $color-primary;
@@ -80,6 +80,11 @@
           padding: 0 5px;
           transition: .3s ease all;
           color: $color-primary;
+
+          i{
+            font-size: 1.7rem;
+            margin-right: 10px;
+          }
         }
 
         p:hover{
@@ -108,6 +113,7 @@
         transition: .5s ease all;
         transform: scale(0.1);
         opacity: 0;
+        border: 1px solid $color-primary;
 
         &__header{
           width: 100%;
@@ -247,7 +253,7 @@
         border-top: 1px solid $color-primary;
 
         p{
-          display: grid;
+          display: flex;
           width: 100%;
           min-height: 40px;
           border-bottom: 1px solid $color-primary;
@@ -255,6 +261,11 @@
           padding: 0 5px;
           transition: .3s ease all;
           color: $color-primary;
+
+          i{
+            font-size: 1.8rem;
+            margin-right: 10px;
+          }
         }
 
         p:hover{
@@ -283,6 +294,7 @@
         transition: .5s ease all;
         transform: scale(0.1);
         opacity: 0;
+        border: 1px solid $color-primary;
 
         &__header{
           width: 100%;
@@ -429,7 +441,7 @@
         border-top: 1px solid $color-primary;
 
         p{
-          display: grid;
+          display: flex;
           width: 100%;
           min-height: 40px;
           border-bottom: 1px solid $color-primary;
@@ -437,6 +449,11 @@
           padding: 0 5px;
           transition: .3s ease all;
           color: $color-primary;
+
+          i{
+            margin-right: 10px;
+            font-size: 1.7rem;
+          }
         }
 
         p:hover{
@@ -465,6 +482,7 @@
         transition: .5s ease all;
         transform: scale(0.1);
         opacity: 0;
+        border: 1px solid $color-primary;
 
         &__header{
           width: 100%;
